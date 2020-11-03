@@ -1,0 +1,2090 @@
+
+
+.AlterPart
+{
+	background: #ffffff url('/Platform/Controls/AlternateSelector/resources/gradient.gif') repeat-x 0 bottom;
+	float:right;
+	display:inline;
+	width:200px;
+	color:#000000;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	padding:8px;
+	margin:8px;
+}
+
+.AlterPart SPAN
+{
+	font-weight:bold;
+}
+
+.AlterPart UL
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.AlterPart LI
+{
+	list-style-image: url('/Platform/Controls/AlternateSelector/resources/b.gif');
+	list-style-position: outside;
+	margin: 0px 0px 8px 20px;
+	padding: 0px;
+}
+
+.AlterPart A
+{
+	color: #0033cc; 
+}
+
+
+
+* html .mtpsBannerMain
+{
+	height: 21px;
+	font: normal bold 11px Tahoma;
+	padding-right: 4px;
+	padding-left: 8px;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	text-align: right;
+	text-align: right;
+}
+
+.mtpsBannerMain
+{
+	padding-right: 6px;
+	padding-left: 8px;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	font-size: 11px;
+	z-index: 3;
+	vertical-align: middle;
+	width: 98%;
+	font-family: Tahoma;
+	position: absolute;
+	height: 21px;
+	background-color: white;
+	text-align: right;
+	left: 0px;
+	top: 0px;
+}
+* html .mtpsBannerMain .mtpsBannerLeftSection
+{
+	text-align: left;
+	vertical-align: middle;
+	padding-right: 6px;
+	padding-left: 8px;
+	padding-bottom: 0px;
+	padding-top: 6px;
+}
+.mtpsBannerMain .mtpsBannerLeftSection
+{
+	padding-right: 6px;
+	padding-left: 8px;
+	font-size: 11px;
+	z-index: 3;
+	padding-bottom: 0px;
+	vertical-align: middle;
+	padding-top: 6px;
+	font-family: Tahoma;
+	position: absolute;
+	height: 21px;
+	left: 0px;
+	top: 0px;
+	text-align: left;
+}
+.mtpsBannerMain .mtpsBannerLeftSection A:LINK span
+{
+	color: black;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.mtpsBannerMain span A:LINK
+{
+	color: blue;
+	font-weight: normal;
+	text-decoration: none;
+}
+.mtpsBannerMain span A:HOVER
+{
+	color: blue;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.mtpsBannerMain .LocaleManagementFlyoutPopup A
+{
+	font-weight: normal;
+	text-decoration: none;
+}
+.mtpsBannerMain .QuickLinksFlyoutPopup A
+{
+	font-weight: normal;
+	text-decoration: none;
+}
+.mtpsBannerMain .LocaleManagementFlyoutStaticLink_msdn A
+{
+	font-weight: bold;
+	text-decoration: none;
+}
+.mtpsBannerMain .QuickLinksFlyoutStaticLink_msdn SPAN
+{
+	font-weight: normal;
+	text-decoration: none;
+}
+.mtpsBannerMain .QuickLinksFlyoutStaticLink_technet SPAN
+{
+	font-weight: normal;
+	text-decoration: none;
+}
+
+/* MSDN branding */
+.MTPS_BrandColor1_msdn
+{
+	background-color: #3366cc;
+}
+.MTPS_BrandColor2_msdn
+{
+	background-color: #ffffff;
+}
+.MTPS_BrandColor3_msdn
+{
+	background-color: #6699ff;
+}
+
+A.MTPS_GlobalToolbarLinks_msdn, .MTPS_GlobalToolbarLinks_msdn
+{
+	display: inline;
+	font-weight: bold;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-decoration: none;
+
+}
+.MTPS_GlobalToolbarLinks_msdn
+{
+	cursor: pointer;
+}
+
+A.MTPS_GlobalToolbarLinks_msdn:hover
+{
+	display: inline;
+	font-weight: bold;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+A.MTPS_GlobalToolbarLinks_msdn:visited
+{
+	display: inline;
+	font-weight: bold;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.MTPS_GlobalToolbarSeparator_msdn
+{
+	vertical-align: middle;
+	font: normal 10px verdana;
+	color: #FFFFFF;
+}
+/* end MSDN */
+
+
+/* Technet branding */
+.MTPS_BrandColor1_technet
+{
+	background-color: #112E59;
+}
+.MTPS_BrandColor2_technet
+{
+	background-color: #e0e0e0;
+}
+.MTPS_BrandColor3_technet
+{
+	background-color: #ffffff;
+}
+
+A.MTPS_GlobalToolbarLinks_technet, .MTPS_GlobalToolbarLinks_technet
+{
+	padding: 1px;
+	border: 1px solid #112E59;
+	text-decoration: none;
+	color: #FFFFFF;
+	font: normal 11px Verdana;
+	vertical-align: middle;
+}
+.MTPS_GlobalToolbarLinks_technet
+{
+	cursor: pointer;
+}
+
+A.MTPS_GlobalToolbarLinks_technet:hover
+{
+	padding: 1px;
+	border: 1px solid #ADC9FF;
+	background-color: #5781D5;
+	color: #FFFFFF;
+}
+
+A.MTPS_GlobalToolbarLinks_technet:visited
+{
+	padding: 1px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font: normal 11px Verdana;
+	vertical-align: middle;
+}
+
+.MTPS_GlobalToolbarSeparator_technet
+{
+	vertical-align: middle;
+	font: normal 10px verdana;
+	color: #FFFFFF;
+}
+
+/* End Technet */
+
+
+
+
+.CodeSnippetTitleBar
+{
+	background-color:#DDDDDD;
+	padding-top:3px;
+	padding-left:3px;
+	padding-right:3px;
+	padding-bottom:3px;
+	white-space:nowrap;
+	border-bottom:solid 1px #aaaaaa;
+	height:15px;
+    word-spacing:normal;
+	letter-spacing:normal; 	
+}
+
+.CodeDisplayLanguage
+{
+	float:left;
+    text-align:left;
+}
+
+.CopyCodeButton
+{
+	float:right;
+    text-align:right; 
+}
+
+a.copyCode
+{
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+    text-align:right;
+}
+
+div.code
+{
+	background-color:Transparent;
+	border-bottom: solid 5px #ffffff;
+	border-top: solid 5px #ffffff;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+.FallbackContainer
+{
+    float: right;
+    font-size:100%;
+    width:200px;
+    margin-top:8px; 
+    margin-bottom:8px; 
+    margin-left:8px;
+    margin-right:8px; 
+    padding:8px;
+    background-color:#f1f1f1; 
+    border-bottom:1px solid #CCCCCC; 
+    border-top:1px solid #CCCCCC; 
+    border-left:1px solid #CCCCCC; 
+    border-right:1px solid #CCCCCC;
+}
+
+.FallbackHeaderLabel
+{
+    font-weight:bolder;
+}
+
+.FallbackLocale
+{
+   font-style:italic;
+}
+
+
+
+
+
+.DropDownFilterStyle
+{
+	position:relative;
+	width:auto;
+	float:left;
+}
+
+.MTPS_DropDownImage
+{
+	cursor:pointer;
+	text-align:center;
+	float:left;
+}
+
+.DropDownFilterOff
+{
+	cursor: pointer;
+	color: Black;
+	text-decoration:none;
+	padding-left:3px;
+	padding-top:10px;
+}
+
+.MTPS_PopupDivPanel
+{
+	background-color: #dddddd;
+	position:absolute;
+	left:0px;
+	width:200px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:5px;
+	padding-bottom:1px;
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	border: solid 1px #cccccc;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.codeHide
+{
+	display:none;
+}
+
+.DivCbxLabelLanguage
+{
+	background-color:transparent;
+	width:auto;
+	padding:0px;
+	margin:0px;
+}
+
+.DivCbxLabelLanguage input
+{
+	vertical-align:middle;	
+}
+
+
+
+.ECPanel
+{
+	float:left;
+	padding-right:10px;
+}
+
+.ECLink
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #000000;
+	vertical-align:middle;
+	padding-left:3px;
+	padding-right:10px;
+}
+
+.ECImg
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #000000;
+	vertical-align:middle;
+}
+
+
+
+
+
+  DIV.EyebrowMenuBar 
+  {
+		MARGIN: 5px 0px 3px,5px;	
+		WIDTH: auto;
+		Font-Size:11px;
+		FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, Sans-serif;
+		padding:3px;
+		margin-top:3px;
+	}
+		
+	DIV.EyebrowMenuBar A 
+	{	
+		PADDING-RIGHT: 0px;	
+		PADDING-LEFT: 0px;	
+		PADDING-BOTTOM: 0px;	
+		MARGIN: 0px;	
+		WIDTH: auto;	
+		PADDING-TOP: 0px;
+	}
+	DIV.EyebrowMenuBar A:hover 
+	{	
+			COLOR: #ff3300
+	}
+	DIV.EyebrowMenuBar A:active 
+	{	
+			COLOR: #ff3300
+	}
+	DIV.EyebrowMenuBar A:visited 
+	{	
+			COLOR: #800080;
+	}
+
+  div.stat, div.statHover
+  {
+    border: 1px solid transparent !important;
+    _border-color: #ffffff;
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 3px 21px 3px 5px; 
+    vertical-align: bottom;
+    white-space: nowrap;
+    height: auto !important;
+    height: 16px;
+    line-height: 16px;
+    Font-Size:11px;
+  }
+
+  div.stat
+  {
+    background: url('/Platform/Controls/Eyebrow/resources/arrowrgt.gif') right center no-repeat;
+  }
+  div.statHover
+  {
+    background: url('/Platform/Controls/Eyebrow/resources/arrowdwn.gif') right center no-repeat;
+    background-color: #e3ebf2;
+    border: 1px solid #a1c6eb !important;
+  }
+
+  div.stat a, div.statHover a
+  {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  div.statHover a
+  {
+    background-color: #e3ebf2;
+    color: #000000;
+  }
+
+  div.stat a:visited, div.stat a:link, div.stat a:active
+  {
+    color: #0000EE;
+  }
+  
+  div.popup
+  {
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='#e0e0e0',Positive='true') alpha(opacity=95);
+  }
+
+  div.popup a:visited, div.popup a:link, div.popup a:active, div.popup a:hover
+  {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: #000000;
+    display: block;
+    margin: 0 2px;
+    padding: 3px;
+    text-decoration: none;
+  }
+
+  div.popup a:hover
+  {
+    background-color: #f0f7fd;
+    border: 1px solid #addbef;
+    color: #000000;
+  }
+
+
+
+/* Start:Footer */
+TD.MTPS_FooterFade
+{
+	font:bold 70% verdana;
+	margin-top:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	margin-right:	0;
+	padding-top:	2px;
+	padding-bottom:	6px;
+	padding-left:	10px;
+	padding-right:	2px;
+	width:	100%;
+	  
+	height:57px; 
+}
+
+TD.MTPS_FooterLogo
+{
+  background-color:White;
+	width: 150px;
+}
+
+TD.MTPS_FooterLogo_msdn
+{
+	width:105px; background-color:#6699FF; border-top:1px solid #3366CC;
+}
+DIV.MTPS_FooterLinks
+{
+	margin-bottom: 10px;
+}
+
+A.MTPS_FooterLinks, DIV.MTPS_FooterLinks A
+{
+	color: #0033cc;
+	font-weight: normal;
+}
+
+A.MTPS_FooterLinks:hover, DIV.MTPS_FooterLinks A:hover
+{
+	color: #ff6600;
+}
+
+.MTPS_FooterCopyright
+{
+	font-weight:normal; color:#000000;
+}
+
+
+
+
+Div.miniRatings
+{
+	background-color: #f0f0f0;
+	font-size: 70%;
+	border-bottom: 1px solid #c0c0c0;
+	text-align:left;
+	vertical-align:bottom;
+	margin:0;
+	padding:0px;
+	height:28px;
+	width:100%;
+}
+
+div.miniRatings_left
+{
+	padding: 4px 0px 3px 0px;
+	margin: 0px 0px 0px 5px;
+	float:left;
+}
+
+div.miniRatings_left a
+{
+	font-family:Verdana;
+	text-decoration: none;
+	color: #0033CC;
+	padding-top:2px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:3px;
+	border: 1px solid #f0f0f0;
+}
+
+div.miniRatings_left a:hover
+{
+	background-color: #e3ebf2;
+	border: 1px solid #a1c6eb;
+}
+
+div.miniRatings_left a:visited
+{
+	color: #0033CC;
+}
+div.miniRatings_left a img
+{
+   vertical-align:text-bottom;
+}
+
+div.miniRatings_right td
+{
+	font-family:Verdana;
+	text-decoration: none;
+	color: #0033CC;
+	padding-top:2px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:2px;
+	border: 1px solid #f0f0f0;
+}
+
+div.miniRatings_right a:hover
+{
+	background-color: #e3ebf2;
+	border: 1px solid #a1c6eb;
+}
+
+div.miniRatings_right a:visited
+{
+	color: #0033CC;
+}
+div.miniRatings_right a img
+{
+   vertical-align:text-bottom;
+}
+
+div.miniRatings_right
+{
+	padding: 0px;
+	margin: 0px;
+	width: 400px;
+}
+div.miniRatings_right
+{
+	float: right;
+	height: 28px;
+}
+div.miniRatings_right #ratingTable
+{
+	float:right;
+}
+
+/* Atlas RatingControl */
+.ratingStar {
+    font-size: 0pt;
+    width: 16px;
+    height: 16px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+.filledRatingStar 
+{
+    background-image: url(/Platform/Controls/InteractiveToolbar/resources/starGold.gif);
+}
+
+.filledddRatingStar {
+    background-image: url(/Platform/Controls/InteractiveToolbar/resources/starGray.gif);
+}
+
+.emptyRatingStar {
+    background-image: url(/Platform/Controls/InteractiveToolbar/resources/starWhite.gif);
+}
+
+.savedRatingStar {
+    background-image: url(/Platform/Controls/InteractiveToolbar/resources/starBlue.gif);
+}
+/* End-Atlas RatingControl */
+
+.ratingFlyoutStatic
+{
+  white-space:nowrap;
+  width:400px;
+}
+.tbFont
+{
+	white-space:nowrap;
+}
+.ratingFlyoutPopup
+{
+  margin:0;
+  vertical-align:middle;
+  border:1px solid #7A7A7A;
+  background:white url(/Platform/Controls/InteractiveToolbar/resources/popupBG.png);
+  background-color:white;
+  height:220px;
+  width:450px;
+}
+
+.ratingFlyoutPopup .OptionalText, .ratingFlyoutPopup .WarningMessage
+{
+  float:left;
+	font-family:Verdana;
+  margin-left:25px;
+  font-size:10pt;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.ratingFlyoutPopup .WarningMessage
+{
+  color:Red;
+}
+.ratingFlyoutPopup .Comment
+{
+  margin-left:25px;
+  width:396px;
+  height:132px;
+  display:block;
+  clear:both;
+  margin-bottom:10px;
+}
+.ratingFlyoutPopup .Button
+{
+  float:right;
+  margin-right:25px;
+  padding-top: 0.2em;
+}
+
+
+
+.LocaleManagementFlyoutPopup
+{
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	border:1px solid #b8b8b8;
+	padding: 3px 3px 3px 3px;
+	text-align: left;
+	background-color: #FFFFFF;
+	z-index: 10;
+	opacity: .95;
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='#e0e0e0',Positive='true') alpha(opacity=95);
+}
+
+.LocaleManagementFlyoutPopup A, .LocaleManagementFlyoutPopup A:visited
+{
+	font-size: 10px;
+	color: #000000;
+	cursor: hand;
+	border: 1px solid #FFFFFF;
+	padding: 1px 3px 1px 3px;
+	height: 15px;
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+}
+
+.LocaleManagementFlyoutPopup A:hover, .LocaleManagementFlyoutPopup A:active
+{
+	background-color: #f0f7fd;
+	color: #000000;
+	cursor: hand;
+	border: 1px solid #addbef;
+	padding: 1px 3px 1px 3px;
+	height: 15px; 
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+}
+
+.LocaleManagementFlyoutPopupHr
+{
+  height: 1px;
+  background: #d0e0f0;
+  margin: 0px 11px 21px 11px; 
+}
+
+.LocaleManagementFlyoutPopArrow
+{
+	margin: 4px 0px 0px 0px;
+}
+
+.LocaleManagementFlyoutStatic, .LocaleManagementFlyoutStaticHover
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color:Black;
+	padding: 1px 3px 1px 3px;
+	margin: 1px 1px 1px 1px;
+	white-space: nowrap;
+	text-decoration: none;
+  cursor: default;
+	display: inline;
+	border:solid 1px #FFFFFF;
+}
+
+.LocaleManagementFlyoutStaticHover
+{
+	border:solid 1px #a1c6eb;
+}
+
+A.LocaleManagementFlyoutStaticLink, A:visited.LocaleManagementFlyoutStaticLink, A:hover.LocaleManagementFlyoutStaticLink, A:active.LocaleManagementFlyoutStaticLink
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color:Black;
+	white-space: nowrap;
+	text-decoration: none;
+  cursor: default;
+	display: inline;
+}
+
+A.LocaleManagementFlyoutStaticLiveLink, A:visited.LocaleManagementFlyoutStaticLiveLink, A:hover.LocaleManagementFlyoutStaticLiveLink, A:active.LocaleManagementFlyoutStaticLiveLink
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color:Black;
+	white-space: nowrap;
+	text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+/* modifications to modal dialog used by page gate */
+
+.PageGateModal {background:#FFF;border:1px solid #35afe8;padding:10px;width:470px;height:265px;}
+.PageGateModalContent {padding:0px;margin:0px;}
+
+.PageGateLegal {text-align:center;width:100%;color:#000;position:absolute;bottom:10px;left:0;}
+.PageGateSubtitle {padding:0 80px 0 86px;color:#5e5e5e;margin:0;}
+.PageGateButton {position:absolute;bottom:43px;left:87px;}
+
+.PageGateModalContent2 {padding:0px;margin:0px;background:#d9e3ed url(/Platform/Controls/PageGate/resources/download_sl_bg_bottom.jpg) no-repeat bottom;position:relative;width:470px;height:265px;font-family:Arial, Helvetica, sans-serif;font-size:.75em;}
+.PageGateModalContent2 p {line-height:140%;}
+.PageGateModalContent2 img {display:block;border:none;}
+/* links */
+.PageGateModalContent2 a:link, 
+.PageGateModalContent2 a:visited 	{color:#006198;text-decoration:underline;}
+.PageGateModalContent2 a:hover 		{text-decoration:none;}
+.PageGateModalContent2 a:active		{color:#006198;}
+
+
+.PageGateModalMask
+{
+	opacity: .6;
+	filter: alpha(opacity=60);
+	background-color: #d1d1d1;
+}
+
+.PageGateModalTitle
+{
+	height: 25px;
+	background-image :url(/Platform/Controls/PageGate/resources/download_sl_bg_top1.png);
+	background-repeat: no-repeat;
+/*	cursor: move;*/
+}
+
+.PageGateModalClose {position:absolute;top:20px;right:20px;}
+
+.PageGateModalClose
+{
+	width: 15px;
+	height: 15px;
+	background-image: url(/Platform/Controls/PageGate/resources/download_sl_close.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.PageGateModalFooter
+{
+	height: 0px;
+	visibility: hidden;
+}
+
+.PageGateModalResize
+{
+	width: 0px;
+	height: 0px;
+	visibility: hidden;
+}
+
+
+
+.QuickLinksFlyoutPopup
+{
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	border:1px solid #b8b8b8;
+	padding: 3px 3px 3px 3px;
+	text-align: left;
+	background-color: #FFFFFF;
+	z-index: 10;
+	opacity: .95;
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='#e0e0e0',Positive='true') alpha(opacity=95);
+}
+
+.QuickLinksFlyoutPopup A, .QuickLinksFlyoutPopup A:visited
+{
+	font-size: 10px;
+	background-color: transparent;
+	color: #000000;
+	cursor: hand;
+	border: 1px solid #ffffff;
+	padding: 1px 3px;
+	margin: 0;
+	display: block;
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.QuickLinksFlyoutPopup A:hover, .QuickLinksFlyoutPopup A:active
+{
+	background-color: #f0f7fd;
+	border: 1px solid #addbef;
+}
+
+.QuickLinksFlyoutPopup H4
+{
+	font-size: 10px;
+	line-height: 110%;
+	color: #003399;
+	font-weight: bold; 
+	margin: 4px 0 5px 0;
+}
+
+.QuickLinksFlyoutPopup TABLE
+{
+	vertical-align:top;
+	z-index: 10;
+}
+
+.QuickLinksFlyoutPopup TR
+{
+	vertical-align:top;
+}
+
+.QuickLinksFlyoutPopup .list
+{
+	padding: 0;
+	margin: 0px 0px 10px 0px;
+}
+
+.QuickLinksFlyoutPopup .listitem
+{
+	padding: 0;
+	margin: 3px 0;
+}
+
+.QuickLinksFlyoutPopupHr
+{
+  height: 1px;
+  background: #d0e0f0;
+}
+
+.QuickLinksPopArrow
+{
+	margin: 4px 0px 0px 0px;
+}
+
+
+/* MSDN branding */
+
+.QuickLinksFlyoutStatic_msdn, .QuickLinksFlyoutStaticHover_msdn
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color:Black;
+	padding: 1px 3px 1px 2px;
+	margin: 1px 1px 1px 1px;
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: default;
+	display: inline;
+
+	border: solid 1px #FFFFFF;
+}
+
+.QuickLinksFlyoutStaticHover_msdn
+{
+	border: solid 1px #a1c6eb;
+}
+
+A.QuickLinksFlyoutStaticLink_msdn, A:visited.QuickLinksFlyoutStaticLink_msdn, A:hover.QuickLinksFlyoutStaticLink_msdn, A:active.QuickLinksFlyoutStaticLink_msdn
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+	color:Black;
+	text-decoration: none;
+	cursor: default;
+	display: inline;
+}
+
+/* end MSDN branding */
+
+
+
+.MTPSPart
+{
+	background: #ffffff url('/Platform/Controls/RelatedPages/resources/gradient.gif') repeat-x 0 bottom;
+	float:right;
+	display:inline;
+	width:160px;
+	color:#000000;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	padding:8px;
+	margin:5px;
+}
+
+.MTPSPart P
+{
+	font-weight:bold;
+}
+
+.MTPSPart UL 
+{ 
+	margin: 0px;
+	padding: 0px;
+}
+
+.MTPSPart UL LI
+{
+	color: #cccccc;
+	margin: 0px 0px 5px 17px;
+	padding: 0px;
+	font-size: smaller;
+	list-style-image: url('/Platform/Controls/RelatedPages/resources/b.gif');
+	line-height: 140%;
+}
+
+.MTPSPart UL LI A
+{
+	color:#0033cc; 
+}
+
+
+
+
+.resizableArea .leftSection
+{
+  display:block;
+  float:left;
+  position:relative;
+  width: 300px;
+  height:100%;
+  margin:0;
+  padding:0;
+  margin-right:4px;
+  background:#F9F9F9;
+  overflow:auto;
+  font-size:70%; 
+  z-index:1;
+}
+
+.resizableArea .splitter
+{
+  width:4px;
+  position:absolute;
+  display:block;
+  cursor:e-resize;
+  left:250px;
+  height:100%;
+  margin:0;
+  padding:0;
+  z-index:11;
+  background-position: center;
+	background-repeat: no-repeat;
+	background-color: #BBBBBB;
+	vertical-align:middle;
+	background-image: url('/platform/controls/resizablearea/resources/lib_grippy.gif');
+}
+
+.resizableArea .rightSection
+{
+  overflow:auto;
+  height:100%;
+  border: 0px none orange;
+  background:transparent;
+  margin:0;
+  padding:0;
+  background:white;
+  position:relative;
+  z-index:10;
+  
+}
+
+
+
+
+/* --- tabStrip main layout begins --- */
+.tabsContainer
+{
+  width:100%;
+  margin:0;
+  padding:0px;
+  table-layout: fixed;
+}
+div.tabs
+{
+	margin-top:29px;
+	margin-right:15px;
+	margin-left:15px;
+}
+* html div.tabs
+{
+	margin-top:29px;
+	margin-right:0px;
+	margin-left:0px;
+}
+div.homepagetabs
+{
+	margin-top:29px;
+	margin-right:15px;
+	margin-left:15px;
+}
+.searchSection
+{
+  border:none;
+  width:230px;
+  vertical-align:bottom;
+  padding-bottom:4px;
+}
+
+.searchSection ul
+{
+  z-index:99;  
+}
+
+.searchSection ul li
+{
+	line-height: 15px;
+	font-family: Tahoma;
+	font-size: 8pt;
+	margin:2px;
+	text-indent:0;
+	padding:0;
+  list-style-image:none;
+}
+
+.mainTabsSection
+{
+  background-color:#f2f2f2;
+  border-left: 1px solid #8e909c;
+  border-top: 1px solid #8e909c;
+  border-right: 1px solid #8e909c;
+  padding-left: 10px;
+  padding-bottom:0px;
+}
+.mainTabsSection h1
+{
+	padding-right: 12px;
+	padding-left: 5px;
+	font-weight: normal!important;
+	font-size: 13pt!important;
+	padding-bottom: 12px;
+	margin: 0px;
+	padding-top: 12px;
+	font-family: Tahoma;
+	text-align: left;
+}
+.subTabsSection
+{
+  margin: 0 15px 0 15px;
+}
+
+.subTabsSection_libraryMode
+{
+  margin: 0;
+  height:5px;
+
+}
+
+.subTabsContainer
+{
+  background-color: #dd7c3b;
+  min-height:4px;
+  height:21px;
+  overflow:auto;
+}
+
+
+.tabsDivider
+{
+  border: none;
+  height :5px;
+  background:  #dd7c3b;
+  font-size:0;
+}
+/* --- tabStrip main layout ends --- */
+
+.mainTabsSection a, .mainTabsSection a:visited, .mainTabsSection a:hover
+{
+  display: block;
+  float: left;
+  font-family: Tahoma, Verdana, Arial;
+  font-size: 8pt;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 5px 17px 5px 17px;
+  background-color: #8e909c;
+  border-top: 1px Solid white;
+  border-right: 1px Solid white;
+  border-bottom: 1px Solid white;
+}
+.mainTabsSection a:hover
+{
+  background-color: #e7a476;
+}
+
+.mainTabsSection .selectedTab, .mainTabsSection .selectedTab:visited, .mainTabsSection .selectedTab:hover
+{
+  background-color: #dd7c3b;
+  border-bottom: 1px Solid #dd7c3b;
+}
+.mainTabsSection .selectedTab:hover
+{
+  text-decoration:underline;
+}
+
+.subTabsContainer a, .subTabsContainer a:visited, .subTabsContainer a:hover
+{
+  display: inline-block;
+  float: left;
+  color: White;
+  background-color: #dd7c3b;
+  border: none;
+  font-family:Tahoma;
+  font-size: 8.5pt;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 1px 3px 5px 8px;
+  
+}
+
+.subTabsContainer a:hover
+{
+  text-decoration:underline;
+}
+
+.subTabsContainer .selectedTab, .subTabsContainer .selectedTab:visited, .subTabsContainer .selectedTab:hover
+{
+  font-weight:bold;
+}
+
+.SecLinkSpacer
+{
+   color: #F69554;
+   float:left;
+   font-size: 8.5pt;
+   padding-top:1px;
+}
+
+/* --- */
+.scopeArrow
+{
+  min-width: 16px;
+	float: none;
+	height: 22px;
+	background-image: url(/Platform/Controls/Tabs/resources/search_down_arrow.gif);
+	background-position: top left;
+	background-repeat: no-repeat;
+	border-left: solid 1px white;
+}
+
+* html .scopeArrow
+{
+	margin-top: -1px;
+	padding-top: 2px;
+	padding-right: 18px;
+}
+.scopeFlyout 
+{
+  font-family:Tahoma;
+  width: auto;
+	font-size: 11px;
+	color: Navy;
+	z-index: 6;
+	line-height: 12px;
+	border: solid 1px black;
+	padding: 3px 4px 2px 4px;
+	overflow: hidden;
+	
+}
+.scopeFlyout A
+{
+	display: block;
+	min-width: 90px;
+	width: 100%;
+	color: Black;
+}
+.scopeItem, .scopeItem:visited, .scopeItem:active, .scopeItem:link
+{
+	display: block;
+	width: 100%;
+	border: solid 1px white;
+	color: #333333;
+	padding: 2px;
+	margin: 0;
+	overflow: hidden;
+}
+.scopeHover
+{
+   overflow: hidden;
+	display: block;
+	width: 100%;
+	color: #333333;
+	background-color: #E9ECF2;
+	border: solid 1px navy;
+}
+.scopeSelected, .scopeSelected:hover, .scopeSelected:visited, .scopeSelected:active, .scopeSelected:link
+{
+	display: block;
+	width: 100%;
+	background-color: white;
+	border: solid 1px white;
+	border-bottom: solid 1px silver;
+	color: navy;
+	padding: 2px;
+	cursor: default;
+}
+/*Branding*/
+#CenterBrand_SiteBrand A
+{
+   Display: block;
+   Height: 100%;
+   Width: 100%;
+}
+#CenterBrand_SiteBrand
+{
+   position: absolute;
+	top: 25px;
+	left: 15px;
+	z-index: 2;
+	width: 83px;
+	height: 42px;
+	background-image: url(/Platform/Controls/Tabs/resources/MSDN.logo.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.TabStrip_SearchBox, .TabStrip_SearchBoxActive
+{
+	float: left;
+	padding: 2px 2px 0 2px;
+	height: 17px;
+	line-height: 19px;
+	font-family: Tahoma;
+	font-size: 8pt;
+	border: solid 1px #8e909c;
+	width: 166px;
+	color: #9a999a; 
+  font-style: italic;
+}
+* html .TabStrip_SearchBox, * html .TabStrip_SearchBoxActive
+{
+  padding: 0px 2px 0 2px;
+	height: 19px;
+	margin-left:15px;
+	width:150px;
+}
+.TabStrip_SearchBoxActive
+{
+	color: black; 
+  font-style: normal;
+}
+.TabStrip_SearchButton 
+{
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: 19px;
+	height: 21px;
+}
+
+
+
+
+.TagEditor_Panel
+{
+	margin: 0px 0px 0px 20px;
+	padding: 3px 3px 3px 3px;
+	border: solid 1px #87A9D1;
+	background-color: #fafaff;
+	font-size:8pt;
+	line-height:normal;
+	position: static;
+}
+
+.TagEditor_Panel_Block
+{
+	margin: 0px 0px 0px 0px;
+	padding: 3px 3px 3px 3px;
+	border-top: solid 1px #d4d0c8;
+	background-color: #fafaff;
+	font-size:8pt;
+	line-height:normal;
+	white-space:normal;
+	position: static;
+}
+
+.TagEditor_Title
+{
+	font-weight: bold;
+	font-size: 10pt;
+	vertical-align: middle;
+	height: 1px;
+	padding: 3px 0px 3px 0px;
+}
+
+.TagEditor_Text
+{
+	color: #3366cc;
+	font-size:8pt;
+	padding: 0px 0px 0px 0px;
+}
+
+.TagEditor_View
+{
+	margin: 0px 4px 0px 4px;
+	font-size: 8pt;
+	top:0;
+	left:0;
+	padding: 0px 0px 0px 0px;
+}
+
+.TagEditor_Edit
+{
+	margin: 0px 4px 0px 4px;
+	white-space:nowrap;
+}
+
+.TagEditor_TextBox
+{
+  font-size: 10pt;
+  vertical-align:text-top;
+  line-height: 20px;
+  z-index: 100;
+}
+
+.TagEditor_TagPair
+{
+	white-space:nowrap;
+}
+
+a.TagEditor_Link,
+a:active.TagEditor_Link,
+a:hover.TagEditor_Link,
+a:visited.TagEditor_Link
+{
+	color: #3366cc;
+	font-size: 8pt;
+}
+
+a.TagEditor_LinkButton,
+a:active.TagEditor_LinkButton,
+a:hover.TagEditor_LinkButton,
+a:visited.TagEditor_LinkButton
+{
+	color: #3366cc;
+	font-size: 8pt;
+	white-space:nowrap;
+}
+
+.TagEditor_Message
+{
+	color: red;
+}
+
+.TagEditor_HelpLink
+{
+}
+
+.TagEditor_HelpImage
+{
+  border: solid 0px black;
+  margin: 3px 3px 3px 3px;
+	vertical-align: middle;
+}
+
+.TagEditor_HelpFlyout
+{
+  border: solid black 3px;
+  background-color: White;
+}
+
+.TagEditor_TagAutoComplete
+{
+  text-align: left;
+  list-style-type: none;
+  list-style-image: none;
+  cursor: default;
+  padding: 0px;
+  margin: 0px;
+  border: solid 1px gray;
+  background-color: white;
+  color: Black;
+  position: static;
+  z-index: 100;
+}
+
+
+
+  .TFlyPopupAnimate{
+    position: absolute;
+    display:block;
+    border:1px solid gray;
+    overflow:hidden;
+    visibility:hidden;
+    margin:0;
+    padding:0;
+    z-index:1;
+  }
+
+
+
+
+.slLink
+{
+  color:#ffffff;
+}
+
+
+
+
+.toc li
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  list-style-position: inside;
+  list-style-image: none;
+  margin: 3px 0px 3px 0px;
+  overflow: visible;
+  white-space:nowrap;
+}
+
+.toc li a
+{ 
+  text-decoration:none;
+  color:Black;
+  border: solid 1px #F9F9F9;
+}
+
+.toc li a:hover
+{
+  text-decoration:none;
+  background-color:#cccccc;
+    color:#000000;
+}
+.toc li a:visited
+{
+  text-decoration:none;
+  color:Black;
+  border: solid 1px #F9F9F9;
+}
+
+ul.toc
+{
+  list-style: none;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	padding-top:0px;
+	padding-left: 2em;
+	text-indent: -2em;
+
+
+}
+
+.toc img
+{
+  margin-right:7px;
+  vertical-align:middle;
+  cursor:hand;
+  height:16px;
+  width:16px;
+}
+
+.hidden
+{
+  visibility:hidden;
+  display:none;
+}
+
+.toc li a.tocSelected
+{
+  background-color: #8e909c;
+  color:white;
+}
+
+
+
+
+/* Brand-independent styles */
+.UserRecognitionStaticText
+{
+	padding-right: 1px;
+	padding-left: 1px;
+	font-weight: bold;
+	padding-bottom: 1px;
+	margin: 1px 0px 1px 1px;
+	color: black;
+	padding-top: 1px;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	WHITE-SPACE: nowrap;
+}
+.UserRecognitionFlyoutPopup
+{
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	border: 1px solid #666666;
+	text-align: left;
+	padding: 3px 3px 3px 3px;
+	background-color: #FFFFFF;
+	z-index: 10;
+	opacity: .95;
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='silver',Positive='true') alpha(opacity=95);
+}
+
+.UserRecognitionFlyoutPopup A, .UserRecognitionFlyoutPopup A:visited
+{
+	font-size: 10px;
+	font-weight:normal;
+	color: #000000;
+	cursor: hand;
+	border: 1px solid #FFFFFF;
+	padding: 1px 3px 1px 3px;
+	margin-left: 0px;
+	height: 15px;
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+}
+
+.UserRecognitionFlyoutPopup A:hover, .UserRecognitionFlyoutPopup A:active
+{
+	background-color: #f0f7fd;
+	color: #000000;
+	font-weight:normal;
+	cursor: hand;
+	border: 1px solid #addbef;
+	padding: 1px 3px 1px 3px;
+	margin-left: 0px;
+	height: 15px; 
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+}
+
+A.UserRecognitionFlyoutIndented, A:visited.UserRecognitionFlyoutIndented, A:hover.UserRecognitionFlyoutIndented, A:active.UserRecognitionFlyoutIndented
+{
+	margin-left: 6px;
+}
+
+A.UserRecognitionFlyoutIndentedExpired, A:visited.UserRecognitionFlyoutIndentedExpired, A:hover.UserRecognitionFlyoutIndentedExpired, A:active.UserRecognitionFlyoutIndentedExpired
+{
+	color: gray;
+	cursor: default;
+	margin-left: 6px;
+}
+
+.UserRecognitionFlyoutPopupHeading
+{
+	font-size: 10px;
+	font-weight: bold; 
+	padding-left: 5px;
+	color: #003399;
+	text-align: left;
+}
+
+.UserRecognitionFlyoutPopupHr
+{
+  height:1px;
+  background:#d0e0f0;
+  margin: 0px 11px 21px 11px; 
+}
+
+.UserRecognitionFlyoutPopArrow
+{
+	margin: 4px 0px 0px 0px;
+}
+
+/* end brand-independent */
+
+
+/* MSDN branding */
+
+.UserRecognitionFlyoutStaticText
+{
+	font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color:#5b5b5b;
+	padding: 1px 1px 1px 1px;
+	margin: 1px 0px 1px 1px;
+}
+
+.UserRecognitionFlyoutStatic, .UserRecognitionFlyoutStaticHover
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	border: solid 1px #FFFFFF;
+	color:#5b5b5b;
+	padding: 1px 3px 1px 3px;
+	margin: 1px 0px 1px 1px;
+	text-decoration: none;
+  cursor: default;
+	display: inline;
+}
+
+.UserRecognitionFlyoutStaticHover
+{
+	border: solid 1px #a1c6eb;
+	padding: 1px 3px 1px 3px;
+	margin: 1px 0px 1px 1px;
+}
+
+A.UserRecognitionFlyoutStaticLink, A:visited.UserRecognitionFlyoutStaticLink, A:hover.UserRecognitionFlyoutStaticLink, A:active.UserRecognitionFlyoutStaticLink
+{
+	font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color:#5b5b5b;
+	text-decoration: none;
+	display: inline;
+  cursor: default;
+}
+
+A.UserRecognitionFlyoutOtherLink, A:visited.UserRecognitionFlyoutOtherLink, A:hover.UserRecognitionFlyoutOtherLink, A:active.UserRecognitionFlyoutOtherLink
+{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color:#5b5b5b;
+}
+A.UserRecognitionOtherLink
+{
+	font-weight:normal;
+	color:Black;
+
+}
+/* end MSDN branding */
+
+
+
+.InlineEditor_Editor_Off
+{
+  border: 0px solid #87A9D1;
+  height: auto;
+  font-family: Verdana;
+  padding: 3px;
+  background: transparent;
+  
+}
+.InlineEditor_Editor_On
+{
+  border: 1px solid #87A9D1;
+  font-family: Verdana;
+  padding: 3px;
+  background: #ffffff;
+  cursor: text;
+  height: 100%;
+  min-height: 120px;
+  _height: 120px;
+}
+.InlineEditor_Toolbar
+{
+  border: 1px solid gray;
+  background: lightgrey;
+  height: 24px;
+  width: 100%;
+}
+.InlineEditor_ImageButton
+{
+  cursor: pointer;
+  margin: 0px;
+  height: 24px;
+  float: left;
+}
+.InlineEditor_Separator
+{
+  cursor: default;
+  margin: 0px;
+  height: 24px;
+  float: left;
+}
+.InlineEditor_Title_Edit
+{
+  width: 100%;
+  padding: 0px;
+  border: solid 1px #87a9d1;
+}
+.InlineEditor_TagEditorPanel
+{
+  text-align: left;
+}
+.wkeMessage
+{
+  color: Red;
+  font-size: 10pt;
+}
+.wkeButton
+{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.wkButtonsPanel
+{
+  text-align: right;
+  height: 40px;
+}
+.wkeTagAutoComplete
+{
+  text-align: left;
+  list-style-type: none;
+  list-style-image: none;
+  cursor: default;
+  padding: 0px;
+  margin: 0px;
+  border: solid 1px gray;
+  background-color: white;
+  color: Black;
+  z-index: 100;
+}
+
+
+
+.wkViewerContainer, .wkViewerContainer_Edit
+{
+	_width:100%;
+  background-color: white;
+  border: solid 1px #87A9D1;
+  display: block;
+  margin: 0px 20px 20px 20px;
+  padding: 0px;
+}
+.wkViewerContainer_Edit
+{
+  background-color: #D6E6F6;
+  filter: progid:DXImageTransform.Microsoft.Shadow( 'color:gray, strength:5, direction:135' );
+}
+.wkViewerHeader, .wkViewerHeaderHover
+{
+  background-color: #FAFAFF;
+  display: block;
+  overflow: hidden;
+}
+.wkViewerHeaderHover
+{
+  background-color: #FFFFCC;
+}
+.wkViewerHeader_Title
+{
+  color: #000000;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10pt;
+  word-wrap: break-word;
+  white-space: inherit;
+}
+.wkViewerHeader_Spacer
+{
+  background-color: Transparent;
+}
+.wkViewerHeader_Actions
+{
+  vertical-align: top;
+  padding-top: 2px;
+  font-size: 8pt;
+  color: #666666;
+  white-space: nowrap;
+}
+.wkViewerHeader_Link, .wkViewerHeader_Link:hover, .wkViewerHeader_Link:visited
+{
+  color: #336699;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wkViewerHeader_Link:hover
+{
+  white-space: nowrap;
+  text-decoration: underline;
+}
+.wkViewerText, .wkViewerTextHover
+{
+  display: block;
+  border-top: solid 1px #e3e3e3;
+  word-wrap: break-word;
+  white-space: inherit;
+  padding: 1px;
+}
+.wkViewerTextHover
+{
+  background-color: #FFFFCC;
+}
+.wkHistoryItem
+{
+  padding: 5px;
+  display: block;
+  border-top: solid 1px #cccccc;
+  border-right: solid 1px #e3e3e3;
+}
+.HistoryBody
+{
+  display: block;
+  background-color: #D6E6F6;
+  text-align: left;
+  margin-top: 5px;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: inherit;
+  line-height:normal;
+}
+.wkiSavedMessage
+{
+  color: Red;
+}
+
+
+
+
+.cc
+{
+	margin:0px;
+	overflow:hidden;
+	font-family: Verdana;
+	font-size:8pt;
+	position: relative;
+}
+
+.ccHeader
+{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.ccContainer
+{
+	padding: 0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+.cch_left
+{
+	height:66px;
+	max-height:66px;
+	background-image:url(/Platform/Controls/WikiSection/resources/green-left.jpg);
+	background-repeat:repeat-x;
+	background-position:left top;
+	color: #ffffff;
+}
+
+.cch_right
+{
+	height:66px;
+	width: 100%;
+	background-image:url(/Platform/Controls/WikiSection/resources/green-right.jpg);
+	background-repeat:repeat-x;
+	background-position:left top;
+}
+
+.cch_title
+{
+	color: Black;
+	font-family: Verdana;
+	font-weight:bold;
+	font-size:12pt;
+	font-weight:bold;
+	padding: 10px 10px 10px 10px;
+	vertical-align:middle;
+	white-space:nowrap;
+}
+
+.cc_toolbar
+{
+	height:20px;
+	padding: 0px 0px 0px 0px;
+	background-color: #e3e3e3;
+	margin: 0px 0px 7px 0px;
+	color: #3366CC;
+}
+
+.cch_toolbartext
+{
+	font-family: Verdana;
+	font-size:8pt;
+	color: #3366CC;
+	background-color: #e3e3e3;
+	padding: 0px 0px 0px 15px;
+	margin: 0px 0px 0px 0px;
+	text-align:left;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.cch_toolbartext
+{
+	color: #3366CC;
+}
+
+.ccAddLink, .ccAddLinkDisabled
+{
+	text-decoration: underline;
+	cursor: pointer;
+	padding-left: 4px;
+	color: #3366CC;
+}
+
+.ccAddLinkDisabled, .ccAddLinkDisabled:hover, .ccAddLinkDisabled:visited
+{
+	color: Gray;
+}
+
+.ccViewProfileLink
+{
+	font-weight:bold; 
+	color: #3366CC;
+	background-color: #e3e3e3;
+	font-family: Verdana;
+	font-size:8pt;
+	padding-right: 20px;
+}
+.cch_footertext
+{
+	color: #3366CC;
+	font-family: Verdana;
+	font-size:8pt;
+	padding: 7px 0px 7px 10px;
+	margin: 0px 0px 0px 0px;
+	text-align: center;
+}
+
+.cch_footertext a, .cch_footertext a:visited, .cch_footertext a:hover
+{
+	color: #3366CC;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.wkItemsContainer
+{
+  border: none;
+  width: 100%;
+  margin:0px;
+  margin-top:20px;
+  margin-right:2px;
+}
+.wksMessage
+{  
+   color:Red;
+   font-size:10pt;
+}
+.wksButton
+{
+   margin-top:10px;
+   margin-bottom:10px;
+   padding-top:0.2em;
+}
+.wksButtonsPanel
+{
+ text-align:right;
+}
+
+.wkMessage
+{  
+   color:Red;
+   font-size:10pt;
+   margin-left:20px;
+   margin-bottom:20px;
+}
+
+

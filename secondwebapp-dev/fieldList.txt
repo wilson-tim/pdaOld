@@ -1,0 +1,7 @@
+String complaint_no
+String location_name
+String complaint_no_sel
+String site_ref
+String site_name_1
+String area_c
+String user_remarks

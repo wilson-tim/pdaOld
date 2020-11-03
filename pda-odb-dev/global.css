@@ -1,0 +1,82 @@
+body {
+  color : black; 
+  background-color : white;
+}
+
+hr { 
+  /* The next two lines will replace the deprecated noshade attribute */
+  /* when we get round to updating all the JSPs to remove it */
+  /* border-width: 0; */
+  /* width: 100%; */
+  color : #259225;
+  background-color : #259225; 
+}
+
+textarea {
+  width:100%;
+}
+
+/* set the default text size for the webapp here. */
+/* 100% will be the text size set by the browser. */
+/* 200% will be twice the text size set by the browser. */
+body, hr, h1, h3, h4, td, input, select, textarea { 
+  font-family : sans-serif;
+  font-size : 100%;
+}
+
+h1, h3, h4 {
+  margin : 0.2ex;
+}
+
+h2 {
+  font-size : 150%;
+  margin : 0.2ex;
+  color: white;
+  background-color: #259225;
+  text-align: center;
+  font-weight: bold;
+}
+
+input, select, textarea { 
+  font-size : 100%;
+}
+
+.page_gap {
+  height: 2em;
+}
+
+.subscript {
+  font-size : 80%;
+}
+
+.scroll_area_full {
+  width: 98%;
+  height: 20em;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* border-color: #6699CC; */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  overflow: auto;
+}
+
+.scroll_area_half {
+  width: 98%;
+  height: 10em;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* border-color: #6699CC; */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  overflow: auto;
+}
+
+.MenuButtons input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
+    font-size: 85%;
+    font-weight: bold;
+    text-align: center;
+    font-weight: bold;
+}

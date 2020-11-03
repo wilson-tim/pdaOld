@@ -1,0 +1,1 @@
+echo fglgo_attach_file %1 %2 C 'Public Attach' N>>tmp.txt

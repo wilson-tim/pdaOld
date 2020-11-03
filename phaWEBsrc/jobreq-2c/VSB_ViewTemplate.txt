@@ -1,0 +1,58 @@
+<%@ page errorPage="error.jsp" %>
+<%@ page import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+<%-- Make sure this is the form we are supposed to be on --%>
+<sess:equalsAttribute name="form" match="dataExpired" value="false">
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">#FORM#</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<html>
+<head>
+	<title>#FORM#</title>
+  <style type="text/css">
+		@import URL("global.css");
+	</style>
+</head>
+
+<body>
+  <form action="#FORM#Script.jsp" method="post">
+    <table>
+      <tr>
+        <td align="center" colspan="2"><h1>#FORM#</h1></td>
+      </tr>
+  		<tr><td colspan="2"><hr></td></tr>
+  		<tr><td colspan="2"><font color="#ff6565"><b><jsp:getProperty name="#FORM#Bean" property="error" /></b></font></td></tr>
+      <tr><td>&nbsp;</td></tr>
+
+
+
+      <tr><td>&nbsp;</td></tr>
+  	  <tr><td colspan="2"><hr></td></tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr>
+        <td colspan="2">
+          <jsp:include page="include/new_submit_buttons.jsp" flush="true" />
+        <td>
+      <tr>
+      <tr>
+        <td colspan="2" align="right">
+          <jsp:include page="include/footer.jsp" flush="true" />
+        <td>
+      <tr>
+    </table>
+
+	  <input type="hidden" name="input" value="#FORM#" > 
+  </form>
+</body>
+</html>

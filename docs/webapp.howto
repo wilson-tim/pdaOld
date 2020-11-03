@@ -1,0 +1,58 @@
+PDA INSTALL
+=========================
+
+
+1.  install java
+    -----------------
+    this is in "webapp-install-files/java/windows"
+    run the java executable and install.
+    set JAVA_HOME=<JAVA_INSTALLATION>
+    set the PATH to include '<JAVA_INSTALLATION>/bin'
+
+2.  unjar tomcat4127
+    -----------------
+    this is in "webapp-install-files/tomcat"
+    copy the tomcat4127.jar into a suitable temporary folder.
+    jar -xvf tomcat4127.jar
+    copy the resulting directory to c:\
+
+3.  set the tomcat variables
+    --------------------------
+    CATALINA_HOME=C:\jakarta-tomcat-4.1.27
+    CLASSPATH=C:\jakarta-tomcat-4.1.27\common\lib\servlet.jar:.
+
+4.  JDBC
+    --------------------
+    this is in "webapp-install-files/tomcat/sqlServerJDBC"
+    copy the sqlServerJDBC jars into
+    C:\jakarta-tomcat-4.1.27\common\lib\
+
+5.  server.xml context
+    -------------------
+    this is in "webapp-install-files/tomcat"
+    copy the sqlServer.server_context.xml into your temporary directory.
+    ammend the sqlServer.server_context.xml with the correct
+    username, password, server address and database name
+
+    paste the contents of the sqlServer.server_context.xml file
+    into the C:\jakarta-tomcat-4.1.27\conf\server.xml file
+    find the tomcat root context comments and paste below that
+    point
+
+6.  application
+    -----------------
+    this is in "webapp-install-files/webapps"
+    copy the pda-odb-5j.jar into your temporary directory.
+    unjar the pda-odb-5j.jar and copy the resulting folder into
+    C:\jakarta-tomcat-4.1.27\webapps\
+
+ 7. start tomcat
+    ------------------
+    run %CATALINA_HOME%\bin\startup.bat
+
+ 8. run application
+    -------------------
+    point your browser @ http://<server_ip>:8080/pda-odb-rel
+
+9.  use the force
+

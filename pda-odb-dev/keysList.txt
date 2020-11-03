@@ -1,0 +1,3 @@
+String contender_version
+String generate_supersites
+String default_suspect_ref

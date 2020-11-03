@@ -1,0 +1,983 @@
+
+
+
+/* Global Content CSS used by all master pages */
+
+/* Start: Headings */
+H1
+{
+  font-family: Verdana,  Arial, Helvetica, sans-serif;
+  font-size: 130%;
+  font-weight: normal;
+}
+
+H1.heading {
+	FONT-SIZE: 110%; 
+	FONT-WEIGHT: bold; 
+	FONT-FAMILY: Verdana,  Arial, Helvetica, sans-serif;
+
+}
+
+H2 {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 115%; 
+	FONT-FAMILY: Verdana,  Arial, Helvetica, sans-serif;
+}
+
+H2.subtitle {
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 115%; 
+	MARGIN-BOTTOM: 0.6em; 
+	FONT-FAMILY: Verdana,  Arial, Helvetica, sans-serif;
+}
+
+H3 {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 110%; 
+	FONT-FAMILY: Verdana,  Arial, Helvetica, sans-serif; 
+}
+
+H4 {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 100%; 
+	FONT-FAMILY: Verdana,  Arial, Helvetica, sans-serif;
+}
+
+H5 {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 100%; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+H6 {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 100%; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
+/*------------------------------ Begin Heading Styles -------------------------------*/
+/* As far as I can tell, only <h1> tags use this class.
+   TODO: Decide whether to roll these attributes into the h1.heading style */
+.heading
+{
+	font-weight:	bold;
+	margin-top:		18px;
+	margin-bottom:	8px;
+}
+.subHeading
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+/* All <h1> headings. */
+
+/* Applies to table titles and subsection titles. */
+.subHeading
+{
+	font-weight:	bold;
+	margin-bottom:	0px;
+}
+
+/* formats the titles of all subsections. */
+h4.subHeading, h4
+{
+	color: #000000;
+	font-size: 100%;
+}
+/*------------------------------ End Heading Styles -------------------------------*/
+
+
+/* END: Headings */
+
+/* START: standard paragraph style */
+p
+{
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	margin-top: 0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom: 10px;
+  
+}
+
+div.section p
+{
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+/* END: standard paragraph style */
+/* START: standard list style */
+dl
+{
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	font-size:3mm;
+	FONT-FAMILY: Verdana;
+}
+dl
+{
+	margin-top:	0px;
+	padding-left:	1px;
+}
+dt
+{
+  font-style:normal;
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom: 0px;
+	margin-left:0px;
+    
+}
+ul	
+{
+	margin-bottom: 15px;
+  line-height: 140%;
+}
+
+ul ul	{
+	margin-top: 15px; 
+	margin-bottom: 15px;
+	line-height: 140%;
+}
+
+ol	{
+	margin-bottom: 15px; 
+	line-height: 140%;
+}
+
+ol ol	{
+	margin-top: 15px; 
+	margin-bottom: 15px;
+	line-height: 140%;
+}
+
+ol ul	{
+	margin-top: 15px; 
+	margin-bottom: 15px;
+	line-height: 140%;
+}
+
+ul ol	{
+	margin-top: 15px; 
+	margin-bottom: 15px;
+	line-height: 140%;
+}
+	
+li	{
+	margin-left: 0px;
+	margin-bottom: 10px;
+}
+ul
+{
+	margin-left: 30px;
+	list-style-type: disc;
+}
+
+ul ul
+{
+	margin-bottom: 4px;
+	margin-left: 17px;
+	margin-top: 3px;
+	list-style-type: disc;
+}
+
+ol
+{
+	margin-left: 24px;
+	list-style-type: decimal;
+}
+
+ol ol
+{
+	margin-bottom: 4px;
+	margin-left: 24px;
+	margin-top: 3px;
+	list-style-type: lower-alpha;
+}
+
+li
+{
+	margin-bottom: 3px;
+}
+
+/* END: standard list style */
+/* START: syntax section for managed ref */
+DIV.declarationSyntaxes SPAN.VisualBasicDeclaration, DIV.declarationSyntaxes SPAN.VisualBasicUsage, DIV.declarationSyntaxes SPAN.CSharp, DIV.declarationSyntaxes SPAN.ManagedCPlusPlus, DIV.declarationSyntaxes SPAN.JSharp, DIV.declarationSyntaxes SPAN.JScript
+{
+	background: #DDDDDD;
+}
+
+DIV.declarationSyntaxes PRE
+{
+	background: #dddddd;
+	font-family: Lucida Console, Courier New;
+	line-height: 140%;
+	border-top: 1px solid #aaaaaa;
+	padding: 5px 10px 10px 25px;
+	margin: 0 0 20px 0;
+}
+/* END: syntax section for managed ref */
+/* START whidbey specific  */
+div.alert table th
+{
+	font-weight: bold;
+	font-size: 11px;
+	background-color: #CCCCCC;
+}
+
+.legacyBold, .ui
+{
+	font-weight: bold;
+}
+
+.legacyItalic
+{
+	font-style: italic;
+}
+/* END: whidbey specific  */
+/* START: nested lists (registry trees) */
+DIV.clsRegTree UL { margin-left:2.5em; }
+DIV.clsRegTree UL UL { margin-top:0px; margin-bottom:0px; }
+DIV.clsRegTree LI { list-style-type:none; text-indent:-2.5em; line-height:normal; margin:0px; }
+/* END: nested lists (registry trees) */
+/* START: STRUCTURE PRESENTATION STYLES */
+/* Applies to everything below the non-scrolling header region. */
+div#mainSection
+{
+}
+
+/* Applies to everything below the non-scrolling header region, minus the footer. */
+div#mainBody
+{
+	font-size: 90%;
+	margin-left: 0px;
+	margin-right: 5px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+
+/* Applies to everything below the non-scrolling header region. */
+.topic div#mainSection
+{
+	
+}
+
+/* Applies to everything below the non-scrolling header region, minus the footer. */
+.topic div#mainBody
+{
+	font-size: 100%;
+	margin-left: 5px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+
+div#mainBody div.alert, div#mainBody div.code
+{
+	width:98.9%;
+}
+
+div#mainBody div.section div.alert, div#mainBody div.section div.code
+{
+	width:100%;
+}
+
+div#mainBody div.section ul div.alert, div#mainBody div.section ul div.code, 
+div#mainBody div.section ol div.alert, div#mainBody div.section ol div.code
+{
+	width:100%;
+}
+div#mainSection table
+{
+	border-color:#dddddd;
+	border-style:solid;
+	border-width: 1px;
+	margin-left: 5px;
+	font-size: 100%;
+	width:	97%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div#mainSection table tr
+{
+	vertical-align: top;
+}
+
+div#mainSection table th
+{
+	
+	border-bottom: 1px solid #C8CDDE;
+	color: #000066;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: left;
+}
+
+div#mainSection table td
+{
+
+	border-bottom: 1px solid #D5D5D3;
+	border-top: 1px solid #D5D5D3;
+	border-left-color: #D5D5D3;
+	border-left-style: solid;
+	border-left-width: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 1px;
+}
+
+
+
+
+/* Formats the first column--the one that displays icons--in mref list tables (such as Public Constructors, 
+   Protected Constructors, Public Properties, Protected Properties, and so on). */
+div#mainSection table td.imageCell
+{
+	white-space: nowrap;
+}
+/* END: STRUCTURE PRESENTATION STYLES */
+/* Start-ContentArea */
+.RightPanel 
+{
+	MARGIN-RIGHT: -15px;
+	VERTICAL-ALIGN: top;	
+	font-size:70%;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	width:auto;
+	padding:0;
+	margin:0;
+	
+}
+DIV.ContentArea 
+{
+	margin: 20px;
+	line-height: 140%;
+}
+
+DIV.ContentArea .topic
+{
+	LINE-HEIGHT: 140%;
+}
+
+div.ContentArea table
+{
+	width: auto; /* 94%; */
+	border-collapse:collapse;
+	
+  
+}
+
+div.ContentArea table p
+{
+	margin:0px;
+	padding: 0;
+}
+
+div.ContentArea table th, div.ContentArea table td
+{
+	padding: 5px;
+	text-align: left;
+  font-size: 3mm;
+  font-family:Verdana;
+}
+
+div.ContentArea table th
+{
+	background: #cccccc;
+	vertical-align: bottom;
+}
+
+div.ContentArea table th p
+{
+	font-weight: bold;
+}
+
+div.ContentArea table td
+{
+	background: #ffffff;
+	vertical-align: top;
+	border: solid 0px #cccccc;
+}
+/*  BEGIN # 33893 */
+
+.ContentArea .topic table
+{
+    width:auto;
+}
+
+.ContentArea .topic table td
+{
+    padding:5px;
+    margin:0px;
+}
+.ContentArea .topic table td p
+{
+    padding:5px;
+    margin:0px;
+}
+.ContentArea .topic table td UL
+{
+    margin-top:5px;
+    margin-left:20px;
+    margin-bottom:5px;
+    margin-right:10px;
+}
+.ContentArea .section table td ul li, .ContentArea .subSection ul li, .ContentArea .topic ul li
+{
+	list-style-image: url("b.gif");
+}
+/* End-ContentArea */
+/* Start:COde Block */
+code 
+{
+	font-family:	Monospace, Courier New, Courier;
+	font-size: 105%;
+	color:	#000066;
+	display:block;
+	padding-top: 5px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	background: #dddddd;
+
+}
+pre
+{
+	background: #dddddd;
+	font-family: Lucida Console, Courier New;
+	margin-top: 0px;
+	margin-left: 1em;
+	margin-right:0px;
+	margin-bottom:0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	/*
+	word-wrap: break-word;
+	*/
+}
+div.code table
+{
+	border: 0;
+	font-size: 95%;
+	margin-bottom: 5px;
+	margin-top:-.4em;
+	width: 100%
+}
+
+div.code table th, div.lang 
+{	
+	background:	#dddddd;
+	border-bottom-color: #C8CDDE;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	color: #000066;
+	font-weight: bold;
+}
+
+div.code table td, pre.code
+{
+	background:	#dddddd;
+	border-top-color: #C8CDDE;
+	border-top-style: solid;
+	border-top-width: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	margin: 0 0 10px 0;
+}
+span.copyCode
+{
+	color: #0000ff;
+	font-size: 90%;
+	font-weight: normal;
+	cursor: hand;
+	float: right;
+	display: inline;
+	text-align: right;
+}
+div.code pre
+{
+	font-family:	Monospace, Courier New, Courier;
+	font-size: 105%;
+	color:	#000066;
+	word-wrap:	break-word;
+}
+div.code table
+{
+	border: 0;
+	font-size: 95%;
+	margin-bottom: 5px;
+	width: 100%
+}
+
+div.code table th
+{	
+	background:	#EFEFF7;
+	border-bottom-color: #C8CDDE;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	color: #000066;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+div.code table td
+{
+	background:	#EFEFF7;
+	border-top-color: #dddddd;
+	border-top-style: solid;
+	border-top-width: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+/* End: Code Block */
+/* Start: Div */
+
+/* Formats the code in syntax and usage blocks, and the code in non-snipper code blocks. */
+
+
+div.alert table
+{
+	border: 0;
+	font-size: 100%;
+	width:	100%;
+}
+
+div.alert table th
+{
+	background:	#EFEFF7;
+	border-bottom-width: 0;
+	color: #000066;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+div.alert table td
+{
+	background:	#F7F7FF;
+	border-top-color: #FFFFFF;
+	border-top-style: solid;
+	border-top-width: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+div.hr1 {
+	margin: 0;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	background: #C8CDDE;
+	font-size: 1px;
+}
+
+div.hr2 {
+	margin: 0;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	background: #D4DFFF;
+	font-size: 1px;
+}
+
+div.hr3 {
+	margin: 0;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	background: #EEEEFF;
+	font-size: 1px;
+}
+
+/* End: Div  */
+.tip
+{
+	color:	#0000FF;
+	font-style: italic;
+	cursor:hand;
+	text-decoration:underline;
+}
+
+/* Applies to the language labels in the Language Filter drop-down list. */
+.languageFilter
+{
+	color:	#0000FF;
+	cursor:hand;
+	text-decoration:underline;
+	padding-bottom:4px;
+}
+
+/* Applies to text styled as math. This text is passed as a parameter to the italics SSC definition */
+.math
+{
+	font-family: Times New Roman;
+	font-size: 125%
+}
+/* Start: title */
+.title
+{	
+	font:bold 190% Arial, Helvetica, sans-serif;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right:0px;
+	margin-bottom: 10px;
+	color: #000000;
+
+	
+}
+.majorLabel, .sectionTitle
+{
+	/* with +- hence negative left margin */
+	font-family: Verdana;
+	font-weight:bold;
+	font-size: 120%;
+	margin: 10px 0px 3px 0px;
+}
+
+.minorLabel
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 100%;
+	white-space:normal;
+	margin: 0px 0px 0px 0px;
+}
+/* End: title */
+/* Start: Image Styles */
+img.copyCodeImage
+{
+	border: 0;
+	margin: 1px;
+	margin-right: 3px;
+}
+
+img.downloadCodeImage
+{
+	border: 0;
+	margin-right: 3px;
+}
+
+img.viewCodeImage
+{
+	border: 0;
+	margin-right: 3px;
+}
+
+img.note
+{
+	border: 0;
+	margin-right: 3px;
+}
+a img {
+	border :none;
+}
+/* End Image Styles */
+/* Start: Header */
+div#header
+{
+	background-color: #D4DFFF;
+	padding-top:	0;
+	padding-bottom:	0;
+	padding-left:	0;
+	padding-right:	0;
+	width:	100%;
+}
+
+/* Applies to both tables in the non-scrolling header region. */
+div#header table
+{
+	width:	100%;
+}
+
+/* Applies to cells in both tables in the non-scrolling header region. */
+div#header table td
+{
+	color: #0000FF;
+	font-size: 70%;
+	margin-top:	0;
+	margin-bottom:	0;
+	padding-right: 20px;
+}
+
+/* Applies to the last row in the upper table of the non-scrolling header region. Text 
+   in this row includes See Also, Constructors, Methods, and Properties. */
+div#header table tr#headerTableRow3 td
+{
+	padding-bottom: 2px;
+	padding-top: 5px;
+}
+
+/* Applies to the lower table in the non-scrolling header region. Text in this table
+   includes Collapse All/Expand All, Language Filter, and Members Options. */
+div#header table#bottomTable
+{
+	border-top-color: #FFFFFF;
+	border-top-style: solid;
+	border-top-width: 1px;
+	text-align: left;
+}
+
+/* Formats the first column--the one that displays icons--in mref list tables (such as Public Constructors, 
+   Protected Constructors, Public Properties, Protected Properties, and so on). */
+div#mainSection table td.imageCell
+{
+	white-space: nowrap;
+}
+/* End : Header */
+/* Start:Footer */
+div#footer
+{
+	font-size: 90%;
+	margin-top:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	margin-right:	0;
+	padding-top:	2px;
+	padding-bottom:	6px;
+	padding-left:	5px;
+	padding-right:	2px;
+	width:	100%;
+}
+/* End:Footer */
+
+/* Start may be not used any more */
+.clsBeta
+{
+	color:#FF0000;	
+}
+.parameter
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+div.section
+{
+	padding-left: 20px;
+}
+div.lang
+{
+	background-color: #dddddd;
+	border-bottom: #eeeeee 1px solid;
+	white-space:pre;
+	clear:both;	
+	padding-left:5px;
+}
+/*Added for Migrated Pages*/
+.MNPPart
+{
+	width:155px;
+	color:#000000;
+	background-color: #f1f1f1;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:3px solid #6699cc;
+	border-top:3px solid #6699cc;
+	padding:8px;
+	margin-right:15px;
+}
+
+.MNPPart UL 
+{ 
+	margin-bottom:5px; 
+	margin-left:18px;
+}
+
+.MNPPart SPAN 
+{ 
+	color:#000000;	
+}
+
+.MNPPart	UL LI
+{
+	margin-bottom:0.5em;
+	list-style-type: disc;
+	color:#cccccc;
+}
+
+DIV#links table td
+{
+	border:0px;
+}
+.TableHeading
+{
+	font-weight:700;
+}
+ul ul li.kadov-p-CBulleted 
+{
+	margin-left:100px;
+}
+
+
+div.clsNote
+{
+	background-color:#EEEEEE;
+	margin-bottom:4px;
+	padding-top:2px;
+	padding-left:2px;
+	padding-right:2px;
+	padding-bottom:2px;
+}
+/* begin # 35695 */
+table.clsStd tbody tr td
+{
+	background-color:#eee;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #D5D5D3;
+}
+
+table.psdkRequirements tbody tr th
+{
+	background-color:#EFEFF7;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+	color:#000066;
+	vertical-align:top;
+}
+
+table.psdkRequirements tbody tr td
+{
+	background-color:#F7F7FF;
+	border-top:solid 1px #E0DFE3;
+	border-left:solid 1px #E0DFE3;
+	border-right:solid 1px #E0DFE3;
+	border-bottom:solid 1px #C8CDDE;
+}
+
+.tablediv table.dtTABLE
+{
+	width:95%;
+	border:1px solid #cccccc;
+	
+}
+.tablediv table.dtTABLE tbody tr th
+{
+	width:50%;
+}
+.tablediv table.dtTABLE tbody tr td
+{
+	width:50%;
+	border:1px solid #cccccc;
+	font-size:3mm;
+	font-family:Verdana;
+}
+
+div.clsServerSDKContent td.sdkformat_portal
+{
+	border-right:solid 1px #CCCCCC;
+	
+}
+.section OL LI OL LI, .subSection OL LI OL LI
+{
+	list-style-type:lower-alpha;
+}
+
+dd p
+{
+
+	margin-left:-40px;
+	margin-top:0px;
+	padding-right:20px;
+}
+
+dd .tableSection
+{
+	width:100%;
+}
+
+dd .tableSection table tr td p, dd .alert p
+{
+	margin-left:0px;
+}
+.indent1 
+{
+    margin-left: 12pt;
+}
+/* Applies to the running header text in the first row of the upper table in the
+   non-scrolling header region. */
+span#runningHeaderText
+{
+	font-size: 3mm;
+	color:black;
+}
+
+/* Applies to the topic title in the second row of the upper table in the
+   non-scrolling header region. */
+span#nsrTitle
+{
+	color: #003399;
+	font-size: 120%;
+	font-weight: 600;
+}
+
+
+/* Applies to the body of a collapsible section */
+div.seeAlsoNoToggleSection
+{
+	margin-left:0;
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	0;
+	padding-right:	15px;
+	width:	100%;
+}
+
+div.section
+{
+	margin-left:0;
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	16px;
+	padding-right:	15px;
+	width:	100%;
+}
+
+/* #33997 */
+div.section dl dd table tr td p
+{
+    margin-left:0px;
+}
+
+.clsRef
+{
+	font-weight:bold;
+}
+.keyword
+{
+	font-weight:bold;
+}
+
+
+
+
+
+

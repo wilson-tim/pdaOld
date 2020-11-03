@@ -1,0 +1,38 @@
+body {
+  color : black; 
+  background-color : white;
+}
+
+hr { 
+  color : #259225;
+  background-color : #259225; 
+}
+
+textarea {
+  width:100%;
+}
+
+/* set the default text size for the webapp here. */
+/* 100% will be the text size set by the browser. */
+/* 200% will be twice the text size set by the browser. */
+body, hr, h1, h3, h4, td, input, select, textarea { 
+  font-family : sans-serif;
+  font-size : 100%;
+}
+
+h1, h3, h4 {
+  margin : 0.2ex;
+}
+
+h2 {
+  font-size : 150%;
+  margin : 0.2ex;
+}
+
+input, select, textarea { 
+  font-size : 100%;
+}
+
+.subscript {
+  font-size : 80%;
+}

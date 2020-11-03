@@ -1,0 +1,68 @@
+Doing a default
+===============
+
+Only do a default if comp_action_flag = "I" or "P".
+
+1) FORM pickFault1:
+  a) go to FORM streetLength.
+
+2) FORM streetLength:
+  a) check for multiple algorithms;
+  
+    select count(*)
+    from defa
+    where item_type = '<Item_type>'
+    and   notice_rep_no = '<Notice_no>'
+
+  b) allow user to select algorithm if more than 1.
+  
+  c) go to FORM defaultAdditional.
+
+4) FORM defaultAdditional:
+  a) check if allowed to default using the defp2 table
+  using the defp1.next_action_id to retrieve the right record.
+  
+  The check involves checking to see if the si_i.due_date falls
+  today and wether the defp2 allows default as an action.
+
+  b) calculate the points and values using the defp3 table
+  using the defp1.calc_id to retrieve the right record.
+  
+  c) retrieve the default volume from the keys table;
+    
+    select n_field
+    from keys
+    where service_c = 'ALL'
+    and   keyname = 'DEFAULT_VOLUME'
+  
+    the user can always alter the volume for the initial default.
+    
+  d) see if table defa allows the algorithm to have user interaction;
+  
+    defa.prompt_for_points
+    defa.prompt_for_value
+    
+  If defa.prompt_for_points = "Y" allow the user to alter the points.
+  If defa.prompt_for_value = "Y" allow the user to alter the value.
+  
+  e) check that there is enough volume left to default.
+  
+  total up the volumes on all the open defaults for the site/item we
+  are dealing with. Add on the volume requested and compare this value
+  with the total volume from the si_i record (si_i.volume). If the
+  value is greater than the total volume, or the defaulting volume
+  is 0.00 then trough an error.
+  
+  f) go to FORM defaultDate.
+
+3) FORM defaultDate:
+  a) calculate the rectify date and time using the defp4 table
+  using the defp1.cb_time_id to retrieve the right record.
+  
+  b) see if table defa allows the algorithm to have user interaction;
+  
+    defa.prompt_for_rectify
+    
+  If defa.prompt_for_rectify = "Y" allow the user to alter the points.
+  
+  c) add the default.

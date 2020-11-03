@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+<tlibversion>1.4</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>IfTags</shortname>
+<uri>http://www.servletsuite.com/servlets/iftags</uri>
+<info>Conditional tags</info>
+
+<tag>
+<name>IfParameterEquals</name>
+<tagclass>com.cj.iftags.IfParameterEquals</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>Executes body if parameter equals to the given value</info>
+
+<attribute>
+<name>name</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+<attribute>
+<name>value</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+<tag>
+<name>IfParameterNotEquals</name>
+<tagclass>com.cj.iftags.IfParameterNotEquals</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>Executes own body if parameter not equals to the given value</info>
+
+<attribute>
+<name>name</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+<attribute>
+<name>value</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+<tag>
+<name>IfParameterExists</name>
+<tagclass>com.cj.iftags.IfParameterExists</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>Executes own body if parameter exists</info>
+
+<attribute>
+<name>name</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+</tag>
+
+<tag>
+<name>IfParameterNotExists</name>
+<tagclass>com.cj.iftags.IfParameterNotExists</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>Executes own body if parameter does not exist</info>
+
+<attribute>
+<name>name</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+</tag>
+
+<tag>
+<name>IfTrue</name>
+<tagclass>com.cj.iftags.IfTrue</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>Executes own body if expression is true</info>
+
+<attribute>
+<name>cond</name>
+<required>true</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+</taglib>

@@ -1,0 +1,42 @@
+JSP WEB Application flow and Overview:
+
+Using the VSB (View Script Bean) Stucture:
+
+                        ________________
+                       |      VIEW      |<-----------------------+
+       +---------------| <form>View.jsp |________                |
+       |               |________________| SCRIPT |---<invalid>---+
+       |                 |   <form>Script.jsp    |------------<valid>--------->The next formScript
+       |  +--------------|_______________________|------+
+       |  |                                             |
+       |  |                                             |
+       |  |               _________________             |
+       |  +--USE(R/W)-->>|     STORAGE     |            |
+       |                 | <form>Bean.java |<<---INIT---+
+       +-----USE(R)---->>|_________________|
+
+
+KEY:
+---<condition>--->   Moves to the next form when the <condition> is true.
+---INIT--->>         Initializes the bean.
+---USE(<type>)--->>  Uses the bean. The type of use is defined as:
+                       R - Read Only
+                       W - Write Only
+                       R/W - Read and Write
+
+See the VSB_Structure.txt file for more information about the VSB structure and flow.
+
+
+Following is a map of the pages for the jobreq webapp:
+
+<...> This is not a page or form, but just a functional route, or note.
+(...) This is a normal JSP page
+[...] This is a VSB form
+--->  The lines indicate the flow of control in the application. With the vertical
+      lines if in doubt of the direction of flow it will be downward.
+ 
+ 
+                              
+           (index)--->[reqform]--->[newreq]--->---+
+                          |                       |
+                          +-----------<-----------+

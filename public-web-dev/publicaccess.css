@@ -1,0 +1,329 @@
+/*----------------------------------------------/
+          STYLES FOR GENERAL USE
+/----------------------------------------------*/
+body{
+    background-color:#ffffff;
+}
+.PageTitle{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background-color: #efefff;
+    border: 0px outset #f0f0e0;
+    height: 5%;
+}
+.UserInput{
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 10px;
+    min-height: 60%;
+}
+.Controls{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border: 0px outset #f0f0e0;
+    padding-top: 10px;
+    height: 30px;
+}
+.Next{
+    padding-right: 20px;
+    float: right;
+}
+.Back{
+    padding-left: 20px;
+    float: left;
+}
+.HelpText{
+}
+.error
+{
+	font: 14px Verdana;
+	font-weight: bold;
+	color: red;
+	text-align: center;
+	font-style: bold;
+}
+.getAccountRef{
+}
+.getAddressInfo{
+}
+.getAddress{
+}
+.getAvMake{
+}
+.getAvModel{
+}
+.getAvReg{
+}
+.getCompCode{
+}
+.getCustomerName{
+}
+.getCustomerPhone{
+}
+.getExactLocation{
+}
+.getHistory{
+}
+.getIncidentNotes{
+}
+.getItems{
+}
+.getService{
+}
+.getSiteItems{
+}
+.postIncident{
+}
+.reviewIncident{
+}
+.Banner{
+    width: 100%;
+    height: 100px;
+    border:2px outset #f0f0e0;
+}
+.Banner .title{
+    height: 100px;
+    position:absolute;
+    right:10px;
+}
+.HotLinks{
+    float: left;
+    width: 19%;
+    height: 80%;
+    background-color: #fffff0;
+}
+.HotLinks h4{
+    text-align: center;
+    display: none;
+    background-color: #e6e6e0;
+    border:2px outset #f0f0e0;
+}
+.ServiceWindow{
+    float: right;
+    width: 80%;
+    height: 80%;
+    border: 0px;
+}
+
+.collection_items{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+/*----------------------------------------------/
+          STYLES FOR NOTIFICATION AREA
+/----------------------------------------------*/
+.title
+{
+	font: 20px Verdana;
+	color: #094194;
+}
+
+
+.subTitle
+{
+	font: 22px Verdana;
+	color: gray;
+}
+
+.text
+{
+	font: 12px Verdana;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	color: gray;
+	text-align: justify;
+}
+
+.text2
+{
+	font: 14px Verdana;
+	margin-left: 0px;
+	margin-right: 15px;
+	margin-top: 15px;
+	color: black;
+	text-align: justify;
+}
+
+.plaintext
+{
+	font: 12px Verdana;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 15px;
+	color: gray;
+	text-align: justify;
+}
+
+.notice
+{
+	font: 12px Verdana;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	color: #f60;
+	text-align: justify;
+}
+
+.error
+{
+	font: 14px Verdana;
+	font-weight: bold;
+	color: red;
+	text-align: center;
+	font-style: bold;
+}
+
+/*----------------------------------------------/
+          STYLES FOR FORM/DATA AREA
+/----------------------------------------------*/
+
+.form
+{
+	font: 14px Verdana;
+	color: #094194;
+	margin: 15px;
+}
+
+.headings
+{
+	font: 14px Verdana;
+	font-style: bold;
+	color: #fff;
+	background: silver;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+.miniheads
+{
+	font: 14px Verdana;
+	font-style: bold;
+	color: black;
+	background: #ffffee;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 0;
+	border: 1px solid gray;
+}
+
+.input-name
+{
+	font: 12px Verdana;
+	font-style: bold;
+	color: black;
+}
+
+.rows
+{
+	font: 12px Verdana;
+	font-style: bold;
+	color: black;
+	border: 1px solid black;
+}
+
+.input-field
+{
+	border: 1px solid #094194;
+}
+
+.input-field:focus
+{
+	background: #ffffee;
+	color: green;
+}
+
+.input-field:hover
+{
+	background: #ffffee;
+	color: green;
+}
+
+.location-name
+{
+  font: 11px Verdana;
+	font-style: bold;
+	color: black;
+	margin: 5px;
+}
+
+.item-list
+{
+	font: 10px Verdana;
+	width: 280px;
+}
+
+/*----------------------------------------------/
+          STYLES FOR CONTROL AREA
+/----------------------------------------------*/
+
+.control
+{
+	font-size: 13px;
+	font-weight: bold;
+	display: inline;
+	background-color: silver;
+	color: white;
+	padding: 0 2px;
+	border: 1px solid black;
+	margin: 0px;
+	height: 22px;
+	width: 65px;
+}
+
+.control:hover
+{
+	background-color: #ffffcc;
+	color: #f60;
+}
+
+.page-control
+{
+	font-size: 13px;
+	font-weight: bold;
+	display: inline;
+	background-color: silver;
+	color: white;
+	padding: 0 2px;
+	border: 1px solid black;
+	margin: 0px;
+	height: 20px;
+	width: 30px;
+}
+
+.page-control:hover
+{
+	background-color: #ffffcc;
+	color: #f60;
+}
+
+/*----------------------------------------------/
+     ONE LONELLY STYLE FOR THE EXIT BUTTON
+/----------------------------------------------*/
+
+.exit
+{
+	color: #ddd;
+	background-color: #ffffcc;
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 18px;
+	font-weight: bold;
+	height: 40px;
+	width: 70px;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.exit:hover
+{
+	color: #f90;
+}

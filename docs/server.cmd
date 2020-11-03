@@ -1,0 +1,1 @@
+gawk -f server.awk server.xml > server.txt

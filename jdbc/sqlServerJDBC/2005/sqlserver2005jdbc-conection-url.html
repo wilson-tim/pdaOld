@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="ctl00_Head1"><!--0710-->
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="sqlserver2005jdbc-conection-url_files/Global-bn1668.css"><link rel="stylesheet" type="text/css" href="sqlserver2005jdbc-conection-url_files/Library-bn1668.css">
+<script language="javascript" type="text/javascript">var jsDomain='http://i2.msdn.microsoft.com';var jsBuildNumber='-bn1668.2';</script>
+<script language="javascript" type="text/javascript" src="sqlserver2005jdbc-conection-url_files/broker-bn1668.js"></script><script language="JavaScript" src="sqlserver2005jdbc-conection-url_files/SiteRecruit_PageConfiguration_p15808382mt-3332mt-bn1668.js"></script>
+<meta name="ROBOTS" content="NOINDEX,NOFOLLOW"><meta name="MN" content="944-6:48:35 AM"><meta name="ms.locale" content="en-us"><meta name="Search.ShortId" content="ms378428"><!-- Looking for metadata? Use the robot view instead http://currentsite/currenturl(robot).aspx -->
+
+<meta name="DCS.dcsuri" content="/en-us/library(d=default)/ms378428(l=en-us,v=SQL.90).aspx">
+<link rel="stylesheet" type="text/css" href="sqlserver2005jdbc-conection-url_files/mtps-bn1668.css"><link rel="alternate" media="print" href="http://msdn2.microsoft.com/en-us/library/ms378428%28printer%29.aspx"><title>Building the Connection URL</title>
+<style type="text/css">
+	.ctl00_bnr_tabs_ScopeMenu_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_bnr_tabs_ScopeMenu_1 { text-decoration:none; }
+	.ctl00_bnr_tabs_ScopeMenu_2 { height:22px;width:16px; }
+	.ctl00_bnr_tabs_ScopeMenu_3 { border-style:none; }
+	.ctl00_bnr_tabs_ScopeMenu_4 {  }
+	.ctl00_bnr_tabs_ScopeMenu_5 {  }
+	.ctl00_bnr_tabs_ScopeMenu_6 { border-style:none; }
+	.ctl00_bnr_tabs_ScopeMenu_7 {  }
+	.ctl00_bnr_tabs_ScopeMenu_8 { border-style:none; }
+	.ctl00_bnr_tabs_ScopeMenu_9 {  }
+
+</style><style type="text/css">
+.vb, .cs, .cpp, .nu
+{
+	display:none;
+}
+</style><style id="LanguageSpecificTextStyle" type="text/css">
+.nu
+{
+   display:inline;
+}
+</style></head><body>
+  <form name="aspnetForm" method="post" action="ms378428.aspx" id="aspnetForm">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMA9kFgJmD2QWAgIDD2QWCAIDD2QWBgIDD2QWAgIBDw8WBB4LTmF2aWdhdGVVcmwFKGphdmFzY3JpcHQ6TG9hZFBhZ2VHYXRlKCd0aWNrbGVyJywgbnVsbCkeBFRleHQFIkNsaWNrIGhlcmUgdG8gSW5zdGFsbCBTaWx2ZXJsaWdodC5kZAIHD2QWAmYPZBYCZg9kFgJmDw8WBh4IQ3NzQ2xhc3MFH1F1aWNrTGlua3NGbHlvdXRTdGF0aWNMaW5rX21zZG4eB1Rvb2xUaXAFGU1pY3Jvc29mdC5jb20gUXVpY2sgTGlua3MeBF8hU0ICAmRkAgkPZBYEAgEPDxYEHwIFDGhvbWVwYWdldGFicx8EAgJkFgYCAw8PFgIfAwULU2VhcmNoIE1TRE5kZAIEDw8WBB8DBRRDbGljayBoZXJlIHRvIHNlYXJjaB4ISW1hZ2VVcmwFMy9QbGF0Zm9ybS9Db250cm9scy9UYWJzL3Jlc291cmNlcy9zZWFyY2hfYnV0dG9uLmdpZmRkAgYPPCsADQIADxYEHwIFCnNjb3BlQXJyb3cfBAICZAwUKwACBQMwOjAUKwACFgQfAQUGJm5ic3A7HgVWYWx1ZWUUKwAEBQswOjAsMDoxLDA6MhQrAAIWBh8BBQtTZWFyY2ggTVNETh8GBQIwMB4IU2VsZWN0ZWRnZBQrAAIWBB8BBRRTZWFyY2ggTWljcm9zb2Z0LmNvbR8GBQMxMDVkFCsAAhYEHwEFC0xpdmUgU2VhcmNoHwYFAzExNWRkAgMPFgIeBWNsYXNzBRpzdWJUYWJzU2VjdGlvbl9saWJyYXJ5TW9kZWQCBQ9kFgICAQ9kFgQCAQ9kFgYCAQ8PFgQfAAU/aHR0cDovL21zZG4yLm1pY3Jvc29mdC5jb20vZW4tdXMvbGlicmFyeS9tczM3ODQyOChwcmludGVyKS5hc3B4HwMFElByaW50IFRoaXMgQ29udGVudBYCHgdvbmNsaWNrBWBqYXZhc2NyaXB0OiBXZWJGb3JtX0RvQ2FsbGJhY2soJ2N0bDAwJGliMScsJ3ByaW50ZXJGcmllbmRseVBhZ2UnLEdldFNlcnZlckRhdGEsbnVsbCxudWxsLGZhbHNlKTsWAgICDxYCHwEFGFByaW50ZXIgRnJpZW5kbHkgVmVyc2lvbmQCAw8PFgIeB1Zpc2libGVoZGQCBQ8PFgQfAAWgAW1haWx0bzo/c3ViamVjdD1CdWlsZGluZyB0aGUgQ29ubmVjdGlvbiBVUkwmYm9keT1UaGlzIFVSTCBwb2ludHMgdG8gYSBwYWdlIG9uIE1TRE4gdGhhdCBtYXkgaW50ZXJlc3QgeW91OiBodHRwOi8vbXNkbjIubWljcm9zb2Z0LmNvbS9lbi11cy9saWJyYXJ5L21zMzc4NDI4LmFzcHgfAwURU2VuZCBUaGlzIENvbnRlbnQWAh8JBVlqYXZhc2NyaXB0OiBXZWJGb3JtX0RvQ2FsbGJhY2soJ2N0bDAwJGliMScsJ3NlbmRUaGlzUGFnZScsR2V0U2VydmVyRGF0YSxudWxsLG51bGwsZmFsc2UpOxYCAgIPFgIfAQUEU2VuZGQCAw9kFgJmD2QWAgIBD2QWAgIBD2QWBGYPZBYCZg8PFgIfAwU4VHVybiBzY3JpcHRpbmcgb24gIHRvIHN1Ym1pdCBhIHJhdGluZyBhbmQgc2VuZCBmZWVkYmFjay5kFgQCAQ8PFgIfAQUfQ2xpY2sgdG8gUmF0ZSBhbmQgR2l2ZSBGZWVkYmFja2RkAgMPFgIfCQVaaWYoJGdldCgnY3RsMDBfaWIxX0ZseW91dF90YkNvbW1lbnRzJykhPW51bGwpICRnZXQoJ2N0bDAwX2liMV9GbHlvdXRfdGJDb21tZW50cycpLmZvY3VzKCk7FgICAQ8PFgIfAwUhQ2xpY2sgYSBzdGFyIGFuZCBwcm92aWRlIGZlZWRiYWNrZBYCZg8WBh4KQ2FsbGJhY2tJRAUYY3RsMDAkaWIxJEZseW91dCRSYXRpbmcxHgNUYWcFIGNvbnRlbnRSYXRpbmdtczM3ODQyOFNRTC45MGVuLXVzHglNYXhSYXRpbmcCBWQCAQ9kFgRmDw8WAh8BBR1HaXZlIGZlZWRiYWNrIG9uIHRoaXMgY29udGVudGRkAgIPDxYGHwEFBFNlbmQfAwURU2VuZCBUaGlzIENvbnRlbnQeDU9uQ2xpZW50Q2xpY2sFggFyZXR1cm4gSXNQYWdlUmF0ZWQoImN0bDAwX2liMV9GbHlvdXRfUmF0aW5nMSIsImN0bDAwX2liMV9GbHlvdXRfbGJPcHRUZXh0IiwnUGxlYXNlIHJhdGUgdGhlIHBhZ2UgZmlyc3QuJywgImN0bDAwJGliMSRGbHlvdXQiLHRoaXMpZGQCBw9kFgJmDw9kFgIfCAUNcmVzaXphYmxlQXJlYRYEZg8PZBYCHgVzdHlsZQUMd2lkdGg6MzAwcHg7ZAICDw9kFgIeB29ua2V5dXAFRSByYV9rZXlQcmVzcyh3aW5kb3cuZXZlbnQsICJjdGwwMF9yczFfcmFTcGxpdHRlciIsImN0bDAwX3JzMV9yYUxlZnQiKRYGAgcPDxYCHwpoZGQCCw8PFgIfCmhkFgJmD2QWAgIBDxYCHglpbm5lcmh0bWwFPFdhbnQgbW9yZT8gSGVyZSBhcmUgc29tZSBhZGRpdGlvbmFsIHJlc291cmNlcyBvbiB0aGlzIHRvcGljOmQCEQ9kFgQCAQ8WAh8IBQ9NVFBTX0Zvb3RlckZhZGUWCgIBDw8WBB8CBRBNVFBTX0Zvb3RlckxpbmtzHwQCAmRkAgMPDxYIHwEFOCZjb3B5OyAyMDA4ICBNaWNyb3NvZnQgQ29ycG9yYXRpb24uIEFsbCByaWdodHMgcmVzZXJ2ZWQuHwMFNMKpIDIwMDggIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC4fAgUUTVRQU19Gb290ZXJDb3B5cmlnaHQfBAICZGQCBQ8PFgofAAUraHR0cDovL3d3dy5taWNyb3NvZnQuY29tL2luZm8vY3B5cmlnaHQubXNweB8DBQxUZXJtcyBvZiBVc2UfAQUMVGVybXMgb2YgVXNlHwIFEE1UUFNfRm9vdGVyTGlua3MfBAICZGQCBw8PFgofAAVCaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL2xpYnJhcnkvdG9vbGJhci8zLjAvdHJhZGVtYXJrcy9lbi11cy5tc3B4HwMFClRyYWRlbWFya3MfAQUKVHJhZGVtYXJrcx8CBRBNVFBTX0Zvb3RlckxpbmtzHwQCAmRkAgkPDxYKHwAFKmh0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9pbmZvL3ByaXZhY3kubXNweB8DBRFQcml2YWN5IFN0YXRlbWVudB8BBRFQcml2YWN5IFN0YXRlbWVudB8CBRBNVFBTX0Zvb3RlckxpbmtzHwQCAmRkAgMPZBYCAgEPDxYKHg1BbHRlcm5hdGVUZXh0BRVNaWNyb3NvZnQgQ29ycG9yYXRpb24fBQUuL1BsYXRmb3JtL0NvbnRyb2xzL0Zvb3Rlci9yZXNvdXJjZXMvbXNsb2dvLmdpZh8DBRVNaWNyb3NvZnQgQ29ycG9yYXRpb24fAgUPTVRQU19Gb290ZXJMb2dvHwQCAmRkAgwPZBYCAgIPZBYQAgMPDxYEHwUFSS9QbGF0Zm9ybS9Db250cm9scy9QYWdlR2F0ZS9yZXNvdXJjZXMvZG93bmxvYWRfc2xfbG9nb190YWdsaW5lX2JvdHRvbS5wbmcfEgVDSW5zdGFsbCBNaWNyb3NvZnQgU2lsdmVybGlnaHQgZm9yIGEgYmV0dGVyIGV4cGVyaWVuY2Ugb24gdGhpcyBzaXRlLmRkAgUPDxYCHwEFV0V4cGVyaWVuY2UgU2lsdmVybGlnaHQgZW5hYmxlZCBxdWlja3N0YXJ0IHR1dG9yaWFscywgdmlkZW8gdHJhaW5pbmcsIHNob3djYXNlcyAmIG1vcmUuIGRkAgcPDxYEHwAFLGh0dHA6Ly9nby5taWNyb3NvZnQuY29tL2Z3bGluay8/TGlua0lEPTkyNzk5HwUFPC9QbGF0Zm9ybS9Db250cm9scy9QYWdlR2F0ZS9yZXNvdXJjZXMvZG93bmxvYWRfc2xfYnV0dG9uLnBuZxYCHgNhbHQFJkNsaWNrIHRvIEluc3RhbGwgTWljcm9zb2Z0IFNpbHZlcmxpZ2h0ZAIJDw8WAh8BBS5CeSBjbGlja2luZyAiQ2xpY2sgdG8gSW5zdGFsbCIgeW91IGFjY2VwdCB0aGUgZGQCCw8PFgQfAAUsaHR0cDovL2dvLm1pY3Jvc29mdC5jb20vZndsaW5rLz9MaW5rSUQ9OTI4MDMfAQUdU2lsdmVybGlnaHQgTGljZW5zZSBBZ3JlZW1lbnRkZAINDw8WAh8BBSouPGJyIC8+U2lsdmVybGlnaHQgdXBkYXRlcyBhdXRvbWF0aWNhbGx5LCBkZAIPDw8WBB8ABSxodHRwOi8vZ28ubWljcm9zb2Z0LmNvbS9md2xpbmsvP0xpbmtJRD05MjgwNR8BBQpsZWFybiBtb3JlZGQCEQ8PFgIfAQUBLmRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRtjdGwwMCRibnIkdGFicyRTZWFyY2hCdXR0b24FGGN0bDAwJGJuciR0YWJzJFNjb3BlTWVudQ8PZAUDXDAwZFLukv0iaJGT4eS+jUzcAw2nQxx2" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="sqlserver2005jdbc-conection-url_files/WebResource.js" type="text/javascript"></script>
+
+
+<script src="sqlserver2005jdbc-conection-url_files/Silverlight-bn1668.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var gDomain="m.webtrends.com";
+var gDcsId="dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+var gFpc="WT_FPC";
+/*<![CDATA[*/
+if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<scr"+"ipt type='text/javascript' src='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");}
+/*]]>*/
+var detectedLocale = 'en-us';
+var wtsp="_sto_msdn_sql_library";
+var gTrackEvents = 0;
+//]]>
+</script>
+
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var errSameContent = "Content has not changed";
+var errEmptySubject = "Title can not be empty";
+var errEmptyContent = "Content cannot be empty";
+//]]>
+</script>
+
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_002.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_003.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ssmoz-bn1668.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/sscorlib-bn1668.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/InlineEditor-bn1668.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_010.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_002.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_014.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_006.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_004.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_013.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_005.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_007.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_008.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_003.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_012.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_009.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/ScriptResource_011.axd" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/js_002.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/js.js" type="text/javascript"></script>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ib1$up1'], [], [], 90);
+//]]>
+</script>
+
+    <div id="rheader">
+      
+<div class="mtpsBannerMain">
+  <div class="mtpsBannerLeftSection">
+    <span class="UserRecognitionStaticText">Welcome </span>
+
+  &nbsp;|&nbsp;
+  
+<a id="idPPScarab" href="http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1202914115&amp;rver=5.0.3265.0&amp;wp=MCLBI&amp;wreply=http:%2F%2Fmsdn2.microsoft.com%2Fen-us%2Flibrary%2Fms378428.aspx&amp;lc=1033&amp;cb=wizid%3Db28a479f-4189-428a-8f89-4ace6507a68c%26returnurl%3Dhttp%253a%252f%252fmsdn2.microsoft.com%252fen-us%252flibrary%252fms378428.aspx%26wp%3DMCLBI%26lcid%3D1033&amp;id=74335"><span class="MTPS_GlobalToolbarLinks_msdn">Sign In</span></a>
+
+  </div>
+  
+    
+
+<span id="ticklerWrapper" style="visibility: hidden;">
+<a style="color: rgb(0, 0, 255);" id="ctl00_bnr_ctl00_InstallLink" onclick="javascript:Track('ctl00_bnr_ctl00|_InstallLink',this);" class="slLink" href="javascript:LoadPageGate('tickler', null)">Click here to Install Silverlight.</a>
+<span id="ctl00_bnr_ctl00_lblSeparatorLeft">&nbsp;&nbsp;|&nbsp;</span>
+</span>
+
+
+    <div class="LocaleManagementFlyoutStatic" style="position: relative;" id="ctl00$bnr$LocaleManagement$ctl00"><a class="LocaleManagementFlyoutStaticLink" href="javascript:void(0)">United States - English&nbsp;</a><img class="LocaleManagementFlyoutPopArrow" src="sqlserver2005jdbc-conection-url_files/popdownarrow.gif" alt="Dropdown Arrow" style="border-width: 0px; height: 4px; width: 7px;"><div id="ctl00$bnr$LocaleManagement$ctl00_Popup" class="LocaleManagementFlyoutPopup" style="position: absolute; visibility: hidden; left: -65534px;">
+		<table style="width: 175px;" border="0">
+			<tbody><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl05','')">Argentina (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl06','')">Australia (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl07','')">Brasil (Português)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl08','')">Canada (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl09','')">Canada (Français)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl10','')">中国 (简体中文)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl11','')">Colombia (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl12','')">Deutschland (Deutsch)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl13','')">España (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl14','')">France (Français)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl15','')">India (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl16','')">México (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl17','')">Perú (Español)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl18','')">Россия (Pусский)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl19','')">United Kingdom (English)</a></td>
+			</tr><tr>
+				<td><a href="javascript:__doPostBack('ctl00$bnr$LocaleManagement$ctl00$ctl20','')">United States (English)</a></td>
+			</tr><tr>
+				<td class="LocaleManagementFlyoutPopupHr"></td>
+			</tr><tr>
+				<td><a href="http://msdn2.microsoft.com/en-us/preferences/lang/">More...</a></td>
+			</tr>
+		</tbody></table></div><div id="ctl00$bnr$LocaleManagement$ctl00_Anim" class="TFlyPopupAnimate"></div>
+</div>
+
+
+<span id="ctl00_bnr_lblSeparatorRight">&nbsp;|&nbsp;</span><div class="QuickLinksFlyoutStatic_msdn" style="position: relative;" id="ctl00$bnr$QuickLinks$ctrlFlyout"><a id="ctl00_bnr_QuickLinks_ctrlFlyout_ctrlTitle" title="Microsoft.com Quick Links" class="QuickLinksFlyoutStaticLink_msdn" href="javascript:void(0)"><span>Microsoft.com&nbsp;</span><img class="QuickLinksPopArrow" src="sqlserver2005jdbc-conection-url_files/popdownarrow-msdn-right.gif" alt="Dropdown arrow" style="border-width: 0px; height: 4px; width: 7px;"></a><div id="ctl00$bnr$QuickLinks$ctrlFlyout_Popup" class="QuickLinksFlyoutPopup" style="position: absolute; visibility: hidden; left: -65534px;">
+		<table><tbody><tr><td valign="top"><h4>Product Families</h4><div class="list"><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447412">Office</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447413">Windows</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447414">Windows Server System</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447415">Windows Mobile</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447416">Developer Tools</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447417">Business Solutions</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447418">Games &amp; Xbox</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447419">MSN</a></div></div></td><td valign="top"><h4>Resources</h4><div class="list"><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447420">Microsoft Update</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447421">Office Update</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447422">Download Center</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447423">Help &amp; Support</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447424">Security</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447425">Volume Licensing</a></div></div><h4>About Microsoft</h4><div class="list"><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447426">Company Information</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447427">Investor Relations</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447428">PressPass for journalists</a></div></div></td><td valign="top"><h4>Popular Places</h4><div class="list"><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447429">MSDN (Developers)</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447430">TechNet (IT Pros)</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447431">Microsoft At Home</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447432">Microsoft At Work</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447433">Business &amp; Industry</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447434">Microsoft partners</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447435">Microsoft hardware</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447436">Product catalog</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447437">Mactopia</a></div><div class="listitem"><a href="http://go.microsoft.com/?linkid=4447438">Microsoft.com site map</a></div></div></td></tr><tr><td colspan="10" class="QuickLinksFlyoutPopupHr"></td></tr><tr><td valign="top"><h4>Popular Searches</h4><div class="list"><div class="listitem"><a href="http://search.microsoft.com/results.aspx?mkt=en-US&amp;setlang=en-US&amp;q=templates">Templates</a></div><div class="listitem"><a href="http://search.microsoft.com/results.aspx?q=activesync&amp;l=1&amp;mkt=en-US&amp;FORM=QBME1">ActiveSync</a></div><div class="listitem"><a href="http://search.microsoft.com/results.aspx?q=clip+art&amp;l=1&amp;mkt=en-US&amp;FORM=QBME1">Clip art</a></div></div></td><td valign="top"><h4>Popular Downloads</h4><div class="list"><div class="listitem"><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=435bfce7-da2b-4a6a-afa4-f7f14e605a0d&amp;displaylang=en">Windows Defender Beta 2</a></div><div class="listitem"><a href="http://www.microsoft.com/downloads/results.aspx?pocId=&amp;freetext=directx&amp;DisplayLang=en">DirectX End-User Runtime</a></div><div class="listitem"><a href="http://www.microsoft.com/downloads">More popular downloads</a></div></div></td></tr></tbody></table></div><div id="ctl00$bnr$QuickLinks$ctrlFlyout_Anim" class="TFlyPopupAnimate"></div>
+</div>
+
+
+
+</div>
+
+  <!--[if IE 7]>
+  <style type="text/css">
+    .scopeArrow
+    {
+        margin-top: -1px;
+        padding-top: 2px;
+        padding-right: 18px;
+    }
+    
+    .TabStrip_SearchBox
+    {
+       padding: 0px 2px 0 2px;
+       height: 19px;
+    }
+  </style>
+  <![endif]-->
+<div id="ctl00_bnr_tabs_Panel1" class="homepagetabs" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_bnr_tabs_SearchButton')">
+	
+    <table class="tabsContainer" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td class="searchSection">
+            
+            <input name="ctl00$bnr$tabs$SearchTextBox" value="Search MSDN with Live Search" id="ctl00_bnr_tabs_SearchTextBox" title="Search MSDN" class="TabStrip_SearchBox" onfocus="tabs_onFocusSearch(this);" onblur="tabs_onBlurSearch(this);" type="text"><ul style="border: 1px solid buttonshadow; margin: 0px; padding: 0px; text-align: left; visibility: hidden; cursor: default; list-style-type: none; list-style-image: none; list-style-position: outside; background-color: window; color: windowtext; position: absolute;" id="ctl00_bnr_tabs_SearchAutoComplete_completionListElem"></ul><input name="ctl00$bnr$tabs$SearchButton" id="ctl00_bnr_tabs_SearchButton" title="Click here to search" class="TabStrip_SearchButton" src="sqlserver2005jdbc-conection-url_files/search_button.gif" style="border-width: 0px;" type="image">
+		                <a href="#ctl00_bnr_tabs_ScopeMenu_SkipLink"><img alt="Skip Navigation Links" src="sqlserver2005jdbc-conection-url_files/WebResource.gif" style="border-width: 0px;" height="0" width="0"></a><table id="ctl00_bnr_tabs_ScopeMenu" class="scopeArrow ctl00_bnr_tabs_ScopeMenu_2" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_bnr_tabs_ScopeMenun0">
+			<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="white-space: nowrap; width: 100%;"><a class="ctl00_bnr_tabs_ScopeMenu_1" href="javascript:__doPostBack('ctl00$bnr$tabs$ScopeMenu','')">&nbsp;&nbsp;</a></td>
+				</tr>
+			</tbody></table></td>
+		</tr>
+	</tbody></table><div id="ctl00_bnr_tabs_ScopeMenun0Items" class="ctl00_bnr_tabs_ScopeMenu_0 scopeFlyout ctl00_bnr_tabs_ScopeMenu_5">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_bnr_tabs_ScopeMenun1">
+				<td><table class="scopeItem ctl00_bnr_tabs_ScopeMenu_4 scopeSelected ctl00_bnr_tabs_ScopeMenu_7" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="white-space: nowrap; width: 100%;"><a class="ctl00_bnr_tabs_ScopeMenu_1 scopeItem ctl00_bnr_tabs_ScopeMenu_3 scopeSelected ctl00_bnr_tabs_ScopeMenu_6" href="javascript:__doPostBack('ctl00$bnr$tabs$ScopeMenu','\\00')" style="border-style: none; font-size: 1em;">Search MSDN</a></td>
+					</tr>
+				</tbody></table></td>
+			</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_bnr_tabs_ScopeMenun2">
+				<td><table class="scopeItem ctl00_bnr_tabs_ScopeMenu_4" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="white-space: nowrap; width: 100%;"><a class="ctl00_bnr_tabs_ScopeMenu_1 scopeItem ctl00_bnr_tabs_ScopeMenu_3" href="javascript:__doPostBack('ctl00$bnr$tabs$ScopeMenu','\\105')" style="border-style: none; font-size: 1em;">Search Microsoft.com</a></td>
+					</tr>
+				</tbody></table></td>
+			</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="ctl00_bnr_tabs_ScopeMenun3">
+				<td><table class="scopeItem ctl00_bnr_tabs_ScopeMenu_4" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="white-space: nowrap; width: 100%;"><a class="ctl00_bnr_tabs_ScopeMenu_1 scopeItem ctl00_bnr_tabs_ScopeMenu_3" href="javascript:__doPostBack('ctl00$bnr$tabs$ScopeMenu','\\115')" style="border-style: none; font-size: 1em;">Live Search</a></td>
+					</tr>
+				</tbody></table></td>
+			</tr>
+		</tbody></table><div class="scopeItem ctl00_bnr_tabs_ScopeMenu_4 scopeSelected ctl00_bnr_tabs_ScopeMenu_7 ctl00_bnr_tabs_ScopeMenu_0" id="ctl00_bnr_tabs_ScopeMenun0ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align: center;">
+			<img src="sqlserver2005jdbc-conection-url_files/WebResource_003.gif" alt="Scroll up">
+		</div><div class="scopeItem ctl00_bnr_tabs_ScopeMenu_4 scopeSelected ctl00_bnr_tabs_ScopeMenu_7 ctl00_bnr_tabs_ScopeMenu_0" id="ctl00_bnr_tabs_ScopeMenun0ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align: center;">
+			<img src="sqlserver2005jdbc-conection-url_files/WebResource_002.gif" alt="Scroll down">
+		</div>
+	</div><a id="ctl00_bnr_tabs_ScopeMenu_SkipLink"></a>
+        </td>
+        <td class="mainTabsSection">
+          <h1 id="ctl00_bnr_tabs_titleHolder">SQL Server Developer Center</h1>
+            <div id="ctl00_bnr_tabs_manTabsHolder" style="margin: 0pt; padding: 0pt; overflow: auto; height: 25px; position: relative;">
+          
+            <a id="ctl00_bnr_tabs_ctl00" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl00',this);" title="Home - MSDN Library" href="http://msdn2.microsoft.com/en-us/sqlserver/aa336270.aspx">Home</a><a id="ctl00_bnr_tabs_ctl01" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl01',this);" title="Library - MSDN Library" class="selectedTab" href="http://msdn2.microsoft.com/en-us/library/bb545450.aspx">Library</a><a id="ctl00_bnr_tabs_ctl02" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl02',this);" title="Learn - MSDN Library" href="http://msdn2.microsoft.com/en-us/sqlserver/bb895927.aspx">Learn</a><a id="ctl00_bnr_tabs_ctl03" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl03',this);" title="Downloads - MSDN Library" href="http://msdn2.microsoft.com/en-us/sqlserver/bb671254.aspx">Downloads</a><a id="ctl00_bnr_tabs_ctl04" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl04',this);" title="Support - MSDN Library" href="http://msdn2.microsoft.com/en-us/sqlserver/bb895923.aspx">Support</a><a id="ctl00_bnr_tabs_ctl05" onclick="javascript:Track('|TabStrip Link|ctl00_bnr_tabs_manTabsHolder|ctl00_bnr_tabs_ctl05',this);" title="Community - MSDN Library" href="http://msdn2.microsoft.com/en-us/sqlserver/bb671050.aspx">Community</a></div>
+        </td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+<div id="ctl00_bnr_tabs_tabsSubTabs" class="subTabsSection_libraryMode">
+
+  <div class="tabsDivider"></div>
+
+   
+  
+   
+
+</div>
+<div id="CenterBrand_SiteBrand">
+	<a href="http://msdn2.microsoft.com/"></a>
+</div>
+
+      
+      
+
+<!--[if IE]>
+       <style>
+          .tbfont{	font-size: 70%;}
+        </style><![endif]-->
+
+<div id="ctl00_ib1_Panel1" class="miniRatings">
+	
+  <div id="ctl00_ib1_miniRatings_left" class="miniRatings_left">
+		
+    <a id="ctl00_ib1_hlPrint" title="Print This Content" onclick="javascript: WebForm_DoCallback('ctl00$ib1','printerFriendlyPage',GetServerData,null,null,false);" href="http://msdn2.microsoft.com/en-us/library/ms378428%28printer%29.aspx"><img id="ctl00_ib1_imgPrint" src="sqlserver2005jdbc-conection-url_files/rtg_print.gif" style="border-width: 0px;">&nbsp;
+      Printer Friendly Version</a>
+    
+    <a id="ctl00_ib1_hlSendCont" title="Send This Content" onclick="javascript: WebForm_DoCallback('ctl00$ib1','sendThisPage',GetServerData,null,null,false);" href="mailto:?subject=Building%20the%20Connection%20URL&amp;body=This%20URL%20points%20to%20a%20page%20on%20MSDN%20that%20may%20interest%20you:%20http://msdn2.microsoft.com/en-us/library/ms378428.aspx"><img id="ctl00_ib1_imgSendCont" src="sqlserver2005jdbc-conection-url_files/rtg_email.gif" style="border-width: 0px;">&nbsp;
+      Send</a>
+    
+  
+	</div>
+  <div id="ctl00_ib1_up1">
+		
+      <div id="ctl00_ib1_miniRatings_right" class="miniRatings_right">
+			
+        <div class="ratingFlyoutStatic" style="position: relative;" id="ctl00$ib1$Flyout"><div id="ctl00_ib1_Flyout_rtgContainer" title="Click a star and provide feedback" style="display: block; text-align: right;">
+					
+              <table style="float: right;">
+                <tbody><tr>
+                  <td style="text-align: right; line-height: 70%;">
+                    <span id="ctl00_ib1_Flyout_rateTitleLabel" class="tbFont">Click to Rate and Give Feedback</span>
+                  </td>
+                  <td id="ctl00_ib1_Flyout_tdRtg" style="width: 85px;" onclick="if($get('ctl00_ib1_Flyout_tbComments')!=null) $get('ctl00_ib1_Flyout_tbComments').focus();">
+                  
+                      <div id="ctl00_ib1_Flyout_Rating1" title="Click a star and provide feedback" dir="ltr">
+						<input name="ctl00$ib1$Flyout$Rating1_RatingExtender_ClientState" id="ctl00_ib1_Flyout_Rating1_RatingExtender_ClientState" value="3" type="hidden"><a href="#" id="ctl00_ib1_Flyout_Rating1_A" title="Click a star and provide feedback" style="text-decoration: none;"><span id="ctl00_ib1_Flyout_Rating1_Star_1" class="ratingStar filledRatingStar" style="float: left;">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_2" class="ratingStar filledRatingStar" style="float: left;">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_3" class="ratingStar filledRatingStar" style="float: left;">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_4" class="ratingStar emptyRatingStar" style="float: left;">&nbsp;</span><span id="ctl00_ib1_Flyout_Rating1_Star_5" class="ratingStar emptyRatingStar" style="float: left;">&nbsp;</span></a>
+					</div>
+                      
+                  </td>
+					
+                </tr>
+              </tbody></table>
+            
+				</div>
+            <div style="display: block; float: none; clear: both;">
+            </div>
+          <div id="ctl00$ib1$Flyout_Popup" class="ratingFlyoutPopup" style="position: absolute; visibility: hidden; left: -65534px;">
+					<span id="ctl00_ib1_Flyout_lbOptText" class="OptionalText">Give feedback on this content</span><textarea name="ctl00$ib1$Flyout$tbComments" rows="2" cols="20" id="ctl00_ib1_Flyout_tbComments" class="Comment"></textarea><input name="ctl00$ib1$Flyout$btnSubmit" value="Send" onclick="return IsPageRated(&quot;ctl00_ib1_Flyout_Rating1&quot;,&quot;ctl00_ib1_Flyout_lbOptText&quot;,'Please rate the page first.', &quot;ctl00$ib1$Flyout&quot;,this);" id="ctl00_ib1_Flyout_btnSubmit" title="Send This Content" class="Button" type="submit"></div><div id="ctl00$ib1$Flyout_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			
+      
+		</div>
+    
+	</div>
+  <div style="display: block; clear: both; visibility: hidden;"></div>
+
+</div>
+
+      
+    </div>
+    <div id="contents">
+      <div id="ctl00_rs1_ra1" class="resizableArea">
+	<div id="ctl00_rs1_raLeft" class="leftSection" style="width: 300px;">
+		
+          <img id="ctl00_rs1_TocVector1_o" class="hidden" src="sqlserver2005jdbc-conection-url_files/o.gif" style="border-width: 0px;">
+<img id="ctl00_rs1_TocVector1_c" class="hidden" src="sqlserver2005jdbc-conection-url_files/c.gif" style="border-width: 0px;">
+<img id="ctl00_rs1_TocVector1_s" class="hidden" src="sqlserver2005jdbc-conection-url_files/s.gif" style="border-width: 0px;">
+<img id="ctl00_rs1_TocVector1_e" class="hidden" src="sqlserver2005jdbc-conection-url_files/e.gif" style="border-width: 0px;">
+<div id="holder" onclick="TocClick(event)">
+<div id="ctl00_rs1_TocVector1_root">
+			<ul class="toc" id="tocVectorTreeId"><li name="ms310241(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms123401.aspx" target="_top">MSDN Library</a><ul class="toc"><li name="aa187916(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa187916.aspx" target="_top">Development Tools and Languages</a></li><li name="ms376734(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms376734.aspx" target="_top">Mobile and Embedded Development</a></li><li name="aa139615(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa139615.aspx" target="_top">.NET Development</a></li><li name="ms400535(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb726434%28office.12%29.aspx" target="_top">Office Development</a></li><li name="aa155072(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa155072.aspx" target="_top">Servers and Enterprise Development</a><ul class="toc"><li name="aa155074(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa286494.aspx" target="_top">Enterprise Architecture, Patterns, and Practices</a></li><li name="aa155098(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa286502.aspx" target="_top">Enterprise Management</a></li><li name="bb430722(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb905520.aspx" target="_top">BizTalk Server</a></li><li name="bb496796(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa286557.aspx" target="_top">Commerce Server</a></li><li name="aa155147(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa445859.aspx" target="_top">Connected Services Framework</a></li><li name="bb496805(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb496805.aspx" target="_top">Content Management Server</a></li><li name="bb417328(EXCHG.80,n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb418718%28EXCHG.80%29.aspx" target="_top">Exchange Server</a></li><li name="bb430736(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa286574.aspx" target="_top">Host Integration Server</a></li><li name="aa155190(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa155190.aspx" target="_top">Hyper-V Server</a></li><li name="aa155217(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb971664.aspx" target="_top">Industry Solutions Group</a></li><li name="aa155227(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa155227.aspx" target="_top">Internet Security and Acceleration Server</a></li><li name="aa155229(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms950363.aspx" target="_top">Microsoft Dynamics</a></li><li name="bb931095(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb931093.aspx" target="_top">Microsoft Enterprise Search</a></li><li name="bb507678(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa286512.aspx" target="_top">Microsoft MapPoint</a></li><li name="aa155303(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa155303.aspx" target="_top">Microsoft Compute Cluster Server 2003</a></li><li name="aa306570(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa306570.aspx" target="_top">Software Testing</a></li><li name="bb507687(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms950383.aspx" target="_top">Speech Server</a></li><li name="bb418490(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb545450.aspx" target="_top">SQL Server</a><ul class="toc"><li name="bb418491(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb418491.aspx" target="_top">SQL Server 2008</a></li><li name="bb418498(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb418498.aspx" target="_top">SQL Server 2005</a><ul class="toc"><li name="bb418499(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb418499.aspx" target="_top">Product Documentation</a><ul class="toc"><li name="ms203721(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms203721%28SQL.90%29.aspx" target="_top">SQL Server 2005 Documentation</a></li><li name="bb469732(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb469732.aspx" target="_top">SQL Server 2005 JDBC Driver Documentation</a><ul class="toc"><li name="ms378202(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378749%28SQL.90%29.aspx" target="_top">Overview of the JDBC Driver</a></li><li name="ms378203(n)"><img src="sqlserver2005jdbc-conection-url_files/o.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378672%28SQL.90%29.aspx" target="_top">Connecting to SQL Server with the JDBC Driver</a><ul class="toc"><li name="ms378428"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a class="tocSelected" href="http://msdn2.microsoft.com/en-us/library/ms378428.aspx" target="_top">Building the Connection URL</a></li><li name="ms378988"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378988.aspx" target="_top">Setting the Connection Properties</a></li><li name="ms379052"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms379052.aspx" target="_top">Setting the Data Source Properties</a></li><li name="ms378956"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378956.aspx" target="_top">Working with a Connection</a></li><li name="ms378484"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378484.aspx" target="_top">Using Connection Pooling</a></li><li name="aa342332"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa342332.aspx" target="_top">Using Database Mirroring (JDBC)</a></li></ul></li><li name="ms378204(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378599%28SQL.90%29.aspx" target="_top">Understanding the JDBC Driver Data Types</a></li><li name="ms378205(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378623%28SQL.90%29.aspx" target="_top">Using Statements with the JDBC Driver</a></li><li name="ms378208(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378737%28SQL.90%29.aspx" target="_top">Managing Result Sets with the JDBC Driver</a></li><li name="ms378209(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378799%28SQL.90%29.aspx" target="_top">Performing Transactions with the JDBC Driver</a></li><li name="ms378210(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378539%28SQL.90%29.aspx" target="_top">Handling Metadata with the JDBC Driver</a></li><li name="ms378211(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378751%28SQL.90%29.aspx" target="_top">Securing JDBC Driver Applications</a></li><li name="ms378212(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378877%28SQL.90%29.aspx" target="_top">Improving Performance and Reliability with the JDBC Driver</a></li><li name="ms378213(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378522%28SQL.90%29.aspx" target="_top">Diagnosing Problems with the JDBC Driver</a></li><li name="ms378214(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms378214%28SQL.90%29.aspx" target="_top">Sample JDBC Driver Applications</a></li><li name="aa342347(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa342347%28SQL.90%29.aspx" target="_top">JDBC Driver API Reference</a></li></ul></li></ul></li><li name="bb418503(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb418503.aspx" target="_top">Technical Articles</a></li></ul></li><li name="bb431894(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/ms950404.aspx" target="_top">SQL Server 2000</a></li><li name="bb469764(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb469764.aspx" target="_top">SQL Server 7.0</a></li></ul></li><li name="bb871033(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb871033.aspx" target="_top">Synchronization</a></li><li name="bb971779(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/bb971779.aspx" target="_top">Windows Home Server SDK</a></li><li name="cc160858(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/cc160858.aspx" target="_top">Windows Server</a></li></ul></li><li name="aa155073(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa155073.aspx" target="_top">Web Development</a></li><li name="aa139672(n)"><img src="sqlserver2005jdbc-conection-url_files/c.gif"><a href="http://msdn2.microsoft.com/en-us/library/aa139672.aspx" target="_top">Win32 and COM Development</a></li><li name="default.asp"><img src="sqlserver2005jdbc-conection-url_files/e.gif"><a href="http://msdn.microsoft.com/archive/default.asp" target="_top">MSDN Library Archive</a></li></ul></li></ul>
+		</div>
+</div>
+
+
+        
+	</div><div class="splitter" title="Click and drag to resize. Double click or press 't' to toggle visibility." style="left: 300px;" id="ctl00_rs1_raSplitter" onmousedown="ra_resizeStart(event,this,'ctl00_rs1_raLeft')" onmouseup="ra_resizeStop()" onmouseover="HighlightSplitterBar(this.id,0);" onmouseout="HighlightSplitterBar(this.id,1);" ondblclick="ra_OpenCollapse('ctl00_rs1_raSplitter','ctl00_rs1_raLeft')"></div><div id="ctl00_rs1_raRight" class="rightSection" onkeyup=' ra_keyPress(window.event, "ctl00_rs1_raSplitter","ctl00_rs1_raLeft")'>
+		
+        
+          <div>
+          <div id="ctl00_rs1_eb1_Panel1" class="EyebrowMenuBar">
+			
+<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl00"><a title="MSDN" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN</a><div id="ctl00$rs1$eb1$ctl00_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 146px; width: 115px;">
+					<a title="MSDN Home" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN Home</a><a title="MSDN Library" href="http://msdn2.microsoft.com/en-us/library/default.aspx">MSDN Library</a><a title="MSDN Learn" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN Learn</a><a title="MSDN Downloads" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN Downloads</a><a title="MSDN Support" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN Support</a><a title="MSDN Community" href="http://msdn2.microsoft.com/en-us/default.aspx">MSDN Community</a></div><div id="ctl00$rs1$eb1$ctl00_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl01"><a title="MSDN Library" href="http://msdn2.microsoft.com/en-us/library/ms123401.aspx">MSDN Library</a><div id="ctl00$rs1$eb1$ctl01_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 194px; width: 225px;">
+					<a title="Development Tools and Languages" href="http://msdn2.microsoft.com/en-us/library/aa187916.aspx">Development Tools and Languages</a><a title="Mobile and Embedded Development" href="http://msdn2.microsoft.com/en-us/library/ms376734.aspx">Mobile and Embedded Development</a><a title=".NET Development" href="http://msdn2.microsoft.com/en-us/library/aa139615.aspx">.NET Development</a><a title="Office Development" href="http://msdn2.microsoft.com/en-us/library/bb726434%28office.12%29.aspx">Office Development</a><a title="Servers and Enterprise Development" href="http://msdn2.microsoft.com/en-us/library/aa155072.aspx">Servers and Enterprise Development</a><a title="Web Development" href="http://msdn2.microsoft.com/en-us/library/aa155073.aspx">Web Development</a><a title="Win32 and COM Development" href="http://msdn2.microsoft.com/en-us/library/aa139672.aspx">Win32 and COM Development</a><a title="MSDN Library Archive" href="http://msdn.microsoft.com/archive/default.asp">MSDN Library Archive</a></div><div id="ctl00$rs1$eb1$ctl01_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl02"><a title="Servers and Enterprise Development" href="http://msdn2.microsoft.com/en-us/library/aa155072.aspx">Servers and Enterprise Development</a><div id="ctl00$rs1$eb1$ctl02_Popup" class="popup" style="overflow: auto; position: absolute; visibility: hidden; left: -65534px; height: 200px; width: 258px;">
+					<a title="Enterprise Architecture, Patterns, and Practices" href="http://msdn2.microsoft.com/en-us/library/aa286494.aspx">Enterprise Architecture, Patterns, ...</a><a title="Enterprise Management" href="http://msdn2.microsoft.com/en-us/library/aa286502.aspx">Enterprise Management</a><a title="BizTalk Server" href="http://msdn2.microsoft.com/en-us/library/bb905520.aspx">BizTalk Server</a><a title="Commerce Server" href="http://msdn2.microsoft.com/en-us/library/aa286557.aspx">Commerce Server</a><a title="Connected Services Framework" href="http://msdn2.microsoft.com/en-us/library/aa445859.aspx">Connected Services Framework</a><a title="Content Management Server" href="http://msdn2.microsoft.com/en-us/library/bb496805.aspx">Content Management Server</a><a title="Exchange Server" href="http://msdn2.microsoft.com/en-us/library/bb418718%28EXCHG.80%29.aspx">Exchange Server</a><a title="Host Integration Server" href="http://msdn2.microsoft.com/en-us/library/aa286574.aspx">Host Integration Server</a><a title="Hyper-V Server" href="http://msdn2.microsoft.com/en-us/library/aa155190.aspx">Hyper-V Server</a><a title="Industry Solutions Group" href="http://msdn2.microsoft.com/en-us/library/bb971664.aspx">Industry Solutions Group</a><a title="Internet Security and Acceleration Server" href="http://msdn2.microsoft.com/en-us/library/aa155227.aspx">Internet Security and Acceleration ...</a><a title="Microsoft Dynamics" href="http://msdn2.microsoft.com/en-us/library/ms950363.aspx">Microsoft Dynamics</a><a title="Microsoft Enterprise Search" href="http://msdn2.microsoft.com/en-us/library/bb931093.aspx">Microsoft Enterprise Search</a><a title="Microsoft MapPoint" href="http://msdn2.microsoft.com/en-us/library/aa286512.aspx">Microsoft MapPoint</a><a title="Microsoft Compute Cluster Server 2003" href="http://msdn2.microsoft.com/en-us/library/aa155303.aspx">Microsoft Compute Cluster Server 20...</a><a title="Software Testing" href="http://msdn2.microsoft.com/en-us/library/aa306570.aspx">Software Testing</a><a title="Speech Server" href="http://msdn2.microsoft.com/en-us/library/ms950383.aspx">Speech Server</a><a title="SQL Server" href="http://msdn2.microsoft.com/en-us/library/bb545450.aspx">SQL Server</a><a title="Synchronization" href="http://msdn2.microsoft.com/en-us/library/bb871033.aspx">Synchronization</a><a title="Windows Home Server SDK" href="http://msdn2.microsoft.com/en-us/library/bb971779.aspx">Windows Home Server SDK</a><a title="Windows Server" href="http://msdn2.microsoft.com/en-us/library/cc160858.aspx">Windows Server</a></div><div id="ctl00$rs1$eb1$ctl02_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl03"><a title="SQL Server" href="http://msdn2.microsoft.com/en-us/library/bb545450.aspx">SQL Server</a><div id="ctl00$rs1$eb1$ctl03_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 98px; width: 111px;">
+					<a title="SQL Server 2008" href="http://msdn2.microsoft.com/en-us/library/bb418491.aspx">SQL Server 2008</a><a title="SQL Server 2005" href="http://msdn2.microsoft.com/en-us/library/bb418498.aspx">SQL Server 2005</a><a title="SQL Server 2000" href="http://msdn2.microsoft.com/en-us/library/ms950404.aspx">SQL Server 2000</a><a title="SQL Server 7.0" href="http://msdn2.microsoft.com/en-us/library/bb469764.aspx">SQL Server 7.0</a></div><div id="ctl00$rs1$eb1$ctl03_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl04"><a title="SQL Server 2005" href="http://msdn2.microsoft.com/en-us/library/bb418498.aspx">SQL Server 2005</a><div id="ctl00$rs1$eb1$ctl04_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 50px; width: 146px;">
+					<a title="Product Documentation" href="http://msdn2.microsoft.com/en-us/library/bb418499.aspx">Product Documentation</a><a title="Technical Articles" href="http://msdn2.microsoft.com/en-us/library/bb418503.aspx">Technical Articles</a></div><div id="ctl00$rs1$eb1$ctl04_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl05"><a title="Product Documentation" href="http://msdn2.microsoft.com/en-us/library/bb418499.aspx">Product Documentation</a><div id="ctl00$rs1$eb1$ctl05_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 50px; width: 249px;">
+					<a title="SQL Server 2005 Documentation" href="http://msdn2.microsoft.com/en-us/library/ms203721%28SQL.90%29.aspx">SQL Server 2005 Documentation</a><a title="SQL Server 2005 JDBC Driver Documentation" href="http://msdn2.microsoft.com/en-us/library/bb469732.aspx">SQL Server 2005 JDBC Driver Documen...</a></div><div id="ctl00$rs1$eb1$ctl05_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl06"><a title="SQL Server 2005 JDBC Driver Documentation" href="http://msdn2.microsoft.com/en-us/library/bb469732.aspx">SQL Server 2005 JDBC Driver Documen...</a><div id="ctl00$rs1$eb1$ctl06_Popup" class="popup" style="overflow: auto; position: absolute; visibility: hidden; left: -65534px; height: 200px; width: 259px;">
+					<a title="Overview of the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378749%28SQL.90%29.aspx">Overview of the JDBC Driver</a><a title="Connecting to SQL Server with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378672%28SQL.90%29.aspx">Connecting to SQL Server with the J...</a><a title="Understanding the JDBC Driver Data Types" href="http://msdn2.microsoft.com/en-us/library/ms378599%28SQL.90%29.aspx">Understanding the JDBC Driver Data ...</a><a title="Using Statements with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378623%28SQL.90%29.aspx">Using Statements with the JDBC Driv...</a><a title="Managing Result Sets with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378737%28SQL.90%29.aspx">Managing Result Sets with the JDBC ...</a><a title="Performing Transactions with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378799%28SQL.90%29.aspx">Performing Transactions with the JD...</a><a title="Handling Metadata with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378539%28SQL.90%29.aspx">Handling Metadata with the JDBC Dri...</a><a title="Securing JDBC Driver Applications" href="http://msdn2.microsoft.com/en-us/library/ms378751%28SQL.90%29.aspx">Securing JDBC Driver Applications</a><a title="Improving Performance and Reliability with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378877%28SQL.90%29.aspx">Improving Performance and Reliabili...</a><a title="Diagnosing Problems with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378522%28SQL.90%29.aspx">Diagnosing Problems with the JDBC D...</a><a title="Sample JDBC Driver Applications" href="http://msdn2.microsoft.com/en-us/library/ms378214%28SQL.90%29.aspx">Sample JDBC Driver Applications</a><a title="JDBC Driver API Reference" href="http://msdn2.microsoft.com/en-us/library/aa342347%28SQL.90%29.aspx">JDBC Driver API Reference</a></div><div id="ctl00$rs1$eb1$ctl06_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="position: relative;" id="ctl00$rs1$eb1$ctl07"><a title="Connecting to SQL Server with the JDBC Driver" href="http://msdn2.microsoft.com/en-us/library/ms378672%28SQL.90%29.aspx">Connecting to SQL Server with the J...</a><div id="ctl00$rs1$eb1$ctl07_Popup" class="popup" style="position: absolute; visibility: hidden; left: -65534px; height: 146px; width: 213px;">
+					<a title="Building the Connection URL" href="http://msdn2.microsoft.com/en-us/library/ms378428.aspx">Building the Connection URL</a><a title="Setting the Connection Properties" href="http://msdn2.microsoft.com/en-us/library/ms378988.aspx">Setting the Connection Properties</a><a title="Setting the Data Source Properties" href="http://msdn2.microsoft.com/en-us/library/ms379052.aspx">Setting the Data Source Properties</a><a title="Working with a Connection" href="http://msdn2.microsoft.com/en-us/library/ms378956.aspx">Working with a Connection</a><a title="Using Connection Pooling" href="http://msdn2.microsoft.com/en-us/library/ms378484.aspx">Using Connection Pooling</a><a title="Using Database Mirroring (JDBC)" href="http://msdn2.microsoft.com/en-us/library/aa342332.aspx">Using Database Mirroring (JDBC)</a></div><div id="ctl00$rs1$eb1$ctl07_Anim" class="TFlyPopupAnimate"></div>
+			</div>
+			<div class="stat" style="background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><strong>&nbsp;Building the Connection URL</strong></div><span style="float: none; clear: both; display: block;"></span>
+		</div>
+
+          </div>
+          <div class="RightPanel">
+          <div class="ContentBar" style="padding-bottom: 20px; padding-left: 7px; padding-top: 7px;">
+            
+            
+
+
+          </div>
+          <div class="ContentArea">
+          
+          
+          
+          <div class="topic"><div class="majorTitle"><!----></div><div class="title">Building the Connection URL<!----></div><!--Content type: DocStudio. Transform: devdiv2mtps.xslt.--><div id="mainSection"> <div id="mainBody">  <span style="color: DarkGray;"> </span> <p> </p><p> </p><p>The general form of the connection URL is</p> <p> <tt>jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]</tt> </p> <p>where: </p> <ul><li> <p> <b>jdbc:sqlserver://</b> (Required) is known as the sub-protocol and is constant. </p> </li><li> <p> <b>serverName</b>
+(Optional) is the address of the server to connect to. This could be a
+DNS or IP address, or it could be localhost or 127.0.0.1 for the local
+computer. If not specified in the connection URL, the server name must
+be specified in the properties collection.</p> </li><li> <p> <b>instanceName</b> (Optional) is the instance to connect to on serverName. If not specified, a connection to the default instance is made.</p> </li><li> <p> <b>portNumber</b>
+(Optional) is the port to connect to on serverName. The default is
+1433. If you are using the default, you do not have to specify the
+port, nor its preceding ':', in the URL.</p> <div class="alert"><table width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="sqlserver2005jdbc-conection-url_files/ms378428.gif">Note: </th></tr><tr><td> <p>For
+optimal connection performance, you should set the portNumber when you
+connect to a named instance. This will avoid a round trip to the server
+to determine the port number. If both a portNumber and instanceName are
+used, the portNumber will take precedence and the instanceName will be
+ignored.</p> </td></tr></tbody></table></div> </li><li> <p> <b>property</b> (Optional) is one or more option connection properties. For more information, see <a id="ctl00_rs1_mainContentContainer_ctl01" onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl01',this);" href="http://msdn2.microsoft.com/en-us/library/ms378988.aspx">Setting the Connection Properties</a>.
+Any property from the list can be specified. Properties can only be
+delimited by using the semicolon (';'), and they cannot be duplicated. </p> </li></ul> <div class="alert"><table width="100%"><tbody><tr><th align="left"><img class="note" alt="Caution note" src="sqlserver2005jdbc-conection-url_files/ms378428_002.gif">Caution: </th></tr><tr><td> <p>For
+security purposes, you should avoid building the connection URLs based
+on user input. You should only specify the server name and driver in
+the URL. For user name and password values, use the connection property
+collections. For more information about security in your JDBC
+applications, see <a id="ctl00_rs1_mainContentContainer_ctl02" onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl02',this);" href="http://msdn2.microsoft.com/en-us/library/ms378751.aspx">Securing JDBC Driver Applications</a>.</p> </td></tr></tbody></table></div> <h1 class="heading">Connection Examples</h1><div id="sectionSectionELBHA" class="seeAlsoNoToggleSection"> <p>Connect to the default database on the local computer by using a user name and password:</p> <p> <tt>jdbc:sqlserver://localhost;user=MyUserName;password=*****;</tt> </p> <div class="alert"><table width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="sqlserver2005jdbc-conection-url_files/ms378428.gif">Note: </th></tr><tr><td> <p>Although
+the previous example uses a username and password in the connection
+string, if you are running your application on a Windows operating
+system, you should use integrated security as it is more secure. For
+more information, see the <a href="#Connectingintegrated">Connecting with Integrated Authentication</a> section later in this topic.</p> </td></tr></tbody></table></div> <p>Connect to the default database on the local computer by using integrated authentication:</p> <p> <tt>jdbc:sqlserver://localhost;integratedSecurity=true;</tt> </p> <p>Connect to a named database on a remote server:</p> <p> <tt>jdbc:sqlserver://localhost;databaseName=AdventureWorks;integratedSecurity=true;</tt> </p> <p>Connect on the default port to the remote server:</p> <p> <tt>jdbc:sqlserver://localhost:1433;databaseName=AdventureWorks;integratedSecurity=true;</tt> </p> <p>Connect by specifying a customized application name:</p> <p> <tt>jdbc:sqlserver://localhost;databaseName=AdventureWorks;integratedSecurity=true;applicationName=MyApp;</tt> </p> </div><h1 class="heading">Named and Multiple SQL Server Instances</h1><div id="sectionSectionEJBHA" class="seeAlsoNoToggleSection"> <p>
+SQL Server 2000 and SQL Server 2005 allow for the installation of
+multiple database instances per server. Each instance is identified by
+a specific name. To connect to a named instance of SQL Server, you can
+either specify the port number of the named instance (preferred), or
+you can specify the instance name as a JDBC URL property or a <b>datasource</b>
+property. If no instance name or port number property is specified, a
+connection to the default instance is created. See the following
+examples:</p> <p>To use a port number, do the following:</p> <p> <tt>jdbc:sqlserver://localhost:1433;integratedSecurity=true;&lt;more properties as required&gt;;</tt> </p> <p>To use a JDBC URL property, do the following:</p> <p> <tt>jdbc:sqlserver://localhost;instanceName=instance1;integratedSecurity=true;&lt;more properties as required&gt;;</tt> </p> </div><h1 class="heading">Escaping Values in the Connection URL</h1><div id="sectionSectionEHBHA" class="seeAlsoNoToggleSection"> <p>You
+might have to escape certain parts of the connection URL values because
+of the inclusion of special characters such as spaces, semicolons, and
+quotation marks. The JDBC driver supports escaping these characters if
+they are enclosed in braces. For example, {;} escapes a semicolon.</p> <p>Escaped
+values can contain special characters (especially '=', ';', '[]', and
+space) but cannot contain braces. Values that must be escaped and
+contain braces should be added to a properties collection.</p> <div class="alert"><table width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="sqlserver2005jdbc-conection-url_files/ms378428.gif">Note: </th></tr><tr><td> <p>White space inside the braces is literal and not trimmed.</p> </td></tr></tbody></table></div> </div><a name="Connectingintegrated"><!----></a><h1 class="heading">Connecting with Integrated Authentication</h1><div id="sectionSectionEFBHA" class="seeAlsoNoToggleSection"> <p>The
+JDBC driver supports the use of Type 2 integrated authentication on
+Windows operating systems through the integratedSecurity connection
+string property. To use integrated authentication, copy the
+sqljdbc_auth.dll file to a directory on the Windows system path on the
+computer where the JDBC driver is installed. </p> <p>The sqljdbc_auth.dll files are installed in the following location:</p> <p>&lt;<i>installation directory</i>&gt;\sqljdbc_&lt;<i>version</i>&gt;\&lt;<i>language</i>&gt;\auth\</p> <div class="alert"><table width="100%"><tbody><tr><th align="left"><img class="note" alt="Note" src="sqlserver2005jdbc-conection-url_files/ms378428.gif">Note: </th></tr><tr><td> <p>If
+you are running a 32-bit Java Virtual Machine (JVM), use the
+sqljdbc_auth.dll file in the x86 folder, even if the operating system
+is the x64 version. If you are running a 64-bit JVM on a x64 processor,
+use the sqljdbc_auth.dll file in the x64 folder. If you are running a
+64-bit JVM on a IA-64 processor, use the sqljdbc_auth.dll file in the
+IA64 folder.</p> </td></tr></tbody></table></div> <p>Alternatively you
+can set the java.libary.path system property to specify the directory
+of the sqljdbc_auth.dll. For example, if the JDBC driver is installed
+in the default directory, you can specify the location of the DLL by
+using the following virtual machine (VM) argument when the Java
+application is started: </p> <p> <tt>-Djava.library.path=C:\Microsoft SQL Server 2005 JDBC Driver\sqljdbc_&lt;version&gt;\enu\auth\x86</tt> </p> </div><h1 class="heading">Connecting with IPv6 Addresses</h1><div id="sectionSectionEDBHA" class="seeAlsoNoToggleSection"> <p>The
+JDBC driver supports the use of IPv6 addresses with the connection
+properties collection, and with the serverName connection string
+property. The initial serverName value, such as jdbc:<i>sqlserver</i>://<i>serverName</i>, is not supported for IPv6 addresses in connection strings. Using a name for <i>serverName</i> instead of a raw IPv6 address will work in every case in the connection. The following examples provide more information.</p> <p> <b>To use the serverName property</b> </p> <p> <tt>jdbc:sqlserver://;serverName=3ffe:8311:eeee:f70f:0:5eae:10.203.31.9\\instance1;integratedSecurity=true;</tt> </p> <p> <b>To use the properties collection</b> </p> <p> <tt>Properties pro = new Properties();</tt> </p> <p> <tt>pro.setProperty("serverName", "serverName=3ffe:8311:eeee:f70f:0:5eae:10.203.31.9\\instance1");</tt> </p> <p> <tt>Connection con = DriverManager.getConnection("jdbc:sqlserver://;integratedSecurity=true;", pro);</tt> </p> </div><h1 class="heading"><span id="seeAlsoNoToggle">See Also</span></h1><div id="seeAlsoSection" class="seeAlsoNoToggleSection"><h4 class="subHeading">Other Resources</h4><a id="ctl00_rs1_mainContentContainer_ctl03" onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl03',this);" href="http://msdn2.microsoft.com/en-us/library/ms378672.aspx">Connecting to SQL Server with the JDBC Driver</a><br><br></div></div>  </div></div>
+          </div>
+          </div>
+        
+        
+
+<div style="overflow: hidden; display: block; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td id="ctl00_rs1_mtpsFooter_FooterFadeCell" class="MTPS_FooterFade">
+      <div id="ctl00_rs1_mtpsFooter_SiteLinks" class="MTPS_FooterLinks">
+			<a id="ctl00_rs1_mtpsFooter_LocalFooterLink0" title="Manage Your Profile" href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</a>&nbsp;|&nbsp;<a id="ctl00_rs1_mtpsFooter_LocalFooterLink1" title="Legal" href="http://www.microsoft.com/legal/">Legal</a>&nbsp;|&nbsp;<a id="ctl00_rs1_mtpsFooter_LocalFooterLink2" title="Contact Us" href="http://go.microsoft.com/?linkid=2028439">Contact Us</a>&nbsp;|&nbsp;<a id="ctl00_rs1_mtpsFooter_LocalFooterLink3" title="MSDN Flash Newsletter" href="http://msdn.microsoft.com/flash/">MSDN Flash Newsletter</a>
+		</div>
+      <span id="ctl00_rs1_mtpsFooter_MSFT_copyright" title="© 2008  Microsoft Corporation. All rights reserved." class="MTPS_FooterCopyright">© 2008  Microsoft Corporation. All rights reserved.</span>
+      <a id="ctl00_rs1_mtpsFooter_MSFT_Terms" title="Terms of Use" class="MTPS_FooterLinks" href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</a>
+      &nbsp;|&nbsp;
+      <a id="ctl00_rs1_mtpsFooter_MSFT_Trademarks" title="Trademarks" class="MTPS_FooterLinks" href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a>
+      &nbsp;|&nbsp;
+      <a id="ctl00_rs1_mtpsFooter_MSFT_PrivacyStatement" title="Privacy Statement" class="MTPS_FooterLinks" href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a>
+    </td>
+		
+    <td id="ctl00_rs1_mtpsFooter_FooterLogoCell">
+      <img id="ctl00_rs1_mtpsFooter_MSFT_LOGO" title="Microsoft Corporation" class="MTPS_FooterLogo" src="sqlserver2005jdbc-conection-url_files/mslogo.gif" alt="Microsoft Corporation" style="border-width: 0px;">
+    </td>
+		
+  </tr>
+</tbody></table>
+
+</div>
+ 
+        
+	</div>
+</div>
+    </div>
+    <div style="display: none;"><img src="sqlserver2005jdbc-conection-url_files/trans_pixel.gif" alt="Page view tracker" border="0" height="0" hspace="0" vspace="0" width="0"></div>
+    
+<script src="sqlserver2005jdbc-conection-url_files/msdn.js" type="text/javascript"></script>
+<script src="sqlserver2005jdbc-conection-url_files/webtrendsscript-bn1668.js" type="text/javascript"></script>
+<noscript>
+<div><img alt="DCSIMG" id="Img1" width="1" height="1"
+src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No"
+/></div>
+</noscript><span id="ctl00_ctl06_hiddenTargetControlForModalPopup" style="display: none;"></span>
+
+<div id="ctl00_ctl06_PageGatePopUp" class="PageGateModal" style="display: none; position: fixed; z-index: 100001; opacity: 1;">
+	
+<div class="PageGateModalContent2">
+<span id="ctl00_ctl06_pageGateCancel" class="PageGateModalClose"></span>
+  <img id="ctl00_ctl06_Download_sl_logo_tagline_bottom" src="sqlserver2005jdbc-conection-url_files/download_sl_logo_tagline_bottom.png" alt="Install Microsoft Silverlight for a better experience on this site." style="border-width: 0px;">
+
+  <p class="PageGateSubtitle">
+    <span id="ctl00_ctl06_SubTitle">Experience Silverlight enabled quickstart tutorials, video training, showcases &amp; more. </span>
+  </p>
+<span onclick="onPageGateOk(); return true">
+  <a id="ctl00_ctl06_InstallLink" onclick="javascript:Track('ctl00_ctl06_PageGatePopUp|ctl00_ctl06_InstallLink',this);" class="PageGateButton" href="http://go.microsoft.com/fwlink/?LinkID=92799"><img src="sqlserver2005jdbc-conection-url_files/download_sl_button.png" alt="" border="0"></a>
+</span>
+
+  <p class="PageGateLegal">
+    <span id="ctl00_ctl06_LegalText_Start">By clicking "Click to Install" you accept the </span>
+    <a id="ctl00_ctl06_License_Link" href="http://go.microsoft.com/fwlink/?LinkID=92803" target="SLExternal">Silverlight License Agreement</a>
+    <span id="ctl00_ctl06_LegalText_Middle">.<br>Silverlight updates automatically, </span>
+    <a id="ctl00_ctl06_LearnMore_Link" href="http://go.microsoft.com/fwlink/?LinkID=92805" target="SLExternal">learn more</a>
+    <span id="ctl00_ctl06_LegalText_End">.</span>
+  </p>
+</div>
+
+</div>
+
+
+
+<script type="text/javascript" src="sqlserver2005jdbc-conection-url_files/mtps-bn1668.js"></script>
+  
+
+<script type="text/javascript">
+//<![CDATA[
+window.setTimeout(function(){EC_Init("ctl00_rs1_ExpandCollapse","Expand All","Collapse All","/Platform/Controls/ExpandCollapseAll/resources/plus.gif","/Platform/Controls/ExpandCollapseAll/resources/minus.gif");},0);
+WebForm_InitCallback();var ctl00_bnr_tabs_ScopeMenu_Data = new Object();
+ctl00_bnr_tabs_ScopeMenu_Data.disappearAfter = 500;
+ctl00_bnr_tabs_ScopeMenu_Data.horizontalOffset = -102;
+ctl00_bnr_tabs_ScopeMenu_Data.verticalOffset = 17;
+ctl00_bnr_tabs_ScopeMenu_Data.hoverClass = 'ctl00_bnr_tabs_ScopeMenu_9 scopeHover';
+ctl00_bnr_tabs_ScopeMenu_Data.hoverHyperLinkClass = 'ctl00_bnr_tabs_ScopeMenu_8 scopeHover';
+ RegisterAutoSubmit('ctl00_ib1_Flyout_Rating1','ctl00_ib1_Flyout_btnSubmit','contentRatingms378428SQL.90en-us');
+
+//]]>
+</script>
+<script type="text/javascript" language="javascript">
+<!--
+ function GetContentWnd(){ return parent; } function OnInitPage(){var oWnd = GetContentWnd();} function GetServerData(arg, context){} function OnSave(){ var oWnd = GetContentWnd(); window.external.addFavorite('http://msdn2.microsoft.com/en-us/library/ms378428.aspx', oWnd.document.title ); }
+
+-->
+</script>
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById('ctl00_ib1_Flyout_rtgContainer').title="Click a star and provide feedback";
+
+ document.onkeypress = function(e){ ra_keyPress(e, "ctl00_rs1_raSplitter","ctl00_rs1_raLeft");};
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.Animation.AnimationBehavior, {"OnHoverOut":"{\"AnimationName\":\"Sequence\",\"AnimationChildren\":[{\"AnimationName\":\"Color\",\"AnimationTarget\":\"ctl00_bnr_ctl00_InstallLink\",\"Duration\":\".75\",\"StartValue\":\"#009900\",\"EndValue\":\"#ff0000\",\"Property\":\"style\",\"PropertyKey\":\"color\",\"AnimationChildren\":[]},{\"AnimationName\":\"Color\",\"AnimationTarget\":\"ctl00_bnr_ctl00_InstallLink\",\"Duration\":\".75\",\"StartValue\":\"#ff0000\",\"EndValue\":\"#0000ff\",\"Property\":\"style\",\"PropertyKey\":\"color\",\"AnimationChildren\":[]}]}","OnHoverOver":"{\"AnimationName\":\"Sequence\",\"AnimationChildren\":[{\"AnimationName\":\"Color\",\"AnimationTarget\":\"ctl00_bnr_ctl00_InstallLink\",\"Duration\":\".15\",\"StartValue\":\"#0000ff\",\"EndValue\":\"#009900\",\"Property\":\"style\",\"PropertyKey\":\"color\",\"AnimationChildren\":[]}]}","OnLoad":"{\"AnimationName\":\"Sequence\",\"AnimationChildren\":[{\"AnimationName\":\"Color\",\"AnimationTarget\":\"ctl00_bnr_ctl00_InstallLink\",\"Duration\":\"1\",\"StartValue\":\"#ffffff\",\"EndValue\":\"#0000ff\",\"Property\":\"style\",\"PropertyKey\":\"color\",\"AnimationChildren\":[]}]}","id":"ctl00_bnr_ctl00_ticklerAnimation"}, null, null, $get("ctl00_bnr_ctl00_InstallLink"));
+});
+TFly_Init('ctl00$bnr$LocaleManagement$ctl00',0,0,1, 4,60,'LocaleManagementFlyoutStaticHover','',100,400,'','','');
+TFly_Init('ctl00$bnr$QuickLinks$ctrlFlyout',0,0,1, 4,60,'QuickLinksFlyoutStaticHover_msdn','',100,400,'','','');
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.AutoCompleteBehavior, {"completionInterval":500,"delimiterCharacters":"","enableCaching":false,"id":"ctl00_bnr_tabs_SearchAutoComplete","minimumPrefixLength":4,"serviceMethod":"GetTerms","servicePath":"../../Platform/Controls/Tabs/TermService.asmx"}, null, null, $get("ctl00_bnr_tabs_SearchTextBox"));
+});
+TFly_Init('ctl00$ib1$Flyout',5,2,1, 4,60,'','',100,400,'','','');
+Sys.Application.add_init(function() {
+    $create(Microsoft.Mtps.Web.UI.MtpsRatingBehavior, {"AutoPostBack":false,"CallbackID":"ctl00$ib1$Flyout$Rating1","ClientStateFieldID":"ctl00_ib1_Flyout_Rating1_RatingExtender_ClientState","EmptyStarCssClass":"emptyRatingStar","FilledStarCssClass":"filledRatingStar","Rating":3,"StarCssClass":"ratingStar","Tag":"contentRatingms378428SQL.90en-us","WaitingStarCssClass":"savedRatingStar","id":"ctl00_ib1_Flyout_Rating1_RatingExtender"}, null, null, $get("ctl00_ib1_Flyout_Rating1"));
+});
+//]]>
+</script>
+<script type="text/javascript">var tocVectorObject = {"nodes": [{"id": "ms310241" ,"url": "/ms310241(n)"},{"id": "aa155072" ,"url": "/aa155072(n)"},{"id": "bb418490" ,"url": "/bb418490(n)"},{"id": "bb418498" ,"url": "/bb418498(n)"},{"id": "bb418499" ,"url": "/bb418499(n)"},{"id": "bb469732" ,"url": "/bb469732(n)"},{"id": "ms378203" ,"url": "/ms378203(n)"},{"id": "ms378428" ,"url": "/ms378428(n)"}]};var hostbase ="http://msdn2.microsoft.com/en-us/library";var tocVector = eval(tocVectorObject);var closedImg = "http://msdn2.microsoft.com/Platform/Controls/Toc/resources/c.gif";var openImg = "http://msdn2.microsoft.com/Platform/Controls/Toc/resources/o.gif";var emptyImg = "http://msdn2.microsoft.com/Platform/Controls/Toc/resources/e.gif";var loadingImg = "http://msdn2.microsoft.com/Platform/Controls/Toc/resources/s.gif";if (window.addEventListener){window.addEventListener("DOMContentLoaded",LoadToc, false);}else{window.attachEvent("onload", LoadToc);}var tocIndex = 0;var holder = document.getElementById("tocVectorTreeId");</script>
+<script type="text/javascript">
+//<![CDATA[
+TFly_Init('ctl00$rs1$eb1$ctl00',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl01',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl02',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl03',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl04',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl05',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl06',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+TFly_Init('ctl00$rs1$eb1$ctl07',0,-1,-1, 10,5,'statHover','',250,250,'EyeBrowMenuBarSetHeight','','');
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"PageGateModalMask","CancelControlID":"ctl00_ctl06_pageGateCancel","PopupControlID":"ctl00_ctl06_PageGatePopUp","dynamicServicePath":"/en-us/library/ms378428.aspx","id":"pageGateBehavior"}, null, null, $get("ctl00_ctl06_hiddenTargetControlForModalPopup"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.Animation.AnimationBehavior, {"OnLoad":"{\"AnimationName\":\"Sequence\",\"AnimationChildren\":[{\"AnimationName\":\"FadeIn\",\"Duration\":\".25\",\"Fps\":\"20\",\"AnimationChildren\":[]}]}","id":"ctl00_ctl06_pageGateAnimation"}, null, null, $get("ctl00_ctl06_PageGatePopUp"));
+});
+//]]>
+</script>
+<input name="hiddenInputToUpdateATBuffer_CommonToolkitScripts" id="hiddenInputToUpdateATBuffer_CommonToolkitScripts" value="1" type="hidden"><div class="PageGateModalMask" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;" id="pageGateBehavior_backgroundElement"></div></form>
+</body></html>

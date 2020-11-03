@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <context-param>
+    <param-name>module</param-name>
+    <param-value>pda-in</param-value>
+    <description>
+      Enable which module, inspections (pda-in) or town wardens (pda-tw).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>refreshInterval</param-name>
+    <param-value>1860</param-value>
+    <description>
+      Time in seconds between refreshes of a VIEW. -1 never refreshes.
+      Must be greater (in mins.) than session-timeout or the refresh will
+      continually keep the session active and never timeout the session.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>listRefreshInterval</param-name>
+    <param-value>600</param-value>
+    <description>
+      Time in seconds between refreshes of the inspection list VIEW. -1 never refreshes.
+      If this value is less (in mins.) than session-timeout then the session will never
+      time out when on the inspection list VIEW.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>urlTag</param-name>
+    <param-value>http://www.camden.gov.uk/ccm/content/business/business-regulations/licensing-and-permits/licences/entertainment-related-licences/tables-and-chairs-licence.en</param-value>
+    <description>
+      The URL on the login page which redirects out of the webapp.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>urlTagName</param-name>
+    <param-value>Access Tables and Chairs Database - Click Here</param-value>
+    <description>
+      The name, which users get to see, of the URL on the login page.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_cust_dets</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the customer details gathering section of the webapp (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>informixdir</param-name>
+    <param-value>/usr/informix</param-value>
+    <description>
+      the home of the informix installation.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>fgldir</param-name>
+    <param-value>/usr/fgl2c</param-value>
+    <description>
+      the home of the fgl installation.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>cctdir</param-name>
+    <param-value>/usr/universe/v7/standard</param-value>
+    <description>
+      the home of the standard directory.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>dbpath</param-name>
+    <param-value>/usr/universe/v7/databases/CAMDEN</param-value>
+    <description>
+      the database path.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>contenderdir</param-name>
+    <param-value>/usr/universe</param-value>
+    <description>
+      the home of the version6 etc... directories.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>runnerspath</param-name>
+    <param-value>/usr/universe/v7/standard/runners</param-value>
+    <description>
+      the home of the runners path.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>dbdate</param-name>
+    <param-value>DMY4/</param-value>
+    <description>
+      environment variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>dbmoney</param-name>
+    <param-value>#</param-value>
+    <description>
+      environment variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>dbedit</param-name>
+    <param-value>vi</param-value>
+    <description>
+      environment variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>dbformat</param-name>
+    <param-value>'#:,:.:'</param-value>
+    <description>
+      environment variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>home</param-name>
+    <param-value>/usr/universe</param-value>
+    <description>
+      contender home - same as the contenderdir variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>fglgui</param-name>
+    <param-value>0</param-value>
+    <description>
+      environment variable.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>ldlibrarypath</param-name>
+    <param-value>/usr/informix/lib:/usr/informix/lib/esql:</param-value>
+    <description>
+      where to find the system libraries.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>informixserver</param-name>
+    <param-value>odin</param-value>
+    <description>
+      the name of the informix server.
+    </description>
+  </context-param>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/dbtags</taglib-uri>
+    <taglib-location>/WEB-INF/dbtags.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/mailer-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/mailer.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/request-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/request.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/datetime-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/datetime.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/application-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/application.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/session-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/session.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://www.servletsuite.com/servlets/iftags</taglib-uri>
+    <taglib-location>/WEB-INF/iftags.tld</taglib-location>
+  </taglib>
+
+  <resource-ref>
+    <description>
+      Resource reference to a factory for java.sql.Connection
+      instances that may be used for talking to a particular
+      database that is configured in the server.xml file.
+    </description>
+
+    <res-ref-name>
+      jdbc/pda
+    </res-ref-name>
+  
+    <res-type>
+      javax.sql.DataSource
+    </res-type>
+  
+    <res-auth>
+      Container
+    </res-auth>
+  </resource-ref>
+  
+</web-app>

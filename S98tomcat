@@ -1,0 +1,25 @@
+# Tomcat Variables
+JAVA_HOME=/usr/java2
+CATALINA_HOME=/usr/jakarta-tomcat-4.1.27
+CLASSPATH=/usr/jakarta-tomcat-4.1.27/common/lib/servlet.jar:.
+JAVA_OPTS='-Xms100m -Xmx200m'
+#JAVA_OPTS='-Xms100m -Xmx200m -verbose:gc'
+#JAVA_OPTS='-Xms200m -Xmx200m -verbose:gc -verbose:class -verbose:jni'
+#JAVA_OPTS=''
+
+export JAVA_HOME CATALINA_HOME CLASSPATH JAVA_OPTS
+
+case "$1" in
+
+	start)
+		nohup $CATALINA_HOME/bin/startup.sh
+		;;
+	restart)
+		$CATALINA_HOME/bin/shutdown.sh
+		sleep 40
+		nohup $CATALINA_HOME/bin/startup.sh
+		;;
+	stop)
+		$CATALINA_HOME/bin/shutdown.sh
+		;;
+esac

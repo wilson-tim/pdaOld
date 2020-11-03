@@ -1,0 +1,459 @@
+VSB structure and overview:
+
+Using the VSB (View Script Bean) Stucture:
+
+                        ________________
+                       |      VIEW      |<-----------------------+
+       +---------------| <form>View.jsp |________                |
+       |               |________________| SCRIPT |---<invalid>---+
+       |                 |   <form>Script.jsp    |------------<valid>--------->The next formScript
+       |  +--------------|_______________________|------+
+       |  |                                             |
+       |  |                                             |
+       |  |               _________________             |
+       |  +--USE(R/W)-->>|     STORAGE     |            |
+       |                 | <form>Bean.java |<<---INIT---+
+       +-----USE(R)---->>|_________________|
+
+
+KEY:
+---<condition>--->   Moves to the next form when the <condition> is true.
+---INIT--->>         Initializes the bean.
+---USE(<type>)--->>  Uses the bean. The type of use is defined as:
+                       R - Read Only
+                       W - Write Only
+                       R/W - Read and Write
+
+Each form (<form>) has three parts, the VIEW part, the SCRIPT part, and the STORAGE part.
+
+The input from another form is always via the SCRIPT part of a form. The output to another
+form is always via the SCRIPT part of the form. TRY NEVER to forward an input from one form
+straight to another form, always send it to the view first:
+
+TRY NEVER TO DO
++-----FORM1-----+        +-----FORM2-----+        +-----FORM3-----+
+|   [VIEW1]     |        |   [VIEW2]     |        |   [VIEW3]     |
+|   [SCRIPT1]---|--------|-->[SCRIPT2]---|--------|-->[SCRIPT3]   |
+|   [STORAGE1]  |        |   [STORAGE2]  |        |   [STORAGE3]  |
++---------------+        +---------------+        +---------------+
+
+TRY TO ALWAYS DO
++-----FORM1-----+        +-----FORM2-----+
+|   [VIEW1]     |        |   [VIEW2]     |
+|   [SCRIPT1]---|--------|-->[SCRIPT2]   |
+|   [STORAGE1]  |        |   [STORAGE2]  |
++---------------+        +---------------+
+
+                         +-----FORM2-----+        +-----FORM3-----+
+                         |   [VIEW2]     |        |   [VIEW3]     |
+                         |   [SCRIPT2]---|--------|-->[SCRIPT3]   |
+                         |   [STORAGE2]  |        |   [STORAGE3]  |
+                         +---------------+        +---------------+
+
+i.e. as two stages with a submit from the intemediate view. This helps keeps things simple.
+
+The VIEW part is just a JSP which uses the STORAGE part to populate it's fields and show
+any errors that occurred in the SCRIPT part.
+
+The SCRIPT part is a JSP which populates the STORAGE part with the VIEW part's fields, and
+then checks the fields to check if everything is OK. If everything is OK then control is 
+forwarded to the next forms SCRIPT. If everything is not OK, an error is raised, and stored
+in the STORAGE part, and the control is sent back to the VIEW part.
+
+The STORAGE part is a java bean, which has each of the VIEW part's fields represented, plus
+an 'error' property, an 'action' property and a 'uniqeId'. The <form>Bean is a subclass of the
+formBean class. The formBean class is an abstract class which defines four properties;
+'action', 'error', 'savedPreviousForm' and 'uniqeId'. The 'savedPreviousForm' holds the name
+of the previous form in the flow which called the current form, it does NOT hold the name of
+the form which was previously called, this is held in the session attribute 'previousForm':
+
+[form1]---A--->[form2]---B--->[form3]---C---+
+                  |                         |
+                  |                         |
+                  +------------<------------+
+                  
+After 'A' form2.savedPreviousForm = 'form1' and session.previousForm = 'form1'
+After 'B' form3.savedPreviousForm = 'form2' and session.previousForm = 'form2'
+After 'C' form2.savedPreviousForm = 'form1' and session.previousForm = 'form3'
+              
+The 'uniqueId' property is used when you only want an action to be carried out once before the
+user has to enter the data again. This is done by putting the following at the top of the VIEW:
+
+<%-- Create unique ID --%>
+<sess:session id="ss"/>
+<sess:setAttribute name="uniqueId"><jsp:getProperty name="ss" property="sessionId"/><date:currentTime/></sess:setAttribute>
+
+and also a hidden field:
+
+<input type="hidden" name="uniqueId" value='<sess:attribute name="uniqueId" />'>
+
+The hidden field is then passed to the form BEAN in the SCRIPT. This can then be tested against the
+session property, to check hat they are the same, and a user hasn't just gone back or refereshed the
+data. E.g. in the SCRIPT the test would be performed by:
+
+<%-- data already used --%>
+<if:IfTrue cond='<%= !#FORM#Bean.getUniqueId().equals(session.getAttribute("uniqueId")) %>' >
+  <%-- Do something here if the data has already been used --%>
+  
+  <%-- move to a form to handle the situation where data is trying to be reused or has expired --%>
+  <%-- Indicate which form we are coming from when we forward to another form --%>
+  <sess:setAttribute name="previousForm">#FORM#</sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">#NEXT-FORM#</sess:setAttribute>
+  <c:redirect url="#NEXT-FORM#Script.jsp" />
+</if:IfTrue>
+
+The only request parameters used are between the VIEW and SCRIPT parts. The SCRIPT part uses request
+parameters to populate the forms STORAGE bean. The STORAGE bean is used for control of the application,
+ie. what action the user has just performed. The VIEW parts use the <form>Bean for the purpose of
+getting the request info. 
+
+All VIEW's must contain a hidden field named 'input' containing the form name e.g. homeView.jsp would
+have a hidden field called 'input' with a value of 'home'. The submit buttons should be named 'action'
+this helps in programming to distinguish which submit button a user pressed when there are more than
+one on the page. The 'input' field is stored in a session object named 'input', and represents the
+name of the last form which was submitted.
+
+Before forwarding to another form the session object 'form' should be updated with the name of the form
+which is being forwarded to. This allows the next form to know that it is supposed to be displayed. This
+stops people just typing in the URL of a form and going straight there. The VIEW page of the form checks
+the 'form' session object before doing anything to make sure it is supposed to be being run. If it
+isn't then it forwards the user to the index.jsp page. The SCRIPT page of a form checks to see if the
+'form' session object exists - this is a test to see if the session has expired - if it doesn't it
+forwards the users to the index.jsp page.
+
+Another session object is automatically updated in the SCRIPT page of a form just before forwarding to
+another form. This object is the 'previousForm' object and holds the name of the form which has just
+been visited.
+
+When redirecting (forwarding) to a SCRIPT ALWAYS use:
+
+<c:redirect url="<form>Script.jsp" />
+
+rather than:
+
+<jsp:forward page="<form>Script.jsp" />
+
+As this places the SCRIPTS name in the browsers address bar, allowing correct refreshing etc...
+The <jsp:forward page="" /> part is required to finalise the response and do the redirect.
+
+When forwarding to any other page within the application e.g. index.jsp or a forms VIEW, ALWAYS use
+the <jsp:forward page="<form>Script.jsp" /> tag.
+
+
+Skeleton SCRIPT part for the #FORM# form;
+
+<%@ page errorPage="error.jsp" %>
+<%@ page import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/request-1.0" prefix="req" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="#FORM#" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<%-- Data has been submitted by the user --%>
+<req:existsParameter name="input" >
+  <if:IfParameterEquals name="input" value="#FORM#" >
+    <%-- Indicate which form we are in/just-come-from --%>
+    <sess:setAttribute name="input"><req:parameter name="input" /></sess:setAttribute>
+    
+    <%-- Setup the bean with the forms data --%>
+    <jsp:setProperty name="#FORM#Bean" property="all" value="clear" />
+    <jsp:setProperty name="#FORM#Bean" property="*" />
+  </if:IfParameterEquals>
+</req:existsParameter>
+
+<%-- clear errors --%>
+<jsp:setProperty name="#FORM#Bean" property="error" value="" />
+
+<%-- clear form fields if coming from previous form and update savedPreviousForm --%>
+<sess:equalsAttribute name="input" match="#PREVIOUS-FORM#" >
+  <jsp:setProperty name="#FORM#Bean" property="action" value="" />
+  <jsp:setProperty name="#FORM#Bean" property="all" value="clear" />
+  <jsp:setProperty name="#FORM#Bean" property="savedPreviousForm"
+    value='<%= session.getAttribute("previousForm") %>' />
+</sess:equalsAttribute>
+
+<%-- All tests are done on the <form>Bean as this page cannot rely on --%>
+<%-- the browser resubmitting data when refresshing or moving back to a --%>
+<%-- page. --%>
+
+<%-- Validate user entry --%>
+<sess:equalsAttribute name="input" match="#FORM#" >
+  <%-- Next view --%>
+  <if:IfTrue cond='<%= #FORM#Bean.getAction().equals("Submit") %>' >
+    <%-- Invalid entry --%>
+    <if:IfTrue cond="#SOME-ERROR-CHECK#" >
+      <jsp:setProperty name="#FORM#Bean" property="error" value="#SOME-ERROR-MESSAGE#" />
+    	<jsp:forward page="#FORM#View.jsp" />
+    </if:IfTrue>
+    
+  	<%-- Valid entry --%>
+  	<%-- Indicate which form we are coming from when we forward to another form --%>
+    <sess:setAttribute name="previousForm">#FORM#</sess:setAttribute>
+ 	  <%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form">#NEXT-FORM#</sess:setAttribute>
+  	<c:redirect url="#NEXT-FORM#Script.jsp" />
+  </if:IfTrue>
+  
+  <%-- Previous view --%>
+  <if:IfTrue cond='<%= #FORM#Bean.getAction().equals("Back") %>' >
+    <%-- Indicate which form we are coming from when we forward to another form --%>
+    <sess:setAttribute name="previousForm">#FORM#</sess:setAttribute>
+ 	  <%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form"><%= #FORM#Bean.getSavedPreviousForm() %></sess:setAttribute>
+  	<c:redirect url="${#FORM#Bean.savedPreviousForm}Script.jsp" />
+  </if:IfTrue>
+</sess:equalsAttribute>
+
+<%-- If the user refreshes the view --%>
+<jsp:forward page="#FORM#View.jsp" />
+
+
+Example SCRIPT part for the myList form;
+
+<%@ page  import="com.pda.myListBean, com.pda.recordBean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/request-1.0" prefix="req" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+
+<jsp:useBean id="myListBean" scope="session" class="com.pda.myListBean" />
+<jsp:useBean id="recordBean" scope="session" class="com.pda.recordBean" />
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="myList" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<%-- Data has been submitted by the user --%>
+<req:existsParameter name="input" >
+  <if:IfParameterEquals name="input" value="myList" >
+    <%-- Indicate which form we are in/just-come-from --%>
+    <sess:setAttribute name="input"><req:parameter name="input" /></sess:setAttribute>
+    
+    <%-- Setup the bean with the forms data --%>
+    <jsp:setProperty name="myListBean" property="all" value="clear" />
+    <jsp:setProperty name="myListBean" property="*" />
+    
+    <%-- Clear the previous record and add the new sequence --%>
+    <jsp:setProperty name="recordBean" property="all" value="clear" />
+    <jsp:setProperty name="recordBean" property="sequence" param="sequence" />
+  </if:IfParameterEquals>
+</req:existsParameter>
+
+<%-- clear errors --%>
+<jsp:setProperty name="myListBean" property="error" value="" />
+
+<%-- clear form fields if coming from previous form and update savedPreviousForm --%>
+<sess:equalsAttribute name="input" match="home" >
+  <jsp:setProperty name="myListBean" property="action" value="" />
+  <jsp:setProperty name="myListBean" property="all" value="clear" />
+  <jsp:setProperty name="myListBean" property="savedPreviousForm"
+    value='<%= session.getAttribute("previousForm") %>' />
+</sess:equalsAttribute>
+
+<%-- All tests are done on the <form>Bean as this page cannot rely on --%>
+<%-- the browser resubmitting data when refresshing or moving back to a --%>
+<%-- page. --%>
+
+<%-- Validate user entry --%>
+<sess:equalsAttribute name="input" match="myList" >
+  <%-- Next view --%>
+  <if:IfTrue cond='<%= myListBean.getAction().equals("Submit") %>' >
+    <%-- Invalid entry --%>
+    <if:IfTrue cond='<%= myListBean.getSequence() == null || myListBean.getSequence().trim().equals("") %>' >
+      <jsp:setProperty name="myListBean" property="error"
+        value="Please choose a location" />
+    	<jsp:forward page="myListView.jsp" />
+    </if:IfTrue>
+    
+  	<%-- Valid entry --%>
+    <%-- Indicate which form we are coming from when we forward to another form --%>
+    <sess:setAttribute name="previousForm">myList</sess:setAttribute>
+    <%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form">details</sess:setAttribute>
+  	<c:redirect url="detailsScript.jsp" />
+  </if:IfTrue>
+  
+  <%-- Previous view --%>
+  <if:IfTrue cond='<%= myListBean.getAction().equals("Back") %>' >
+    <%-- Indicate which form we are coming from when we forward to another form --%>
+    <sess:setAttribute name="previousForm">myList</sess:setAttribute>
+    <%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form"><%= myListBean.getSavedPreviousForm() %></sess:setAttribute>
+  	<c:redirect url="${myListBean.savedPreviousForm}Script.jsp" />
+  </if:IfTrue>
+</sess:equalsAttribute>
+
+<%-- If the user refreshes the view --%>
+<jsp:forward page="myListView.jsp" />
+
+
+Each of the views has the following JavaScript at the top of the page to disable the browser back button.
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+
+Skeleton VIEW part for the #FORM# form:
+
+<%@ page errorPage="error.jsp" import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="#FORM#" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<html>
+<head>
+	<title>#FORM#</title>
+</head>
+
+<body>
+  <form action="#FORM#Script.jsp" method="post">
+ 		<input type="submit" name="action" value="Back">
+		<input type="submit" name="action" value="Submit">
+
+	  <input type="hidden" name="input" value="#FORM#" > 
+  </form>
+</body>
+</html>
+
+
+Example VIEW part for the myList form;
+
+<%@ page errorPage="error.jsp" import="com.pda.myListBean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+
+<jsp:useBean id="myListBean" scope="session" class="com.pda.myListBean" />
+
+<%-- THE DAY's LIST JOBS (street names) --%>
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="myList" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<html>
+<head>
+	<title>Inspection List</title>
+	<style type="text/css">
+		@import URL("global.css");
+	</style>
+</head>
+
+<body>
+	<table width="240">
+		<tr>
+			<td align="center">
+				<h2><b>Inspection List</b>
+			</td>
+		</tr>
+		<tr><td><HR size="1" noshade></td></tr>
+		<tr><td><font color="#ff6565"><jsp:getProperty name="myListBean" property="error" /></font></td></tr>
+		<tr><td><HR size="1" noshade></td></tr>
+	</table>
+  <form action="myListScript.jsp" method="post">
+		<table width="240">
+		  <tr height="40">
+	  		<td bgcolor="navy" align="center">
+					<h2><font color="white">Locations</font>
+				</td>
+			</tr>
+		</table>
+		<table width="240">
+		<sql:connection id="con" jndiName="java:comp/env/jdbc/pda" />
+		<sql:statement id="stmt" conn="con">
+			<sql:query>
+			  SELECT Location, Sequence, Status 
+			  FROM Tab1;
+			</sql:query>	
+			<sql:resultSet id="rset">
+				<tr>
+					<td width=30>
+					  <sql:getColumn position="2" to="sequence" />
+					  <if:IfTrue cond='<%= pageContext.getAttribute("sequence").equals(myListBean.getSequence()) %>' >
+	            <input type="radio" name="sequence"  value="<sql:getColumn position="2" />"  checked="checked">
+            </if:IfTrue>
+            <if:IfTrue cond='<%= !(pageContext.getAttribute("sequence").equals(myListBean.getSequence())) %>' >
+	            <input type="radio" name="sequence"  value="<sql:getColumn position="2" />">
+            </if:IfTrue>
+					</td>
+					<td width=170>
+						<b><sql:getColumn position="1" /></b>
+					</td>
+					<td width=42 bgcolor="silver" align="center">
+						<font color="#3F00C0">
+							<b><sql:getColumn position="3" /></b>
+						</font>
+					</td>
+				</tr>
+	   	</sql:resultSet>
+		</sql:statement> 
+		<sql:closeConnection conn="con"/><br>
+	  </table>
+  	<table width="240" height="45">
+  		<tr>
+  			<td width="50%">
+   				<input type="submit" name="action" value="Back"
+  			 				 style="color: red; font-weight: bold; font-size: 85%">
+  			</td>
+  			<td>
+  				<input type="submit" name="action" value="Submit"
+  							 style="color: red; font-weight: bold; font-size: 85%">
+  			</td>
+  		</tr>
+  	</table>
+  	
+	  <input type="hidden" name="input" value="myList" > 
+  </form>
+</body>
+</html>
+
+     

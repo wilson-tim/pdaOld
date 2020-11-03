@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <context-param>
+    <param-name>module</param-name>
+    <param-value>pda-in</param-value>
+    <description>
+      Enable which module, inspections (pda-in) or town wardens (pda-tw).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>refreshInterval</param-name>
+    <param-value>1860</param-value>
+    <description>
+      Time in seconds between refreshes of a VIEW. -1 never refreshes.
+      Must be greater (in mins.) than session-timeout or the refresh will
+      continually keep the session active and never timeout the session.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>listRefreshInterval</param-name>
+    <param-value>300</param-value>
+    <description>
+      Time in seconds between refreshes of the inspection list VIEW. -1 never refreshes.
+      If this value is less (in mins.) than session-timeout then the session will never
+      time out when on the inspection list VIEW.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>urlTag</param-name>
+    <param-value>http://www.google.co.uk</param-value>
+    <description>
+      The URL on the login page which redirects out of the webapp.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>urlTagName</param-name>
+    <param-value>Google Search - Click Here</param-value>
+    <description>
+      The name, which users get to see, of the URL on the login page.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>def_name_noun</param-name>
+    <param-value>Default</param-value>
+    <description>
+      The capitalised name, which users get to see, of the noun form for a default. This will usually be Default or Rectification.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>def_name_verb</param-name>
+    <param-value>Default</param-value>
+    <description>
+      The capitalised name, which users get to see, of the verb forb for a default. This will usually be Default or Rectify.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>def_name_past</param-name>
+    <param-value>Defaulted</param-value>
+    <description>
+      The capitalised name, which users get to see, of the past tense for a default. This will usually be Defaulted or Rectified.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>def_name_plural</param-name>
+    <param-value>Defaults</param-value>
+    <description>
+      The capitalised name, which users get to see, of the plural for a default. This will usually be Defaults or Rectifications.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>def_name_short</param-name>
+    <param-value>Def</param-value>
+    <description>
+      The capitalised name, which users get to see, of the short name for a default. This will usually be Def or Rec.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_cust_dets</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the customer details gathering section of the webapp (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_item_desc</param-name>
+    <param-value>N</param-value>
+    <description>
+      use the item decsription in place of the item_ref and complaint_no on the inspList view (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_con_sum</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the contractor summary (Y or N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>use_con_schd</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the contractor schedule list (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_trade</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use trade site search (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_av</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use Av Module (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_map</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use Cartology web service (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_recmon</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the recycling monitor (Y or N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>use_suggest</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use suggest plugin, requires JS and CSS (Y or N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>use_xhtml</param-name>
+    <param-value>N</param-value>
+    <description>
+      use xhtml or html (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_todo</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the todo list (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_bv199_defaulting</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Automagically raise defaults from a bv199 survey (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_property_service_skip</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Automagically skip locLookup or service forms, if only one item available (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_wo_type_skip</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Automagically skip woType form, if only one item available (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_credit</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the use of 'Credit' and 'Credit-All' in the defaultDetails form (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_enforcement</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the use of enforcements on the pda (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_enf_list</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the use of the enforcements list on the pda (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_enf_manual_query</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the user to enter query parameters for enf list (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_defect</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the use of defects on the pda (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_com_waste</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the use of comercial waste on the pda (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>debug_header</param-name>
+    <param-value>N</param-value>
+    <description>
+      Show the http header contents on the login form, for debugging purposes (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>isa_authorization</param-name>
+    <param-value>N</param-value>
+    <description>
+      use the isa http header authorization on the login form to login (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>db_date_fmt</param-name>
+    <param-value>yyyy-MM-dd</param-value>
+    <description>
+      java.text.SimpleDateFormat string for storeing a date in the database.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>view_date_fmt</param-name>
+    <param-value>dd/MM/yyyy</param-value>
+    <description>
+      java.text.SimpleDateFormat string for viewing a date from the database.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>records_on_insp_list</param-name>
+    <param-value>30</param-value>
+    <description>
+      The number of records to be displayed in the Inspection List.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>monitoring_title</param-name>
+    <param-value>Monitoring</param-value>
+    <description>
+      The name used for the monitoring module - menu button and form title names.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>show_printing_errors</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Do we care about printing errors (Y or N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>sutton_tree_fields</param-name>
+    <param-value>N</param-value>
+    <description>
+      Use sutton trees fields for tree details (Y or N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>street_length_title</param-name>
+    <param-value>Algorithms</param-value>
+    <description>
+      The name used for the steetLength form title.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>fly_cap_h_or_n</param-name>
+    <param-value>H</param-value>
+    <description>
+      Once a flycapture has been actioned from the inspection list it goes to 'hold' (H) or 'no further action' (N).
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>limit_wo_type_by_suffix</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Limit the works order types shown in the drop down by the suffix previously chosen (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_graff_est_cost</param-name>
+    <param-value>N</param-value>
+    <description>
+      Allow the use of the graffiti estimated cost section (Y), or use works orders instead (N). (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_comp_action_link</param-name>
+    <param-value>N</param-value>
+    <description>
+      Allow the use of the comp action link (Y), or ignore it instead (N). (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>records_on_trees_list</param-name>
+    <param-value>20</param-value>
+    <description>
+      The number of records to be displayed in the Trees List.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>use_insp_manual_query</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Allow the user to enter query parameters for insp list (Y or N). 
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>use_markets</param-name>
+    <param-value>Y</param-value>
+    <description>
+      use the markets module (Y or N).
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>records_on_markets_list</param-name>
+    <param-value>10</param-value>
+    <description>
+      (Markets module) The number of records to be displayed in the Markets List.
+    </description>
+  </context-param>  
+  <context-param>
+    <param-name>records_on_pitches_list</param-name>
+    <param-value>10</param-value>
+    <description>
+      (Markets module) The number of records to be displayed in the Pitches List.
+    </description>
+  </context-param>
+  <context-param>
+    <param-name>records_on_change_trader_list</param-name>
+    <param-value>10</param-value>
+    <description>
+      (Markets module) The number of records to be displayed in the Change Trader List.
+    </description>
+  </context-param>
+  
+  <!--
+  <filter>
+    <filter-name>Trim Filter</filter-name>
+    <filter-class>com.filters.TrimFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Trim Filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  -->
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/dbtags</taglib-uri>
+    <taglib-location>/WEB-INF/dbtags.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/mailer-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/mailer.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/request-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/request.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/datetime-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/datetime.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/application-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/application.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://jakarta.apache.org/taglibs/session-1.0</taglib-uri>
+    <taglib-location>/WEB-INF/session.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://www.servletsuite.com/servlets/iftags</taglib-uri>
+    <taglib-location>/WEB-INF/iftags.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://java.sun.com/jstl/soaptag</taglib-uri>
+    <taglib-location>/WEB-INF/soaptag.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>http://java.sun.com/jstl/domtag</taglib-uri>
+    <taglib-location>/WEB-INF/domtag.tld</taglib-location>
+  </taglib>
+
+  <resource-ref>
+    <description>
+      Resource reference to a factory for java.sql.Connection
+      instances that may be used for talking to a particular
+      database that is configured in the server.xml file.
+    </description>
+
+    <res-ref-name>
+      jdbc/pda
+    </res-ref-name>
+
+    <res-type>
+      javax.sql.DataSource
+    </res-type>
+
+    <res-auth>
+      Container
+    </res-auth>
+  </resource-ref>
+
+</web-app>

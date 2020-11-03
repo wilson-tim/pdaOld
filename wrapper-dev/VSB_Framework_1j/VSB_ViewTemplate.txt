@@ -1,0 +1,36 @@
+<%@ page errorPage="error.jsp" %>
+<%@ import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="#FORM#" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<html>
+<head>
+	<title>#FORM#</title>
+</head>
+
+<body>
+  <form action="#FORM#Script.jsp" method="post">
+ 		<input type="submit" name="action" value="Back">
+		<input type="submit" name="action" value="Submit">
+
+	  <input type="hidden" name="input" value="#FORM#" > 
+  </form>
+</body>
+</html>

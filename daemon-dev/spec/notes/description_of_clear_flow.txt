@@ -1,0 +1,13 @@
+Doing a clear
+=============
+
+Only do a clear if comp_action_flag = "D".
+
+1) FORM defaultDetails:
+  a) check if allowed to clear using the defp2 table
+  using the defp1.next_action_id to retrieve the right record.
+  
+  The check involves checking to see if the si_i.due_date falls
+  today and wether the defp2 allows clear as a next action.
+  
+  b) add the clear.

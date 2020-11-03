@@ -1,0 +1,43 @@
+Doing a re-default
+==================
+
+Only do a re-default if comp_action_flag = "D".
+
+1) FORM defaultDetails:
+  a) go to FORM defaultAdditional.
+
+4) FORM defaultAdditional:
+  a) check if allowed to re-default using the defp2 table
+  using the defp1.next_action_id to retrieve the right record.
+  
+  The check involves checking to see if the si_i.due_date falls
+  today and wether the defp2 allows re-default as a next action.
+  
+  b) check if the default which is being re-defaulted is the last level
+  and on it's maximum occurances. If it is then throw an error, as cannot
+  re-default in this case.
+
+  c) calculate the points and values using the defp3 table
+  using the defp1.calc_id to retrieve the right record.
+    
+  d) see if table defa allows the algorithm to have user interaction;
+  
+    defa.prompt_for_points
+    defa.prompt_for_value
+    
+  If defa.prompt_for_points = "Y" allow the user to alter the points.
+  If defa.prompt_for_value = "Y" allow the user to alter the value.
+  
+  e) go to FORM defaultDate.
+
+3) FORM defaultDate:
+  a) calculate the rectify date and time using the defp4 table
+  using the defp1.cb_time_id to retrieve the right record.
+  
+  b) see if table defa allows the algorithm to have user interaction;
+  
+    defa.prompt_for_rectify
+    
+  If defa.prompt_for_rectify = "Y" allow the user to alter the points.
+  
+  c) add the re-default.

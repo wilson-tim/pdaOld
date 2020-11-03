@@ -1,0 +1,12 @@
+How to craete a compiled version of a webapp.
+---------------------------------------------
+
+Make sure the $CATALINA_HOME and $JAVA_HOME environment variables are set.
+
+Use the $CATALINA_HOME/bin/precompile.sh script to do this, and follow the
+instructions written within it. 
+
+Make sure also that $JAVA_HOME/bin is in your PATH before running the 
+precompile.sh script.a
+
+The precompile.sh script also does the compiling.

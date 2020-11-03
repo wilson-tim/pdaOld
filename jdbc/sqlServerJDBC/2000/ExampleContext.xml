@@ -1,0 +1,61 @@
+ <!-- development pda-odb context -->
+        <Context path="/pda-odb-test" docBase="pda-odb-rel" debug="9" reloadable="true" >
+          <Resource name="jdbc/pda" auth="Container"
+            type="javax.sql.DataSource"/>
+          <ResourceParams name="jdbc/pda">
+            <parameter>
+              <name>factory</name>
+              <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+            </parameter>
+
+            <parameter>
+              <name>driverClassName</name>
+              <value>com.microsoft.jdbc.sqlserver.SQLServerDriver</value>
+            </parameter>
+
+            <parameter>
+              <name>username</name>
+              <value>DES_Contender</value>
+            </parameter>
+
+            <parameter>
+              <name>password</name>
+              <value>ace system</value>
+            </parameter>
+
+            <parameter>
+              <name>url</name>
+              <value>jdbc:microsoft:sqlserver://COLSQLGH2\TEST:1156;DatabaseName=DES_Contender_Test</value>
+            </parameter>
+
+            <parameter>
+              <name>validationQuery</name>
+              <value>select * from user_info</value>
+            </parameter>
+
+            <parameter>
+              <name>maxActive</name>
+              <value>20</value>
+            </parameter>
+
+            <parameter>
+              <name>maxIdle</name>
+              <value>1</value>
+            </parameter>
+
+            <parameter>
+              <name>maxWait</name>
+              <value>10000</value>
+            </parameter>
+
+            <parameter >
+              <name>removeAbandoned</name>
+              <value>true</value>
+            </parameter>
+
+            <parameter>
+              <name>removeAbandonedTimeout</name>
+              <value>60</value>
+            </parameter>
+          </ResourceParams>
+        </Context>

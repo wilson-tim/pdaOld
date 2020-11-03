@@ -1,0 +1,12 @@
+Code changes
+------------
+
+(i) Two new keys need to be created, PDA_COMP_CODE and PDA_ITEM.
+These are akin to the AV_COMP_CODE and AV_ITEM codes but have "PDA" as
+there value rather than "AV".
+
+(ii) Two new keys need to be created, PDA_WARDEN_ROLE and PDA_INSPECTOR_ROLE.
+They have defaults of "pda-tw" and "pda-in" respectively.
+
+(iii) Created a new key PDA_RELAXED_SEARCH to allow Wandsworth Housing to be
+able to search their schedules/complaints by entering the building_name.

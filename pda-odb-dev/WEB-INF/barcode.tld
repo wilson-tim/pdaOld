@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"> 
+
+<taglib> 
+<tlibversion>1.3</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>Barcode taglib</shortname>
+<uri>http://www.servletsuite.com/servlets/barcodetag</uri>
+<info>Barcode taglib</info> 
+
+<tag>
+<name>Interleave25</name>
+<tagclass>com.cj.barcode.Interleave25Tag</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>implements interleave 2 of 5 code</info>
+
+<attribute>
+<name>id</name>
+<required>false</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+<attribute>
+<name>size</name>
+<required>false</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+<tag>
+<name>Code39</name>
+<tagclass>com.cj.barcode.Code39Tag</tagclass>
+<bodycontent>JSP</bodycontent>
+<info>implements Code 39</info>
+
+<attribute>
+<name>id</name>
+<required>false</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+<attribute>
+<name>size</name>
+<required>false</required>
+<rtexprvalue>true</rtexprvalue>
+</attribute>
+
+</tag>
+
+
+</taglib> 
+

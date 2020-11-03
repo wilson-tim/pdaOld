@@ -1,0 +1,7 @@
+complaint_no - page1Script.jsp
+location_name - page2Script.jsp
+complaint_no_sel - page3Script.jsp
+site_ref - page3Script.jsp
+site_name_1 - page3Script.jsp
+area_c - page3Script.jsp
+remarks - updateRemarksFunc.jsp

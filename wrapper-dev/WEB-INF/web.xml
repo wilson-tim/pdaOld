@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <context-param>
+    <param-name>refreshInterval</param-name>
+    <param-value>1860</param-value>
+    <description>
+      Time in seconds between refreshes of a VIEW. -1 never refreshes.
+      Must be greater (in mins.) than session-timeout or the refresh will
+      continually keep the session active and never timeout the session.
+    </description>
+  </context-param>
+
+  <context-param>
+    <param-name>server</param-name>
+    <param-value>localhost</param-value>
+    <description>
+      The server (and port if required) which the wrapper script will retrieve it's pages from.
+    </description>
+  </context-param>
+
+  <context-param>
+    <param-name>webapp</param-name>
+    <param-value>pda-odb-dev/camden</param-value>
+    <description>
+      The webapp which the wrapper script will retrieve it's pages from.
+    </description>
+  </context-param>
+
+  <context-param>
+    <param-name>debug</param-name>
+    <param-value>Y</param-value>
+    <description>
+      Turn on the wrapper's debug information.
+    </description>
+  </context-param>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+</web-app>

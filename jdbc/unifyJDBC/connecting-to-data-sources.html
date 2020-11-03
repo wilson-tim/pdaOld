@@ -1,0 +1,313 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (WinNT; U) [Netscape]">
+<!$Header: /rcs2/RCS/dbicjdbc/clientJDBC21/bld/chap2.htm,v 5.1 2003/04/02 18:17:47 hearth Exp $>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center><font face="Futura Condensed"><font size=+3>Using DBIntegrator
+Client for JDBC</font></font>
+<p><font size=-2><a href="intro.htm">[Top]</a> <a href="chap1.htm">[Prev]</a><a href="progtips.htm">[Next]</a><a href="appb.htm">[Bottom]</a></font></center>
+
+<hr>
+<br>&nbsp;
+<h1>
+Connecting to Data Sources<a NAME="997443"></a></h1>
+<a NAME="997444"></a>This section provides instructions for and examples
+for developing and connecting to the DBIntegrator Client for JDBC's JDBC
+driver. This section assumes that you have a basic knowledge of Java and
+SQL. For a detailed description of Java and the JDBC standard, visit JavaSoft's
+Web site at (<a href="http://www.javasoft.com">www.javasoft.com</a>).
+<p>For further information about SQL, consult the documentation of your
+database management system.
+<p><a NAME="996958"></a>You can connect to a data source in four easy steps.
+Refer to the sample code at the end of these steps for more details.
+<blockquote><a NAME="996853"></a><b>1.</b>&nbsp; Load and register the
+driver with the JDBC Driver Manager.</blockquote>
+
+<dl>
+<dd>
+A driver can be loaded and registered in three ways:</dd>
+<p>
+<ul>
+<li>
+<a NAME="996855"></a>Call the Class.forName() with the following syntax:</li>
+</ul>
+
+<dl>
+<dd>
+<a NAME="996955"></a><tt>Class.forName("simba.jdbc.SimbaDriver");</tt>&nbsp;<a NAME="996859"></a></dd>
+
+<dd>
+The driver will automatically register itself with the JDBC Driver Manager
+when it is loaded.</dd>
+</dl>
+
+<ul>
+<li>
+Create an instance of the driver with the following syntax:</li>
+</ul>
+
+<dl>
+<dd>
+<font face="Courier New"><font size=-1>simba.jdbc.SimbaDriver sd = new
+simba.jdbc.SimbaDriver();</font></font></dd>
+</dl>
+
+<ul>
+<li>
+<a NAME="996861"></a>Add the driver to the java.lang.System property "jdbc.drivers".
+This is a list of driver class names, separated by colons, that the DriverManager
+class loads. When the DriverManager class is initialized, it looks for
+the system property "jdbc.drivers", and if the user has entered one or
+more drivers, the DriverManager class attempts to load them.</li>
+
+<br>&nbsp;</ul>
+<a NAME="996863"></a><b>2.</b>&nbsp; Create a database URL
+<p>The database URL specifies which data source you want to connect with.
+The format of a database URL is:
+<dl>
+<pre><a NAME="997578"></a>jdbc:simba:<i>//&lt;server name></i>:<i>&lt;server port></i>/<i>&lt;data source name></i></pre>
+</dl>
+
+<table BORDER >
+<tr>
+<td><a NAME="997581"></a><b>Database URL parameters</b></td>
+
+<td><a NAME="997583"></a><b>Description</b></td>
+</tr>
+
+<tr>
+<td><a NAME="997585"></a>jdbc:simba&nbsp;</td>
+
+<td><a NAME="997587"></a>Identifies the driver.&nbsp;</td>
+</tr>
+
+<tr>
+<td><a NAME="997589"></a>&lt;server name>&nbsp;</td>
+
+<td><a NAME="997591"></a>The name of the DBIntegrator Server. It will be
+the name of your computer in a 1-tier configuration.&nbsp;</td>
+</tr>
+
+<tr>
+<td><a NAME="997593"></a>&lt;server port>&nbsp;</td>
+
+<td><a NAME="997595"></a>The port that DBIntegrator Server is listening
+on. The default is 1583. This value must be an integer.&nbsp;</td>
+</tr>
+
+<tr>
+<td><a NAME="997597"></a>&lt;data source name>&nbsp;</td>
+
+<td><a NAME="997599"></a>The ODBC name of the data source.&nbsp;</td>
+</tr>
+</table>
+
+<table BORDER=0 >
+<tr>
+<td><font size=-2>Table 1: Database URL parameters</font></td>
+</tr>
+</table>
+
+<p><a NAME="997163"></a><b>3.</b>&nbsp; Create and set the connection properties.
+<p>Properties may simply be the user name and password or more detailed
+properties for more advanced database configurations. For a list of advanced
+properties that can be set for DBIntegrator Server, see
+<a href="#997145">Table
+2, "DBIntegrator Server Properties"</a>, and see
+<a href="#997146">Table
+3, "DBIntegrator Client 'Encoding' Property"</a> for a property used by
+DBIntegrator Client.
+<p><a NAME="997056"></a><b>4.</b>&nbsp; Call DriverManager.getConnection
+<p>DriverManager.getConnection specifies the URL and any data source-specific
+properties and DBIntegrator Server-specific connection properties.
+<p><a NAME="997145"></a>The following table lists the DBIntegrator Server-specific
+properties.
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><a NAME="997121"></a><b>Connection Property&nbsp;</b></td>
+
+<td><a NAME="997123"></a><b>Description&nbsp;</b></td>
+</tr>
+
+<tr>
+<td><a NAME="997125"></a>ArrayFetchOn&nbsp;</td>
+
+<td><a NAME="997127"></a>Turns array fetching on or off. Setting it to
+1 turns it on and 0 turns it off. The default is 1.&nbsp;</td>
+</tr>
+
+<tr>
+<td><a NAME="997129"></a>ArrayBufferSize&nbsp;</td>
+
+<td><a NAME="997131"></a>Sets the network transmission size when array
+fetching is on. The default is 32 KB. Values from 1 to 63 are valid.
+If the first row of any set's data, uncompressed, is larger than this buffer
+the driver will fail.  When long
+variable length columns are among those selected, the data
+is handled differently, and
+ArrayBufferSize does not apply.
+</td>
+</tr>
+
+<tr>
+<td><a NAME="997141"></a>User&nbsp;</td>
+
+<td><a NAME="997143"></a>Specifies the user name to connect to the database
+with.&nbsp;</td>
+</tr>
+
+<tr>
+<td><a NAME="997609"></a>Password&nbsp;</td>
+
+<td><a NAME="997611"></a>Specifies the password to attempt to connect with.&nbsp;</td>
+</tr>
+
+<tr>
+<td>ExecDesc</td>
+
+<td>Short description of application/applet that will appear in "Application"
+column in DBIntegrator Control.</td>
+</tr>
+</table>
+
+<table BORDER=0 >
+<tr>
+<td><a NAME="997082"></a><font size=-2>Table 2: DBIntegrator Server Properties</font></td>
+</tr>
+</table>
+
+<center>
+<h5>
+NOTE: Connection properties not recognized by DBIntegrator Client will
+be added to the ODBC connection string passed to the DBMS driver on the
+server.</h5></center>
+<a NAME="997146"></a>This table introduces the DBIntegrator Client-specific
+connection property, Encoding, which is important where the character encoding
+on the client and server (data source) do not match.
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><b>Connection Property&nbsp;</b></td>
+
+<td><b>Description&nbsp;</b></td>
+</tr>
+
+<tr>
+<td>Encoding</td>
+
+<td>Specifies the character encoding used by the data source. See the detailed
+description which follows this table.</td>
+</tr>
+</table>
+
+<table BORDER=0 >
+<tr>
+<td><font size=-2>Table 3: DBIntegrator Client 'Encoding' Property</font></td>
+</tr>
+</table>
+
+<p>The 'Encoding' connection property allows you to access a database which
+uses a different character encoding than the system the JDBC driver is
+running on. For instance, when accessing a UTF-8 (Unicode) database, you
+may need to set 'Encoding' to 'UTF8'. Failure to correctly set this property
+when required can result in corrupted character (string) data.
+<p>By default, the JDBC driver uses the system encoding used by the platform
+on which the driver is running. In other words, if the 'Encoding' property
+is not set, the platform's system encoding is used.
+<p>For example, if the driver is running on English Windows it assumes
+all string data from the data source consists of only ASCII characters.
+If this is not the case, the driver will fail to fetch strings correctly
+unless 'Encoding' is set to indicate the encoding actually being used by
+the data source. The JDBC driver must convert fetched strings to Unicode
+because the Java internal string data type is Unicode. Back to the example,
+if the fetched strings are not ASCII, the converted strings are likely
+to be corrupted.
+<p>You can specify any Java encoding name (see the Canonical Names listed
+on the web page at the URL given below) that matches the character set
+of the database. For example, you can use 'UTF8' for a UTF-8 database,
+or 'EUC_JP' for a Japanese EUC database.
+<p>For details regarding Supported Encodings for Java, please see:
+<a href="http://java.sun.com/j2se/1.3/docs/guide/intl/encoding.doc.html">
+http://java.sun.com/j2se/1.3/docs/guide/intl/encoding.doc.html</a>.
+</dl>
+<br>
+
+<a NAME="997164"></a><i>Sample Code:</i>
+<p><a NAME="997083"></a>This code would load and register the driver, configure
+the driver and then connect to the database.
+<dl>
+<dd>
+<a NAME="997155"></a><font face="Courier"><font size=-2>Connection
+connection = null</font></font>
+<br><a NAME="996991"></a><font face="Courier"><font size=-2>String url
+= new String("jdbc:simba://local.server.com/ServerDataSource");</font></font>
+<dl>
+<dd>
+<a NAME="996992"></a><font face="Courier"><font size=-2>// Load and register
+the driver</font></font></dd>
+</dl>
+<a NAME="996993"></a><font face="Courier"><font size=-2>Class.forName ("Simba.jdbc.SimbaDriver");</font></font>
+<dl>
+<dd>
+<a NAME="996994"></a><font face="Courier"><font size=-2>//Create the connection
+properties</font></font></dd>
+</dl>
+<a NAME="996995"></a><font face="Courier"><font size=-2>Properties props
+= new Properties();</font></font>
+<br><a NAME="996996"></a><font face="Courier"><font size=-2>props.put("user",
+m_txUserName.getText()); //username</font></font>
+<br><a NAME="996997"></a><font face="Courier"><font size=-2>props.put("password",
+m_txPassword.getText()); //password</font></font>
+<br><a NAME="996998"></a><font face="Courier"><font size=-2>props.put("ExecDesc",
+"DBSample"); //Executable Description</font></font>
+<br><a NAME="996999"></a><font face="Courier"><font size=-2>props.put("ArrayBufferSize",
+"8"); //Set array fetching size to 8K</font></font>
+<br><a NAME="997001"></a><font face="Courier"><font size=-2>try</font></font>
+<br><a NAME="997002"></a><font face="Courier"><font size=-2>{</font></font>
+<dl>
+<dd>
+<a NAME="997003"></a><font face="Courier"><font size=-2>m_Connection =
+DriverManager.getConnection(szurl, props);</font></font></dd>
+
+<dd>
+</dd>
+
+<br><font face="Courier"><font size=-2>// Here is an alternative means
+of obtaining a connection:</font></font>
+<br><font face="Courier"><font size=-2>// m_Connection = DriverManager.getConnection(szURL,</font></font>
+<dl>
+<dl>
+<dd>
+<font face="Courier"><font size=-2>// m_txUserName.getText(),</font></font></dd>
+
+<br><font face="Courier"><font size=-2>// m_txPassword.getText());</font></font></dl>
+</dl>
+</dl>
+
+<blockquote><font face="Courier"><font size=-2>m_Connection.clearWarnings();</font></font></blockquote>
+
+<dd>
+<a NAME="997004"></a><font face="Courier"><font size=-2>}</font></font></dd>
+
+<br><a NAME="997005"></a><font face="Courier"><font size=-2>catch (SQLException
+e)</font></font>
+<br><a NAME="997006"></a><font face="Courier"><font size=-2>{</font></font>
+<br><a NAME="997007"></a><font face="Courier"><font size=-2>System.out.println("The
+driver could not connect: " + e.getMessage());</font></font>
+<br><a NAME="997008"></a><font size=-2>}</font></dl>
+
+<hr>
+<center>
+<p><font size=-2><a href="intro.htm">[Top]</a> <a href="chap1.htm">[Prev]</a><a href="progtips.htm">[Next]</a><a href="appb.htm">[Bottom]</a></font></center>
+
+<hr>
+<p><i><a href="mailto:csr@unify.com">csr@unify.com</a></i>
+<p><i>Copyright &copy; 1998-9, 2002, <a href="http://www.unify.com">Unify
+Corporation</a>. All rights reserved.</i>
+</body>
+</html>

@@ -1,0 +1,141 @@
+JSP Pharaoh|WEB Application makeup and flow:
+--------------------------------------------
+
+NOTE: When viewing this document use a fixed width font (like courier) and no line wrap.
+
+
+ +--> [[reqform.jsp]]--+--(1)submit--> [[controller.jsp]]--+--(3)jsp:forward--> [newreq.jsp]--(5)error--> [error.jsp]
+ |                       |                                   |
+ |                       |                                   |
+ |                       |                                   +--(4)error---> [error.jsp]
+ |                       |                                   |
+ |                       +--(2)error---> [error.jsp]         |
+ |                                                           |
+ +-----------------(6,9)jsp:forward--------------------------+--(7)jsp:forward--> [dataexpired.jsp]--(8)error--> [error.jsp]
+
+
+(1) User presses the submit button on the faultform.jsp page
+(2) If an error occurs with the reqform.jsp page
+(3) The controller.jsp page forwards the user to the newreq.jsp page if
+    everything went OK
+(4) If an error occurs with the controller.jsp page
+(5) If an error occurs with the newreq.jsp page
+(6) The controller.jsp page forwards the user to the reqform.jsp page if the
+    user did not fill in all the details properly
+(7) The controller.jsp page forwards the user to the dataexpired.jsp page if
+    the user tries to submit the same fault they just submitted
+(8) If an error occurs with the dataexpired.jsp page
+(9) The controller.jsp page forwards the user to the reqform.jsp page if the
+    user came straight to the controller form
+
+
+KEY:
+[name of HTML/JSP page ]--+--(1)action-->                  (1) Description of action 1
+                          |                                (2) Description of action 2
+                          |                                 ...
+                          +--(2)additional action-->       (n) Description af action n
+                          |
+                           ...
+                          |
+                          +--(n)additional action-->
+
+[[name of initial page]]
+
+
+HTML & JSP pages:
+-----------------
+[reqform.jsp]
+  (style-include.jsp)
+  (footer-inlcude.jsp)
+
+[controller.jsp]
+
+[newreq.jsp]
+  (style-include.jsp)
+  (footer-inlcude.jsp)
+  (pharaoh-arrow-web.gif)
+
+[dataexpired.jsp]
+  (style-include.jsp)
+  (footer-inlcude.jsp)
+  (pharaoh-arrow-web.gif)
+
+[error.jsp]
+
+
+KEY:
+[name of HTML/JSP page]
+  (name of included page)
+  ...
+  (name of included page)
+
+
+Included files used in the above pages:
+---------------------------------------
+(style-include.jsp)
+
+(footer-include.jsp)
+  (pharaoh-globe-web.gif)
+
+
+KEY:
+(name of HTML/JSP/other file)
+  (name of included file)
+  ...
+  (name of included file)
+
+
+Configuration files used in the above pages:
+--------------------------------------------
+(WEB-INF/web.xml)
+
+
+Descriptions of the files used in the application:
+--------------------------------------------------
+[reqform.jsp]
+This is the initial page which the user logs a fault on. If the user does not
+correctly enter all the information, they are sent back to this screen with the
+errors highlighted.
+
+[controller.jsp]
+This page checks the users input, updates the database (via the
+pharaoh.web.databases package), sends an email and
+redirects the user to either the [reqform.jsp], [newreq.jsp] or the
+[dataexpired.jsp] form.
+
+[newreq.jsp]
+This page shows the user the reference number for the job they have just
+entered, and allows them to enter a new request.
+
+[dataexpired.jsp]
+This page tells the user they have tried to store the same job they have just
+stored and that they should enter a new request.
+
+[error.jsp]
+This is the error page which tells the users things like the database closed
+etc.
+
+(style-include.jsp)
+This sets the styles for the [faultform.jsp] and [newfault.jsp] pages, and is
+included with a jsb include flag.
+
+(footer-inlcude.jsp)
+This sets the footer for the [faultform.jsp] and [newfault.jsp] pages, and is
+included with a jsb include flag.
+
+(pharaoh-arrow-web.gif)
+This is the arrow used for a new request.
+
+(pharaoh-globe-web.gif)
+This is the pharaoh globe used in the (footer-include.jsp) file.
+
+(WEB-INF/web.xml)
+This file sets the taglibs etc. But also holds the users configuration settings
+for the application. Things like mailServer etc. These settings are held in
+<contex-param> flags.
+
+Java Beans and Servlets:
+------------------------
+(Java Bean package pharaoh.web.databases.jobreq)
+  WEB-INF/classes/pharaoh/web/databases/jobreq.java
+  WEB-INF/classes/pharaoh/web/databases/jobreq.class

@@ -1,0 +1,49 @@
+<!-- upload.jsp -->
+<%@ page import="java.io.*" %>
+<%@ page import="com.vsb.incidentBean" %>
+<%@ page import="com.vsb.uploadBean" %>
+<jsp:useBean id="incidentBean" scope="session" class="com.vsb.incidentBean" />
+<jsp:useBean id="uploadBean" scope="session" class="com.vsb.uploadBean" />
+
+<%
+/* Clear error message */
+session.setAttribute("errorMessage","");
+
+/* Extract header info */
+if(uploadBean.getContent(request)){
+    if(uploadBean.getParam("action").equals("Back")){
+        %><jsp:forward page="publicaccess.jsp?input=none&action=Back" /><%
+    }
+    if(uploadBean.getFilename().equals("")){
+        %><jsp:forward page="publicaccess.jsp?input=none&action=Next" /><%
+    }
+    /* Pull the config param from the session var, where they were stored in getPageLayout */
+    int maxattachmentsize=Integer.parseInt((String)session.getAttribute("maxattachmentsize"));
+    String allowedfiletypes=(String)session.getAttribute("allowedfiletypes");
+    String TempPath=(String)session.getAttribute("TempPath");
+
+    /* Check the size of the file and reject it if it's too large */
+    if(uploadBean.getFileSize()>maxattachmentsize){
+        session.setAttribute("errorMessage","Sorry but that file is too large.");
+    %><jsp:forward page="publicaccess.jsp?input=none&action=Stay" /><%
+    }
+
+    /* Check the type of the file and reject it if it's not in the list of allowed file types */
+    if(((String)("|" + allowedfiletypes + "|")).toLowerCase().indexOf("|"+ uploadBean.getExt().toLowerCase()+"|")==-1){
+        session.setAttribute("errorMessage","Sorry but that file is not a valid file type.");
+    %><jsp:forward page="publicaccess.jsp?input=none&action=Stay" /><%
+    }
+
+    String saveFile=uploadBean.makeTempFile("PaUL",TempPath);
+    uploadBean.saveFile(saveFile);
+
+    /* Store the file name of the attachment in the incidentBean for later use when the incident is posted */
+    /* The attachments element of this bean is an array, so it can handle more than one attachment */
+    incidentBean.setAttachments(saveFile);
+    session.setAttribute("errorMessage","Attachment has been saved");
+
+}else{
+    session.setAttribute("errorMessage","Could not read header");
+}
+%>
+<jsp:forward page="publicaccess.jsp?input=none&action=Stay" />

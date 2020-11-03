@@ -1,0 +1,54 @@
+<%@ page errorPage="error.jsp" %>
+<%@ page import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/application-1.0" prefix="app" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<!-- Disable the browser back button -->
+<script>window.history.go(1);</script>
+
+<%-- Make sure this is the form we are supposed to be on and also --%>
+<%-- check if session has expired, if it has start at begining --%>
+<sess:equalsAttribute name="form" match="#FORM#" value="false">
+  <%-- Blank the previousForm session --%>
+  <sess:setAttribute name="previousForm"></sess:setAttribute>
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">index</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<html>
+<head>
+  <meta http-equiv="Refresh" content="<app:initParameter name="refreshInterval"/>" >
+  <title>#FORM#</title>
+  <style type="text/css">
+    @import URL("global.css");
+  </style>
+</head>
+
+<body>
+  <form action="#FORM#Script.jsp" method="post">
+    <table width="100%">
+      <tr height="40">
+        <td bgcolor="#259225" align="center">
+          <h2><font color="white"><b>#FORM#</b></font>
+        </td>
+      </tr>
+      <tr><td><hr size="2" noshade></td></tr>
+      <tr><td><font color="#ff6565"><b><jsp:getProperty name="#FORM#Bean" property="error" /></b></font></td></tr>
+      <tr><td><hr size="2" noshade></td></tr>
+    </table>
+    <table width="100%">
+
+    </table>
+    <jsp:include page="include/back_submit_buttons.jsp" flush="true" />
+    <%@ include file="include/insp_sched_buttons.jsp" %>
+    <jsp:include page="include/footer.jsp" flush="true" />
+    <input type="hidden" name="input" value="#FORM#" > 
+  </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+input.suggest{
+  padding:        0;
+  border-spacing: 0;
+  margin-right:   0;
+  color:    #000000;
+}
+
+span.suggest{
+  width:        100px;
+  display:      block;
+  cursor:     pointer;
+	font:  10px Verdana;
+  padding:          0;
+  border-spacing:   0;
+  margin-right:     0;
+  margin-left:      2;  
+  background: #ffffff;  
+}
+
+table.suggest {
+  border-style:      solid;
+  border-top-width:    1px;
+  border-left-width:   1px;
+  border-right-width:  1px;
+  border-bottom-width: 1px;
+  border-color:    #000000;
+  padding:             0px;
+  border-spacing:      0px;
+  margin-right:          0;
+  margin-left:           0;
+  position:       relative;
+  background:      #ffffff;
+  width:             100px;
+}
+
+span:hover,
+span.hover,
+span.selected:hover {
+  background: #3366cc;
+  color:      #ffffff;
+}
+
+div.cSuggest {
+  position: absolute;
+  left:          0px;
+  top:           0px;
+  height:        0px;
+  width:         0px;
+  padding:         0;
+  border-spacing:  0;
+  margin-right:    0;
+}

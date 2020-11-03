@@ -1,0 +1,67 @@
+<%@ page errorPage="error.jsp" %>
+<%@ page import="com.vsb.#FORM#Bean" %>
+
+<%@ taglib uri="http://jakarta.apache.org/taglibs/request-1.0" prefix="req" %>
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+<%@ taglib uri="http://www.servletsuite.com/servlets/iftags" prefix="if" %>
+
+<jsp:useBean id="#FORM#Bean" scope="session" class="com.vsb.#FORM#Bean" />
+
+<%-- Make sure this is the form we are supposed to be on --%>
+<sess:equalsAttribute name="form" match="dataExpired" value="false">
+  <%-- Indicate which form we are going to next --%>
+  <sess:setAttribute name="form">#FORM#</sess:setAttribute>
+  <jsp:forward page="index.jsp" />
+</sess:equalsAttribute>
+
+<%-- Data has been submitted by the user --%>
+<req:existsParameter name="input" >
+  <if:IfParameterEquals name="input" value="#FORM#" >
+    <%-- Indicate which form we are in/just-come-from --%>
+    <sess:setAttribute name="input"><req:parameter name="input" /></sess:setAttribute>
+    
+    <%-- Setup the bean with the forms data --%>
+    <jsp:setProperty name="#FORM#Bean" property="all" value="clear" />
+    <jsp:setProperty name="#FORM#Bean" property="*" />
+  </if:IfParameterEquals>
+</req:existsParameter>
+
+<%-- clear errors --%>
+<jsp:setProperty name="#FORM#Bean" property="error" value="" />
+
+<%-- clear form fields if coming from previous form --%>
+<sess:equalsAttribute name="input" match="#PREVIOUS-FORM#" >
+  <jsp:setProperty name="#FORM#Bean" property="action" value="" />
+  <jsp:setProperty name="#FORM#Bean" property="all" value="clear" />
+</sess:equalsAttribute>
+
+<%-- All tests are done on the <form>Bean as this page cannot rely on --%>
+<%-- the browser resubmitting data when refresshing or moving back to a --%>
+<%-- page. --%>
+
+<%-- Validate user entry --%>
+<sess:equalsAttribute name="input" match="#FORM#" >
+  <%-- Next view --%>
+  <if:IfTrue cond='<%= #FORM#Bean.getAction().equals("Submit") %>' >
+    <%-- Invalid entry --%>
+    <if:IfTrue cond="#SOME-ERROR-CHECK#" >
+      <jsp:setProperty name="#FORM#Bean" property="error" value="#SOME-ERROR-MESSAGE#" />
+    	<jsp:forward page="#FORM#View.jsp" />
+    </if:IfTrue>
+    
+  	<%-- Valid entry --%>
+  	<%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form">#NEXT-FORM#</sess:setAttribute>
+  	<jsp:forward page="#NEXT-FORM#Script.jsp" />
+  </if:IfTrue>
+  
+  <%-- New request --%>
+  <if:IfTrue cond='<%= #FORM#Bean.getAction().equals("New Request") %>' >
+    <%-- Indicate which form we are going to next --%>
+    <sess:setAttribute name="form">#PREVIOUS-FORM#</sess:setAttribute>
+  	<jsp:forward page="#PREVIOUS-FORM#Script.jsp" />
+  </if:IfTrue>
+</sess:equalsAttribute>
+
+<%-- If the user refreshes the view --%>
+<jsp:forward page="#FORM#View.jsp" />

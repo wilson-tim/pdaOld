@@ -1,0 +1,731 @@
+The following recordBean attributes are populated by the following forms.
+
+The record bean gets the following attributes populated by the following pages:
+
+field - page/s
+--------------
+=======================================================
+== FIRST ROUTE (Schedules/Complaints) FROM MAIN MENU ==
+=======================================================
+action_flag          - itemLookupScript.jsp, itemDetailScript.jsp, avAddDetailsScript.jsp,
+                       addDefectScript, serviceScript.jsp
+area_ward_desc       - locLookupScript.jsp
+av_action_flag       - avStatusScript.jsp
+av_car_id            - avAddDetailsScript.jsp
+av_colour            - avAddDetailsScript.jsp
+av_make_desc         - avMakeScript.jsp
+av_model_ref         - avAddDetailsScript.jsp
+av_notes             - avStatusScript.jsp
+av_service           - serviceScript.jsp, taskAgreementScript.jsp
+av_vim               - avAddDetailsScript.jsp
+building_stat        - itemLookupScript.jsp, taskAgreementScript.jsp, avAddDetailsScript.jsp
+building_stat_desc   - itemLookupScript.jsp, taskAgreementScript.jsp
+build_no             - locLookupScript.jsp, inspListScript.jsp
+build_name           - locLookupScript.jsp, inspListScript.jsp
+build_sub_name       - locLookupScript.jsp, inspListScript.jsp
+build_sub_no         - locLookupScript.jsp, inspListScript.jsp
+build_no_string      - locLookupScript.jsp, custLocLookupScript.jsp
+car_id               - detailsScript.jsp
+charge_flag          - dartDetailsScript.jsp, graffDetailsScript.jsp
+clearedDefault       - schedOrCompScript.jsp
+clearDefault         - addDefaultFunc.jsp
+colour_desc          - detailsScript.jsp
+comingFromSchedComp  - schedOrCompScript.jsp
+comp_full_history    - itemLookup.jsp, compHistory.jsp
+complaint_no         - addComplaintFunc.jsp, addUpdateEnforceFunc.jsp
+complaint_complaint_no - addEnforceFunc.jsp
+compl_addr2          - custLocLookupScript.jsp
+compl_addr3          - custLocLookupScript.jsp
+compl_addr4          - custLocLookupScript.jsp
+compl_build_name     - custLocLookupScript.jsp
+compl_build_no       - custLocLookupScript.jsp
+compl_build_sub_name - custLocLookupScript.jsp
+compl_email          - enterCustDetailsScript.jsp
+compl_init           - enterCustDetailsScript.jsp
+compl_name           - enterCustDetailsScript.jsp
+compl_phone          - enterCustDetailsScript.jsp
+compl_surname        - enterCustDetailsScript.jsp
+compl_site_ref       - custLocLookupScript.jsp
+compl_location_c     - custLocLookupScript.jsp
+comp_postcode        - custLocLookupScript.jsp
+contender_version    - loginScript.jsp, schedOrCompScript.jsp, updateStausScript.jsp
+contract_ref         - itemLookupScript.jsp, taskAgreementScript.jsp, avAddDetailsScript.jsp
+cont_cycle_no        - contractScript.jsp
+dart_graff_flag      - addDartGraffDetailsScript.jsp
+dart_service         - schedOrCompScript.jsp
+date_due             - itemLookupScript.jsp
+default_fault_code   - doorstepFaultScript.jsp
+default_route        - textScript.jsp
+defect_flag          - addDefectScript.jsp, compSampDetailsScript.jsp
+defect_priority      - defectDetailsScript.jsp
+del_contact          - woTypeScript.jsp
+del_phone            - woTypeScript.jsp
+diry_date_due        - inspDateScript.jsp, addComplaintFunc.jsp
+dob_date             - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+dom_waste_type       - flyCapDetailsScript.jsp
+dom_waste_qty        - flyCapDetailsScript.jsp
+doorstep_fault_code  - faultLookupScript.jsp
+enf_action_txt       - enfActionScript.jsp
+enf_list_flag        - serviceScript.jsp
+enf_service          - serviceScript.jsp
+enfcompany           - enfSuspectNewCoScript.jsp
+enfOff               - enfAdditionalDetailsScript.jsp
+enforce_complaint_no - addEnforceFunc.jsp
+enforce_flag         - flyCapDetailsScript.jsp, wasteTypesScript.jsp, serviceScript.jsp
+evidence             - enfEvidenceScript.jsp
+fault_code           - faultLookupScript.jsp, avAddDetailsScript.jsp
+fault_desc           - faultLookupScript.jsp, avAddDetailsScript.jsp
+feature_desc         - itemLookupScript.jsp, taskAgreementScript.jsp
+feature_ref          - itemLookupScript.jsp, taskAgreementScript.jsp
+fly_cap_flag         - faultLookupScript.jsp, addFlyCaptureScript.jsp
+graffiti_service     - schedOrCompScript.jsp
+hway_service         - serviceScript.jsp
+item_desc            - itemLookupScript.jsp, taskAgreementScript.jsp, avAddDetailsScript.jsp
+item_ref             - itemLookupScript.jsp, taskAgreementScript.jsp, avAddDetailsScript.jsp
+item_type            - taskAgreementScript.jsp
+insp_item_flag       - itemLookupScript.jsp
+int_ext_flag         - enterCustDetailsScript.jsp
+invOff               - enfAdditionalDetailsScript.jsp
+land_type            - flyCapDetailsScript.jsp
+last_action_flag     - addDefectScript.jsp
+law                  - lawScript.jsp
+load_qty             - flyCapDetailsScript.jsp
+load_ref             - flyCapDetailsScript.jsp
+load_unit_cost       - flyCapDetailsScript.jsp
+location_c           - locLookupScript.jsp
+location_name        - locLookupScript.jsp
+make_ref             - makeScript.jsp
+make_desc            - makeScript.jsp
+map_easting          - textScript.jsp
+map_northing         - textScript.jsp
+model_desc           - detailsScript.jsp
+new_suspect_flag     - enfSuspectMainScript.jsp
+notice_no            - faultLookupScript.jsp
+occur_day            - itemLookupScript.jsp
+occur_month          - itemLookupScript.jsp
+occur_week           - itemLookupScript.jsp
+offence              - offenceScript.jsp
+offence_date         - enfAdditionalDetailsScript.jsp
+offence_time_h       - enfAdditionalDetailsScript.jsp
+offence_time_m       - enfAdditionalDetailsScript.jsp
+pa_area              - itemLookupScript.jsp, avAddDetailsScript.jsp
+pda_role             - loginScript.jsp, serviceScript.jsp, taskAgreementScript.jsp
+postcode             - locLookupScript.jsp, inspListScript.jsp
+po_name              - itemLookupScript.jsp, taskAgreementScript.jsp, avAddDetailsScript.jsp
+printing_error       - addTextFunc.jsp
+priority             - taskAgreementScript.jsp
+priority             - itemLookupScript.jsp
+round_c              - itemLookupScript.jsp
+service_c            - serviceScript.jsp, locLookupScript.jsp
+service_count        - serviceScript.jsp
+site_ref             - locLookupScript.jsp
+site_name_1          - locLookupScript.jsp
+si_i_param_contract  - itemLookupScript.jsp
+si_i_param_feature   - itemLookupScript.jsp
+suffix_count         - suffixScript.jsp
+suspect_flag         - enfEvidenceScript.jsp
+suspect_ref          - enfSuspectAddScript.jsp
+sus_addr1            - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_addr2            - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_addr3            - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_age              - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_build_no         - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_build_name       - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_company          - enfSuspectNewScript.jsp
+sus_fstname          - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_homeno           - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_midname          - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_mobno            - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_newco            - enfSuspectNewCoScript.jsp
+sus_postcode         - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_sex              - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_surname          - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_text             - enfSuspectTextScript.jsp
+sus_title            - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+sus_workno           - enfSuspectDetailsScript.jsp, enfSuspectNewScript.jsp
+tat_before_after     - taskAgreementScript.jsp
+tat_coll_day         - taskAgreementScript.jsp
+tat_coll_day_no      - taskAgreementScript.jsp
+tat_exact_locn       - taskAgreementScript.jsp
+tat_lift_sno         - taskAgreementScript.jsp
+tat_no               - taskAgreementScript.jsp
+tat_ref              - taskAgreementScript.jsp
+tat_round_ref        - taskAgreementScript.jsp
+tat_time_hr          - taskAgreementScript.jsp
+tat_time_min         - taskAgreementScript.jsp
+tat_to_time_h        - taskAgreementScript.jsp
+tat_to_time_m        - taskAgreementScript.jsp
+ta_name              - agreementScript.jsp
+ta_no                - taskAgreementScript.jsp
+total_volume         - itemLookupScript.jsp, taskAgreementScript.jsp
+trade_name           - locLookupScript.jsp
+trade_service        - locLookupScript.jsp
+trade_site_no        - locLookupScript.jsp
+tree_ref             - treesList.jsp
+trees_inst           - serviceScript.jsp
+trees_service        - serviceScript.jsp
+update_text          - addDartGraffFunc.jsp
+update_flag          - enfSuspectDetailsScript.jsp
+vehicle_reg          - enfAdditionalDetailsScript.jsp
+volume               - taskAgreementScript.jsp
+wo_contract_ref      - contractScript.jsp
+wo_due_date          - woDetailsScript.jsp
+wo_line_total        - woDetailsScript.jsp
+wo_suffix            - suffixScript.jsp
+wo_type_f            - woTypeScript.jsp
+
+
+===========================================
+== SECOND ROUTE (Inspect) FROM MAIN MENU ==
+===========================================
+action_flag          - avDetailsScript.jsp
+actioned_date        - inspListScript.jsp
+actioned_time_h      - inspListScript.jsp
+actioned_time_m      - inspListScript.jsp
+adhoc_sample_source  - inspListScript.jsp
+algorithm            - streetLengthScript.jsp, defaultDetailsScript.jsp
+area_ward_desc       - defectDetailsScript.jsp, inspListScript.jsp
+av_action_flag       - avDetailsScript.jsp
+av_doa               - avDetailsScript.jsp
+av_last_seq          - avDetailsScript.jsp
+av_notes             - avDetailsScript.jsp
+av_position          - avDetailsScript.jsp
+av_toa_h             - avDetailsScript.jsp
+av_toa_m             - avDetailsScript.jsp
+build_name           - defectDetailsScript.jsp
+build_no             - defectDetailsScript.jsp
+build_sub_name       - defectDetailsScript.jsp
+build_sub_no         - defectDetailsScript.jsp
+building_stat        - avDetailsScript.jsp
+bv_additional_text   - surveyConfirmScript
+bv_area_ward_desc    - inspListScript.jsp
+bv_build_no          - inspListScript.jsp
+bv_build_name        - inspListScript.jsp
+bv_build_sub_no      - inspListScript.jsp
+bv_build_sub_name    - inspListScript.jsp
+bv_detritus_grade    - surveyGradingScript
+bv_detritus_text     - surveyGradingScript
+bv_fly_posting_grade - surveyGradingScript
+bv_fly_posting_text  - surveyGradingScript
+bv_graffiti_grade    - surveyGradingScript
+bv_graffiti_text     - surveyGradingScript
+bv_land_use          - surveyLandUseScript, surveyExistingScript
+bv_lowdensity_flag   - surveyLandUseScript, surveyExistingScript
+bv_ward_flag         - surveyLandUseScript, surveyExistingScript
+bv_item_ref          - inspListScript.jsp
+bv_litter_grade      - surveyGradingScript
+bv_litter_text       - surveyGradingScript
+bv_location_c        - inspListScript.jsp
+bv_location_name     - inspListScript.jsp
+bv_postcode          - inspListScript.jsp
+bv_site_name_1       - inspListScript.jsp
+bv_site_ref          - inspListScript.jsp
+bv_start_house       - surveyTransectMeasureScript, surveyExistingScript
+bv_start_post        - surveyTransectMeasureScript, surveyExistingScript
+bv_stop_house        - surveyTransectMeasureScript, surveyExistingScript
+bv_stop_post         - surveyTransectMeasureScript, surveyExistingScript
+bv_transect          - surveyExistingScript
+bv_transect_desc     - surveyTransectMeasureScript, surveyExistingScript
+bv_transect_method   - surveyTransectMethodScript, surveyExistingScript
+clearedDefault       - inspListScript.jsp
+clearDefault         - addDefaultFunc.jsp
+changed_item_ref     - changeItemLookupScript.jsp
+changed_contract_ref - changeItemLookupScript.jsp
+changed_feature_ref  - changeItemLookupScript.jsp
+changed_occur_day    - changeItemLookupScript.jsp
+changed_occur_week   - changeItemLookupScript.jsp
+changed_occur_month  - changeItemLookupScript.jsp
+changed_round_c      - changeItemLookupScript.jsp
+changed_pa_area      - changeItemLookupScript.jsp
+changed_priority     - changeItemLookupScript.jsp
+changed_total_volume - changeItemLookupScript.jsp
+changed_feature_desc - changeItemLookupScript.jsp
+changed_item_desc    - changeItemLookupScript.jsp
+changed_item_type    - changeItemLookupScript.jsp
+changed_insp_item_flag - changeItemLookupScript.jsp
+changed_building_stat - changeItemLookupScript.jsp
+changed_building_stat_desc - changeItemLookupScript.jsp
+changed_po_name      - changeItemLookupScript.jsp
+changed_comp_code    - changeFaultLookupScript.jsp
+changed_date_due     - changeInspDateScript.jsp
+comingFromInspList   - inspListScript.jsp
+complaint_no         - inspListScript.jsp
+comp_action_flag     - inspListScript.jsp
+comp_code            - inspListScript.jsp
+comp_desc            - inspListScript.jsp
+comp_date            - inspListScript.jsp
+comp_time_h          - inspListScript.jsp
+comp_time_m          - inspListScript.jsp
+contender_version    - loginScript.jsp, inspListScript.jsp, updateStausScript.jsp
+contract_ref         - inspListScript.jsp, avDetailsScript.jsp
+credit_def_id        - defaultDetailsScript.jsp
+credit_time_h        - creditFunc.jsp
+credit_time_m        - creditFunc.jsp
+date_due             - inspListScript.jsp
+dart_service         - inspListScript.jsp
+default_no           - inspListScript.jsp, addDefaultFunc.jsp
+default_route        - pickFault1Script.jsp, defaultDetailsScript.jsp
+default_level        - defaultDetailsScript.jsp, streetLengthScript.jsp
+default_occ          - defaultDetailsScript.jsp, streetLengthScript.jsp
+defect_flag          - defectSizeScript.jsp, compSampDetails.jsp
+defect_priority      - defectDetailsScript.jsp
+defect_view_x        - compSampDetailsScript.jsp
+defect_view_y        - compSampDetailsScript.jsp
+defect_view_linear   - compSampDetailsScript.jsp
+defect_view_area     - compSampDetailsScript.jsp
+defect_view_priority - compSampDetailsScript.jsp
+def_action           - inspListScript.jsp
+def_action_flag      - inspListScript.jsp
+def_volume           - defaultAdditionalScript.jsp
+edit_points          - defaultAdditionalScript.jsp
+edit_value           - defaultAdditionalScript.jsp
+edit_volume          - defaultAdditionalScript.jsp
+exact_location       - inspListScript.jsp, compSampDetailsScript.jsp
+feature_ref          - inspListScript.jsp
+fault_code           - compSampDetailsScript.jsp, pickFault1Script.jsp,
+                       pickFault2Script.jsp, defaultDetailsScript.jsp, avDetailsScript.jsp,
+                       defectFaultScript.jsp
+fault_desc           - compSampDetailsScript.jsp, pickFault1Script.jsp,
+                       pickFault2Script.jsp, defaultDetailsScript.jsp, avDetailsScript.jsp
+graffiti_service     - inspListScript.jsp
+hway_service         - inspListScript.jsp
+item_desc            - inspListScript.jsp, avDetailsScript.jsp
+item_ref             - inspListScript.jsp, avDetailsScript.jsp
+item_type            - inspListScript.jsp
+location_c           - defectDetailsScript.jsp, inspListScript.jsp
+location_name        - defectDetailsScript.jsp, inspListScript.jsp
+map_easting          - inspListScript.jsp
+map_northing         - inspListScript.jsp
+notice_no            - compSampDetailsScript.jsp, pickFault1Script.jsp, defaultDetailsScript.jsp
+occur_day            - inspListScript.jsp
+pa_area              - inspListScript.jsp, avDetailsScript.jsp
+pda_role             - loginScript.jsp, inspListScript.jsp, 
+points               - defaultAdditionalScript.jsp
+postcode             - defectDetailsScript.jsp
+po_area              - avDetailsScript.jsp
+pa_area              - defectDetailsScript.jsp
+priority             - inspListScript.jsp
+rectify_date         - inspListScript.jsp, defaultDateScript.jsp
+rectify_time_h       - inspListScript.jsp, defaultDateScript.jsp
+rectify_time_m       - inspListScript.jsp, defaultDateScript.jsp
+sort_order           - inspListScript.jsp
+service_c            - inspListScript.jsp
+show_view            - streetLengthScript.jsp, defaultDateScript.jsp, defaultAdditionalScript.jsp
+site_ref             - inspListScript.jsp
+site_name_1          - inspListScript.jsp, defectDetailsScript.jsp
+source_code          - inspListScript.jsp
+source_desc          - inspListScript.jsp
+total_volume         - inspListScript.jsp
+trade_service        - inspListScript.jsp
+trans_date           - inspListScript.jsp
+trans_time_h         - inspListScript.jsp
+trans_time_m         - inspListScript.jsp
+tree_ref             - inspListScript.jsp
+trees_item           - inspListScript.jsp
+trees_service        - inspListScript.jsp
+update_text          - compSampDetailsScript.jsp, defaultDetailsScript.jsp,
+                       noFurtherActFunc.jsp, addAvFunc.jsp
+user_triggered       - graffDetailsScript.jsp, flyCapUpdateScript.jsp
+value                - defaultAdditionalScript.jsp
+volume               - inspListScript.jsp
+ward_code            - inspListScript.jsp
+
+
+=========================================
+== THIRD ROUTE (Survey) FROM MAIN MENU ==
+=========================================
+bv_additional_text      - surveyConfirmScript
+bv_area_ward_desc       - inspListScript, surveySiteLookupScript
+bv_build_name           - inspListScript, surveySiteLookupScript
+bv_build_no             - inspListScript, surveySiteLookupScript
+bv_build_sub_name       - inspListScript, surveySiteLookupScript
+bv_build_sub_no         - inspListScript, surveySiteLookupScript
+bv_complaint_no_save    - surveyGradingScript
+bv_comp_acion_flag_save - surveyGradingScript
+bv_detritus_grade       - surveyGradingScript
+bv_detritus_text        - surveyGradingScript
+bv_fly_posting_grade    - surveyGradingScript
+bv_fly_posting_text     - surveyGradingScript
+bv_graffiti_grade       - surveyGradingScript
+bv_graffiti_text        - surveyGradingScript
+bv_item_ref             - inspListScript
+bv_land_use             - surveyLandUseScript, surveyExistingScript
+bv_lowdensity_flag      - surveyLandUseScript, surveyExistingScript
+bv_ward_flag            - surveyLandUseScript, surveyExistingScript
+bv_litter_grade         - surveyGradingScript
+bv_litter_text          - surveyGradingScript
+bv_location_c           - inspListScript, surveySiteLookupScript
+bv_location_name        - inspListScript, surveySiteLookupScript
+bv_message              - surveyAddDefaultScript, surveyAddDefaultView
+bv_postcode             - inspListScript, surveySiteLookupScript
+bv_site_name_1          - inspListScript, surveySiteLookupScript
+bv_site_ref             - inspListScript, surveySiteLookupScript
+bv_start_house          - surveyTransectMeasureScript, surveyExistingScript
+bv_start_post           - surveyTransectMeasureScript, surveyExistingScript
+bv_stop_house           - surveyTransectMeasureScript, surveyExistingScript
+bv_stop_post            - surveyTransectMeasureScript, surveyExistingScript
+bv_transect             - surveyExistingScript
+bv_transect_desc        - surveyTransectMeasureScript, surveyExistingScript
+bv_transect_method      - surveyTransectMethodScript, surveyExistingScript
+complaint_no            - surveyConfirmScript
+comp_action_flag        - surveyConfirmScript
+
+======================================================
+== FOURTH ROUTE (Contractor Summary) FROM MAIN MENU ==
+======================================================
+actioned_date        - conSumListScript.jsp
+actioned_time_h      - conSumListScript.jsp
+actioned_time_m      - conSumListScript.jsp
+completion_date      - conSumDateScript.jsp
+completion_time_h    - conSumDateScript.jsp
+completion_time_m    - conSumDateScript.jsp
+comp_action_flag     - conSumListScript.jsp
+comp_code            - conSumListScript.jsp
+comp_desc            - conSumListScript.jsp
+default_no           - conSumListScript.jsp
+default_route        - conSumDefaultDetailsScript.jsp
+def_action           - conSumListScript.jsp
+def_action_flag      - conSumListScript.jsp
+exact_location       - conSumListScript.jsp
+item_desc            - conSumListScript.jsp
+item_ref             - conSumListScript.jsp
+item_type            - conSumListScript.jsp
+feature_ref          - conSumListScript.jsp
+rectify_date         - conSumListScript.jsp
+rectify_time_h       - conSumListScript.jsp
+rectify_time_m       - conSumListScript.jsp
+service_c            - conSumListScript.jsp
+site_name_1          - conSumListScript.jsp
+site_ref             - conSumListScript.jsp
+source_desc          - conSumListScript.jsp
+source_code          - conSumListScript.jsp
+start_date           - conSumListScript.jsp
+start_time_h         - conSumListScript.jsp
+start_time_m         - conSumListScript.jsp
+trans_date           - conSumListScript.jsp
+trans_time_h         - conSumListScript.jsp
+trans_time_m         - conSumListScript.jsp
+volume               - conSumListScript.jsp
+ward_code            - conSumListScript.jsp
+
+
+============================================================
+== FIFTH ROUTE (Contractor Schedules List) FROM MAIN MENU ==
+============================================================
+complaint_no         - conScheduleList.jsp
+completion_date      - conScheduleList.jsp
+completion_time_m    - conScheduleList.jsp
+completion_time_h    - conScheduleList.jsp
+compl_by             - conScheduleList.jsp
+comp_action_flag     - conScheduleList.jsp
+cont_canc            - conScheduleList.jsp
+comp_desc            - conScheduleList.jsp
+cont_rem1            - conScheduleList.jsp
+cont_rem2            - conScheduleList.jsp
+exact_loaction       - conScheduleList.jsp
+site_name_1          - conScheduleList.jsp
+site_ref             - conScheduleList.jsp
+service              - conScheduleList.jsp
+source_code          - conScheduleList.jsp
+start_date           - conScheduleList.jsp
+start_time_h         - conScheduleList.jsp
+start_time_m         - conScheduleList.jsp
+ward_code            - conScheduleList.jsp
+wo_contract_ref      - conScheduleList.jsp
+wo_date_due          - conScheduleList.jsp
+wo_h_stat            - conScheduleList.jsp
+wo_ref               - conScheduleList.jsp
+wo_stat_desc         - conScheduleList.jsp
+wo_suffix            - conScheduleList.jsp
+wo_volume            - conScheduleList.jsp
+
+
+===================================================
+== SIXTH ROUTE (Enforcement List) FROM MAIN MENU ==
+===================================================
+complaint_no         - enfListScript.jsp
+site_ref             - enfListScript.jsp
+site_name_1          - enfListScript.jsp
+enf_list_evidence    - enfListScript.jsp
+enf_list_suspect_ref - enfListScript.jsp
+enf_list_action_seq  - enfListScript.jsp
+enf_list_flag        - enfListScript.jsp
+enf_list_action_code - enfDetailsScript.jsp
+enf_list_status_code - enfDetailsScript.jsp
+action_date          - enfActionScript.jsp
+action_time_h        - enfActionScript.jsp
+action_time_m        - enfActionScript.jsp
+enf_fpn_autogen_ref  - enfFpnRefScript.jsp
+enf_fpn_ref          - enfFpnRefScript.jsp
+
+
+=======================================================
+== SEVENTH ROUTE (Markets) FROM MAIN MENU ==
+=======================================================
+comingFromMarketsList - marketsListScript.jsp
+market_ref            - marketsListScript.jsp
+pitch_no              - marketDetailsScript.jsp
+trader_ref            - pitchDetailsScript.jsp
+trader_ref            - changeTraderScript.jsp
+external_ref_type     - enfSuspectMarketTraderScript.jsp
+external_ref          - enfSuspectMarketTraderScript.jsp
+external_ref_type     - enfSuspectMarketTradersScript.jsp
+external_ref          - enfSuspectMarketTradersScript.jsp
+
+
+page - field/s
+--------------
+=======================================================
+== FIRST ROUTE (Schedules/Complaints) FROM MAIN MENU ==
+=======================================================
+loginScript.jsp                 - pda_role, contender_version
+schedOrCompScript.jsp           - clearedDefault, dart_service,
+                                  graffiti_service, comingFromSchedComp,
+                                  contender_version
+locLookupScript.jsp             - build_no_string, site_ref, site_name_1,
+                                  location_c, location_name, postcode,
+                                  build_no, build_name, build_sub_no, 
+                                  build_sub_name, area_ward_desc,
+                                  trade_site_name
+serviceScript.jsp               - service_c, service_count, pda_role,
+                                  av_service, trees_service, tree_inst,
+                                  hway_service, enf_service, enf_list_flag,
+                                  enforce_flag, action_flag
+makeScript.jsp                  - make_ref, make_desc
+detailsScript.jsp               - model_desc, car_id, colour_desc
+itemLookupScript.jsp            - item_ref, item_desc, feature_ref,
+                                  feature_desc, contract_ref, occur_day,
+                                  occur_week, occur_month, round_c, pa_area,
+                                  building_stat, building_stat_desc,
+                                  po_name, priority, total_volume,
+                                  date_due, item_type, action_flag,
+                                  si_i_param_feature, si_i_param_contract,
+                                  insp_item_flag, comp_full_history
+compHistory.jsp                   comp_full_history                                  
+itemDetailScript.jsp            - action_flag
+inspDateScript.jsp              - diry_date_due
+enterCustDetailsScript.jsp      - compl_init, compl_name, compl_surname,
+                                  compl_phone, compl_email, int_ext_flag
+custLocLookupScript.jsp         - build_no_string, compl_build_no,
+                                  compl_build_name, compl_build_sub_name,
+                                  compl_addr2, compl_addr3, compl_addr4, 
+                                  compl_postcode, compl_site_ref,
+                                  compl_location_c
+faultLookupScript.jsp           - fault_code, fault_desc, notice_no,
+                                  fly_cap_flag
+addDartGraffDetailsScript.jsp   - dart_graff_flag
+dartDetailsScript.jsp           - charge_flag
+graffDetailsScript.jsp          - charge_flag
+addFlyCaptureScript.jsp         - fly_cap_flag
+flyCapDetailsScript.jsp         - land_type, dom_waste_type,
+                                  dom_waste_qty load_ref, load_qty, 
+                                  load_unit_cost, enforce_flag
+wasteTypesScript.jsp            - enforce_flag
+lawScript.jsp                   - law
+offenceScript.jsp               - offence
+enfAdditionalDetailsScript.jsp  - invOff, enfOff, vehicle_reg, offence_date
+                                  offence_time_h, offence_time_m
+enfEvidenceScript.jsp           - evidence, suspect_flag
+enfSuspectMainScript.jsp        - new_suspect_flag
+enfSuspectAddScript.jsp         - suspect_ref
+enfSuspectDetailsScript.jsp     - sus_surname, sus_fstname, sus_midname,
+                                  sus_age, dob_date, sus_sex, sus_addr1,
+                                  sus_addr2, sus_addr3, sus_postcode,
+                                  sus_homeno, sus_workno, sus_mobno,
+                                  update_flag, sus_build_no, sud_build_name,
+                                  sus_title
+enfSuspectNewScript.jsp         - sus_surname, sus_fstname, sus_midname,
+                                  sus_age, dob_date, sus_sex, sus_addr1,
+                                  sus_addr2, sus_addr3, sus_postcode, 
+                                  sus_homeno, sus_workno, sus_mobno, 
+                                  sus_company, sus_build_no, sus_build_name,
+                                  sus_title
+enfSuspectNewCoScript.jsp       - enfcompany, sus_newco
+enfSuspectTextScript.jsp        - sus_text
+contractScript.jsp              - wo_contract_ref, cont_cycle_no
+suffixScript.jsp                - wo_suffix, suffix_count
+woTypeScript.jsp                - wo_type_f, del_contact, del_phone
+woDetailsScript.jsp             - wo_due_date, wo_line_total
+textScript.jsp                  - default_route
+addComplaintFunc.jsp            - complaint_no, diry_date_due
+addTextFunc.jsp                 - printing_error
+addDartGraffFunc.jsp            - update_text
+agreementScript.jsp             - ta_name
+taskAgreementScript.jsp         - tat_before_after, tat_col_day, tat_exact_locn
+                                  tat_lift_sno, tat_no, tat_ref, tat_round_ref
+                                  tat_time_hr, tat_time_min, ta_no, item_ref,
+                                  item_desc, item_type, feature_ref, feature_desc,
+                                  contract_ref, po_name, volume, total_volume
+                                  av_service, building_stat, building_stat_desc,
+                                  pda_role, priority, trade_service
+treesListScript.jsp             - tree_ref
+addDefectScript.jsp             - defect_flag, action_flag, last_action_flag
+defectDetailsScript.jsp         - defect_priority
+addUpdateEnforceFunc.jsp        - complaint_no
+enfActionScript.jsp             - enf_action_txt
+addEnforceFunc.jsp              - complaint_complaint_no, enforce_complaint_no
+updateStatusScript.jsp          - contender_version
+
+===========================================
+== SECOND ROUTE (Inspect) FROM MAIN MENU ==
+===========================================
+loginScript.jsp                 - pda_role, contender_version
+inspListScript.jsp              - complaint_no, sort_order, occur_day,
+                                  exact_location, site_ref, item_ref,
+                                  item_desc, comp_code, feature_ref,
+                                  contract_ref, comp_action_flag, ward_code,
+                                  site_name_1, rectify_date, rectify_time_h,
+                                  rectify_time_m, default_no, def_action, 
+                                  actioned_date, actioned_time_h,
+                                  actioned_time_m, trans_date, trans_time_h,
+                                  trans_time_m, def_action_flag, volume, 
+                                  item_type, priority, total_volume, date_due,
+                                  pa_area, service_c, comp_desc, comp_date,
+                                  comp_time_h, comp_time_m, source_code,
+                                  source_desc, clearedDefault, pda_role, 
+                                  bv_site_ref, bv_site_name_1, bv_location_c,
+                                  bv_location_name, bv_postcode, bv_build_no,
+                                  bv_build_sub_no, bv_build_name,
+                                  bv_build_sub_name, bv_area_ward_desc,
+                                  graffiti_service, dart_service, 
+                                  adhoc_sample_source, trade_service,
+                                  trees_service, trees_item, tree_ref,
+                                  hway_service, area_ward_desc, location_c,
+                                  location_name, postcode, build_no,
+                                  build_sub_no, build_name, build_sub_name,
+                                  comingFromInspList, contender_version
+pickFault1Script.jsp            - fault_code, fault_desc, notice_no,
+                                  default_route
+pickFault2Script.jsp            - fault_code, fault_desc
+compSampDetailsScript.jsp       - update_text, fault_code, fault_desc,
+                                  notice_no, defect_flag, defect_view_x,
+                                  defect_view_y, defect_view_linear,
+                                  defect_view_area, defect_view_priority,
+                                  exact_location
+changeItemLookupScript.jsp      - changed_item_ref, changed_feature_ref,
+                                  changed_contract_ref, changed_occur_day,
+                                  changed_occur_month, changed_occur_year,
+                                  changed_round_c, changed_pa_area,
+                                  changed_priority, changed_total_volume,
+                                  changed_date_due, changed_feature_desc,
+                                  changed_item_desc, changed_item_type,
+                                  changed_insp_item_flag, changed_building_stat,
+                                  changed_building_stat_desc, changed_po_name
+changeFaultLookupScript.jsp     - changed_comp_code
+changeInspDateScript.jsp        - changed_date_due
+defaultDetailsScript.jsp        - credit_def_id, notice_no, algorithm,
+                                  default_level, default_occ, fault_code,
+                                  fault_desc, default_route, update_text
+streetLengthScript.jsp          - algorithm, show_view, default_level,
+                                  default_occ
+defaultDateScript.jsp           - show_view, rectify_date, rectify_time_h,
+                                  rectify_time_m
+defaultAdditionalScript.jsp     - show_view, edit_volume, edit_points,
+                                  edit_value, def_volume, value, points
+addDefaultFunc.jsp              - default_no
+creditFunc.jsp                  - credit_time_h, credit_time_m
+noFurtherActFunc.jsp            - update_text
+surveyConfirmScript.jsp         - bv_additional_text
+surveyExistingScript.jsp        - bv_transect_method, bv_start_post,
+                                  bv_stop_post, bv_start_house, bv_stop_house,
+                                  bv_transect_desc, bv_transect, bv_land_use,
+                                  bv_lowdensity_flag, bv_ward_flag
+surveyGradingScript.jsp         - bv_litter_grade, bv_detritus_grade,
+                                  bv_graffiti_grade, bv_fly_posting_grade,
+                                  bv_litter_text, bv_detritus_text,
+                                  bv_graffiti_text, bv_fly_posting_text
+surveyLandUseScript.jsp         - bv_land_use, bv_lowdensity_flag, 
+                                  bv_ward_flag
+surveyTransectMeasureScript.jsp - bv_start_post, bv_stop_post, bv_start_house,
+                                  bv_stop_house, bv_transect_desc
+surveyTransectMethodScript.jsp  - bv_transect_method
+defectDetailsSscript.jsp        - build_no, build_sub_no, build_name,
+                                  build_sub_name, site_name_1, location_c,
+                                  location_name, postcode, pa_area, area_ward_desc
+defectFaultScript.jsp           - fault_code
+defectDetailsScript.jsp         - defect_priority
+graffDetailsScript.jsp          - user_triggered
+flyCapUpdateScript.jsp          - user_triggered
+updateStatusScript.jsp          - contender_version
+
+===========================================
+== THIRD ROUTE (Survey) FROM MAIN MENU   ==
+===========================================
+surveyAddDefaultScript.jsp      - bv_message
+surveyAddDefaultView.jsp        - bv_message
+surveyConfirmScript.jsp         - bv_additional_text, complaint_no, 
+                                  comp_action_flag
+surveyExistingScript.jsp        - bv_transect_method, bv_start_post,
+                                  bv_stop_post, bv_start_house,
+                                  bv_stop_house, bv_transect_desc,                                  
+                                  bv_transect, bv_lowdensity_flag,
+                                  bv_ward_flag
+surveyGradingScript.jsp         - bv_litter_grade, bv_detritus_grade,
+                                  bv_graffiti_grade, bv_fly_posting_grade,
+                                  bv_litter_text, bv_detritus_text,
+                                  bv_graffiti_text, bv_fly_posting_text,
+                                  bv_complaint_no_save, 
+                                  bv_comp_action_flag_save
+surveyLandUseScript.jsp         - bv_land_use, bv_lowdensity_flag,
+                                  bv_ward_flag
+surveySiteLookupScript.jsp      - bv_site_ref, bv_site_name_1, bv_location_c,
+                                  bv_location_name, bv_postcode, bv_build_no,
+                                  bv_build_sub_no, bv_build_name,
+                                  bv_build_sub_name, bv_area_ward_desc
+surveyTransectMeasureScript.jsp - bv_start_post, bv_stop_post, bv_start_house,
+                                  bv_stop_house, bv_transect_desc
+surveyTransectMethodScript.jsp  - bv_transect_method
+
+==================================================
+== FOURTH ROUTE (Contractor Summary) FROM MAIN MENU   ==
+==================================================
+conSumListScript.jsp            - comp_action_flag, source_code, exact_location
+                                  site_ref, default_no, comp_code, item_ref  
+                                  feature_ref ,volume ,rectify_date,
+                                  rectify_time_h, rectify_time_m, def_action,
+                                  actioned_date, actioned_time_h,
+                                  actioned_time_m, def_action_flag,
+                                  trans_date, trans_time_h, trans_time_m,
+                                  item_desc, item_type, site_name_1, ward_code,
+                                  comp_desc, source_desc, service_c,
+                                  start_date, start_time_h ,start_time_m
+
+conSumDefaultDetailsScript.jsp  - default_route
+
+conSumDateScript.jsp            - completion_date, completion_time_h,
+                                  completion_time_m
+
+=======================================================
+== FIFTH ROUTE (Contractor Schedule List) FROM MAIN MENU   ==
+=======================================================
+conScheduleList.jsp             - wo_suffix, wo_volume, comp_action_flag,
+                                  source_code, exact_loaction, site_ref,
+                                  service, complaint_no, comp_desc,
+                                  start_date, start_time_h, start_time_m,
+                                  wo_h_stat, wo_date_due, wo_contract_ref,
+                                  compl_by, cont_canc, cont_rem1, cont_rem2,
+                                  completion_date, completion_time_m,
+                                  completion_time_h, site_name_1, ward_code,
+                                  wo_stat_desc
+
+===================================================
+== SIXTH ROUTE (Enforcement List) FROM MAIN MENU ==
+===================================================
+enfListScript    - complaint_no, site_ref, site_name_1, enf_list_evidence, 
+                   enf_list_suspect_ref, enf_list_action_seq, enf_list_flag
+enfDetailsScript - enf_list_action_code, enf_list_status_code
+enfActionScript  - action_date, action_time_h, action_time_m
+enfFpnRefScript  - enf_fpn_autogen_ref, enf_fpn_ref
+
+=======================================================
+== SEVENTH ROUTE (Markets) FROM MAIN MENU ==
+=======================================================
+marketsListScript.jsp             - comingFromMarketsList
+                                  - market_ref
+marketDetailsScript.jsp           - pitch_no
+pitchDetailsScript.jsp            - trader_ref
+changeTraderScript.jsp            - trader_ref
+enfSuspectMarketTraderScript.jsp  - external_ref_type
+enfSuspectMarketTraderScript.jsp  - external_ref
+enfSuspectMarketTradersScript.jsp - external_ref_type
+enfSuspectMarketTradersScript.jsp - external_ref
